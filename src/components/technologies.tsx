@@ -1,13 +1,13 @@
-import { useRef } from 'react';
 import cn from '../services/clsx';
-
 import down from '../../public/down.png';
-import sadnessGreetings from '../../public/sadnessGreetings.png';
-import topLeftCorner from '../../public/topLeftCorner.png';
-
+import { useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import topLeftCorner from '../../public/topLeftCorner.png';
+import sadnessGreetings from '../../public/sadnessGreetings.png';
 
+import CssLogo from '../svg/css';
 import GitLogo from '../svg/git';
+import ViteLogo from '../svg/vite';
 import ReactLogo from '../svg/react';
 import TailwindLogo from '../svg/tailwind';
 import TypescriptLogo from '../svg/typescript';
@@ -24,6 +24,48 @@ const cards: Card[] = [
   {
     icon: <TailwindLogo />,
     contentTop: sadnessGreetings,
+    contentBottom: 'Tailwind',
+    imageLocation: 'top',
+    class: 'first',
+  },
+  {
+    icon: <GitLogo />,
+    contentTop: 'Git',
+    contentBottom: topLeftCorner,
+    imageLocation: 'bottom',
+    class: 'second',
+  },
+  {
+    icon: <ReactLogo />,
+    contentTop: down,
+    contentBottom: 'React js',
+    imageLocation: 'top',
+    class: 'thrid',
+  },
+  {
+    icon: <TypescriptLogo />,
+    contentTop: sadnessGreetings,
+    contentBottom: 'Typescript',
+    imageLocation: 'top',
+    class: 'first',
+  },
+  {
+    icon: <CssLogo />,
+    contentTop: 'Css',
+    contentBottom: topLeftCorner,
+    imageLocation: 'bottom',
+    class: 'second',
+  },
+  {
+    icon: <ViteLogo />,
+    contentTop: down,
+    contentBottom: 'Vite js',
+    imageLocation: 'top',
+    class: 'thrid',
+  },
+  {
+    icon: <TailwindLogo />,
+    contentTop: sadnessGreetings,
     contentBottom: 'Greetings',
     imageLocation: 'top',
     class: 'first',
@@ -35,6 +77,7 @@ const cards: Card[] = [
     imageLocation: 'bottom',
     class: 'second',
   },
+
   {
     icon: <ReactLogo />,
     contentTop: down,
@@ -50,30 +93,14 @@ const cards: Card[] = [
     class: 'first',
   },
   {
+    icon: <CssLogo />,
     contentTop: 'Bottom',
     contentBottom: topLeftCorner,
     imageLocation: 'bottom',
     class: 'second',
   },
   {
-    contentTop: down,
-    contentBottom: 'Corner',
-    imageLocation: 'top',
-    class: 'thrid',
-  },
-  {
-    contentTop: sadnessGreetings,
-    contentBottom: 'Greetings',
-    imageLocation: 'top',
-    class: 'first',
-  },
-  {
-    contentTop: 'Bottom',
-    contentBottom: topLeftCorner,
-    imageLocation: 'bottom',
-    class: 'second',
-  },
-  {
+    icon: <ViteLogo />,
     contentTop: down,
     contentBottom: 'Corner',
     imageLocation: 'top',
@@ -82,6 +109,17 @@ const cards: Card[] = [
 ];
 
 export default function CarouselCards() {
+  useEffect(() => {
+    if (scrollRef.current) {
+      const { scrollWidth, clientWidth } = scrollRef.current;
+      const center = (scrollWidth - clientWidth) / 2;
+      scrollRef.current.scrollTo({
+        left: center,
+        behavior: 'smooth',
+      });
+    }
+  }, []);
+
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: 'left' | 'right') => {
@@ -93,6 +131,51 @@ export default function CarouselCards() {
         behavior: 'smooth',
       });
     }
+  };
+
+  const renderTopContent = (card: Card) => {
+    return card.imageLocation === 'top' ? (
+      <img
+        width={100}
+        height={100}
+        alt="Imagen"
+        src={card.contentTop}
+        className="transform transition-transform duration-300 group-hover:scale-150 -translate-y-4"
+      />
+    ) : (
+      <p
+        className={cn(
+          'text-2xl font-bold transform transition-transform',
+          'duration-300 group-hover:scale-150 ml-4 mb-4',
+        )}
+      >
+        {card.contentTop}
+      </p >
+    );
+  };
+
+  const renderBottomContent = (card: Card) => {
+    return card.imageLocation === 'bottom' ? (
+      <img
+        width={120}
+        height={120}
+        alt="Imagen"
+        src={card.contentBottom}
+        className={cn(
+          'transform transition-transform duration-300',
+          'mb-[11px] group-hover:scale-150',
+        )}
+      />
+    ) : (
+      <div
+        className={cn(
+          'text-2xl font-bold transform transition-transform',
+          'duration-300 group-hover:scale-150 ml-4 mb-4',
+        )}
+      >
+        {card.contentBottom}
+      </div>
+    );
   };
 
   return (
@@ -117,48 +200,39 @@ export default function CarouselCards() {
         className="flex gap-6 overflow-x-auto py-9 overflow-y-visible scroll-smooth h-full px-16"
         style={{ scrollbarWidth: 'none' }}
       >
+
         {cards.map((card: Card, idx) => (
-          <div key={idx} className="relative group min-w-[200px] max-w-[200px] h-full cursor-pointer overflow-y-visible">
+          <div
+            key={idx}
+            className={cn(
+              'relative group min-w-[200px] max-w-[200px] h-full cursor-pointer overflow-y-visible',
+            )}
+          >
             <div
               className={cn(
-                `absolute inset-0 z-0 clip-custom-card-${card.class}`,
-                'bg-hazelBrown rounded-xl shadow-md overflow-x-scroll '
+                `absolute clip-custom-card-${card.class}`,
+                'bg-hazelBrown inset-0 z-0',
               )}
             />
-
-            <div className="relative z-10 p-4 flex flex-col justify-between h-full ">
-              {card.imageLocation === 'top' ? (
-                <img
-                  width={120}
-                  height={120}
-                  alt="Imagen"
-                  src={card.contentTop}
-                  className="transform transition-transform duration-300 group-hover:scale-150 -translate-y-4"
-                />
-              ) : (
-                <p className="text-sm font-semibold transform transition-transform duration-300 group-hover:scale-150">
-                  {card.contentTop}
-                </p>
+            {/* <div
+              className={cn(
+                'relative z-10 flex flex-col justify-between items-center h-full',
               )}
-
+            >
+              {renderTopContent(card)}
               {card.icon}
+              {renderBottomContent(card)}
+            </div> */}
 
-              {card.imageLocation === 'bottom' ? (
-                <img
-                  width={120}
-                  height={120}
-                  alt="Imagen"
-                  src={card.contentBottom}
-                  className="transform transition-transform duration-300 group-hover:scale-150"
-                />
-              ) : (
-                <div className="text-xl font-bold transform transition-transform duration-300 group-hover:scale-150">
-                  {card.contentBottom}
-                </div>
-              )}
+            <div className={cn('relative z-10 flex flex-col justify-between h-full')}>
+              <div className="self-start">{renderTopContent(card)}</div>
+              <div className="self-center">{card.icon}</div>
+              <div className="self-end">{renderBottomContent(card)}</div>
             </div>
+
           </div>
         ))}
+
       </div>
 
       <div
@@ -172,4 +246,4 @@ export default function CarouselCards() {
       </div>
     </div>
   );
-}
+};
