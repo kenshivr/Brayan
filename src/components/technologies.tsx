@@ -4,11 +4,16 @@ import cn from '../services/clsx';
 import down from '../../public/down.png';
 import sadnessGreetings from '../../public/sadnessGreetings.png';
 import topLeftCorner from '../../public/topLeftCorner.png';
-import winkHappyGreetings from '../../public/winkHappyGreetings.png';
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+import GitLogo from '../svg/git';
+import ReactLogo from '../svg/react';
+import TailwindLogo from '../svg/tailwind';
+import TypescriptLogo from '../svg/typescript';
+
 interface Card {
+  icon?: any;
   contentTop: string;
   contentBottom: string;
   imageLocation: string;
@@ -17,24 +22,28 @@ interface Card {
 
 const cards: Card[] = [
   {
+    icon: <TailwindLogo />,
     contentTop: sadnessGreetings,
     contentBottom: 'Greetings',
     imageLocation: 'top',
     class: 'first',
   },
   {
+    icon: <GitLogo />,
     contentTop: 'Bottom',
     contentBottom: topLeftCorner,
     imageLocation: 'bottom',
     class: 'second',
   },
   {
+    icon: <ReactLogo />,
     contentTop: down,
     contentBottom: 'Corner',
     imageLocation: 'top',
     class: 'thrid',
   },
   {
+    icon: <TypescriptLogo />,
     contentTop: sadnessGreetings,
     contentBottom: 'Greetings',
     imageLocation: 'top',
@@ -88,19 +97,16 @@ export default function CarouselCards() {
 
   return (
     <div
-      className={
-        cn('relative w-full h-[400px]',
-          'border border-solid border-white',
-          'my-8 py-8'
-        )
-      }
+      className={cn(
+        'relative w-full h-[500px]',
+        'my-8 py-8 text-softBeige'
+      )}
     >
-
       <div
         onClick={() => scroll('left')}
         className={cn(
-          'absolute left-4 top-1/2 -translate-y-1/2 z-10 text-white',
-          'hover:scale-150 transition-transform'
+          'absolute left-4 top-1/2 -translate-y-1/2 z-10',
+          'hover:scale-150 transition-transform',
         )}
       >
         <ChevronLeft size={22} />
@@ -108,22 +114,19 @@ export default function CarouselCards() {
 
       <div
         ref={scrollRef}
-        className="border border-solid border-green-500 flex gap-6 overflow-visible scroll-smooth h-full px-16 py-4"
+        className="flex gap-6 overflow-x-auto py-9 overflow-y-visible scroll-smooth h-full px-16"
         style={{ scrollbarWidth: 'none' }}
       >
-
         {cards.map((card: Card, idx) => (
-          <div key={idx} className="relative group min-w-[200px] max-w-[200px] h-full cursor-pointer">
-            {/* Fondo recortado */}
+          <div key={idx} className="relative group min-w-[200px] max-w-[200px] h-full cursor-pointer overflow-y-visible">
             <div
               className={cn(
                 `absolute inset-0 z-0 clip-custom-card-${card.class}`,
-                'bg-gradient-to-b from-purple-700 to-purple-900 rounded-xl shadow-md overflow-x-scroll'
+                'bg-hazelBrown rounded-xl shadow-md overflow-x-scroll '
               )}
             />
 
-            {/* Contenido sobresaliente */}
-            <div className="relative z-10 p-4 flex flex-col justify-between text-white h-full ">
+            <div className="relative z-10 p-4 flex flex-col justify-between h-full ">
               {card.imageLocation === 'top' ? (
                 <img
                   width={120}
@@ -137,6 +140,8 @@ export default function CarouselCards() {
                   {card.contentTop}
                 </p>
               )}
+
+              {card.icon}
 
               {card.imageLocation === 'bottom' ? (
                 <img
@@ -153,9 +158,7 @@ export default function CarouselCards() {
               )}
             </div>
           </div>
-
         ))}
-
       </div>
 
       <div
@@ -167,6 +170,6 @@ export default function CarouselCards() {
       >
         <ChevronRight />
       </div>
-    </div >
+    </div>
   );
 }

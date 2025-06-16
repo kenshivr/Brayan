@@ -17,8 +17,7 @@ export default function Hero({
 
   return (
     <div className={cn(
-      'relative w-full h-auto overflow-hidden flex flex-col md:flex-row border border-solid border-white',
-      'bg-darkBrown',
+      'relative w-full h-auto overflow-hidden flex flex-col md:flex-row',
       className
     )}>
 

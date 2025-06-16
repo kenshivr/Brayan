@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   const applyTheme = (isDark: boolean) => {
     const root = document.documentElement;
@@ -11,10 +11,12 @@ export default function ThemeToggle() {
       root.style.setProperty('--color-darkBrown', '#3B2F2F');
       root.style.setProperty('--color-softBeige', '#F6E3CE');
       root.style.setProperty('--color-hazelBrown', '#6D4C41');
+      root.style.setProperty('--color-peachTint', '#FFD6AF');
     } else {
       root.style.setProperty('--color-darkBrown', '#FFD6AF');
       root.style.setProperty('--color-softBeige', '#6D4C41');
       root.style.setProperty('--color-hazelBrown', '#3B2F2F');
+      root.style.setProperty('--color-peachTint', '#F7B2B7');
     }
   };
 

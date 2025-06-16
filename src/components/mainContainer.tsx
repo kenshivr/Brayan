@@ -11,7 +11,7 @@ export default function MainContainer({
   return (
     <div
       className={cn(
-        'h-screen w-screen',
+        'h-screen w-screen bg-darkBrown',
         className
       )}
     >

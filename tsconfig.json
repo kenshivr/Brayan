@@ -9,11 +9,16 @@
     }
   ],
   "compilerOptions": {
-    "baseUrl": ".", 
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
       ]
     },
+    "jsx": "react-jsx",
+    "types": [
+      "react",
+      "react-dom"
+    ]
   },
 }
