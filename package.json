@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.8",
@@ -35,6 +36,7 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5",
+    "vite-plugin-gh-pages": "^1.0.1",
     "vite-plugin-svgr": "^4.3.0"
   }
 }

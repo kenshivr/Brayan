@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Aventi';
+  src: url('../assets/fonts/Aventi-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Quloon';
+  src: url('../assets/fonts/Quloon.ttf') format('truetype');
+}
