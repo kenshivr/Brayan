@@ -179,6 +179,29 @@ button:focus-visible {
   --color-peachTint: #FFD6AF;
   --color-softOrange: #FF8A65;
   --color-neutralBrown: #8D6E63;
+  
   --color-warmGreen: #6DBE7B;
   --color-warmRed: #C95B52;
 }
+
+/* 
+
+🎨 Colores para MODO CLARO (light mode)
+  
+--color-softBeige: #F6E3CE;
+--color-blushPink: #F7B2B7;
+--color-boneWhite: #FAF9F6;
+--color-peachTint: #FFD6AF;
+--color-softOrange: #FF8A65;
+--color-warmGreen: #6DBE7B;
+
+🌑 Colores para MODO OSCURO (dark mode)
+  
+--color-darkBrown: #3B2F2F;
+--color-charcoalBlack: #1F1F1F;
+--color-hazelBrown: #6D4C41;
+--color-slateGray: #6E6E6E;
+--color-neutralBrown: #8D6E63;
+--color-warmRed: #C95B52;
+
+¨*/

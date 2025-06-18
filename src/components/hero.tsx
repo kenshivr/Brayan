@@ -73,7 +73,7 @@ export default function Hero({
           alt='Personaje'
         />
         <p className='text-5xl text-softBeige'>Brayan Vidal</p>
-        <p className='text-5xl text-hazelBrown'>Dev</p>
+        <p className='text-5xl text-boneWhite'>Dev</p>
 
       </div>
 

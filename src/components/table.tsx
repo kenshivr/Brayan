@@ -31,7 +31,7 @@ export default function CarouselCards() {
                 version: '4.1.8',
                 link: 'tailwind.com',
                 usage: true,
-                image: <ReactLogo className='w-12 h-12'/>,
+                image: <ReactLogo className='w-12 h-12' />,
             },
             {
                 id: 1,
@@ -39,7 +39,7 @@ export default function CarouselCards() {
                 version: '19.1.0',
                 link: 'react.com',
                 usage: true,
-                image: <TailwindLogo className='w-12 h-12'/>,
+                image: <TailwindLogo className='w-12 h-12' />,
             },
             {
                 id: 2,
@@ -47,7 +47,7 @@ export default function CarouselCards() {
                 version: '2.1.1',
                 link: 'clsx.com',
                 usage: false,
-                image: <TypescriptLogo className='w-12 h-12'/>,
+                image: <TypescriptLogo className='w-12 h-12' />,
             },
         ];
 
@@ -64,7 +64,7 @@ export default function CarouselCards() {
                     label="Crear"
                     icon="pi pi-plus"
                     severity="success"
-                    className="text-softBeige"
+                    className="!text-softBeige !bg-hazelBrown !border-softBeige"
                 />
                 <Button
                     outlined
@@ -73,15 +73,15 @@ export default function CarouselCards() {
                     label="Modificar"
                     icon="pi pi-pencil"
                     disabled={!selected}
-                    className="text-softBeige"
+                    className="!text-softBeige !bg-hazelBrown !border-softBeige"
                 />
                 <Button
                     outlined
                     size="small"
                     label="Exportar"
-                    icon="pi pi-download"
                     severity="danger"
-                    className="text-softBeige"
+                    icon="pi pi-download"
+                    className="!text-softBeige !bg-hazelBrown !border-softBeige"
                 />
             </div>
         </div>
@@ -102,7 +102,7 @@ export default function CarouselCards() {
     const statusBodyTemplate = (product: technologie) => {
         return (
             <Tag
-                className='bg-softOrange rounded-sm p-2'
+                className='rounded-sm p-2 text-boneWhite'
                 value={product.usage ? 'Activo' : 'Inactivo'}
                 severity={getSeverity(product)}
             />
@@ -122,7 +122,7 @@ export default function CarouselCards() {
     return (
         <div
             className={cn(
-                'w-full h-[400px] mt-34',
+                'w-full ',
                 'text-softBeige',
                 'flex flex-col'
             )}
@@ -160,7 +160,6 @@ export default function CarouselCards() {
                 </DataTable>
 
             </div>
-
 
         </div>
     );
