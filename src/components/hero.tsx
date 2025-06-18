@@ -75,9 +75,6 @@ export default function Hero({
         <p className='text-5xl text-softBeige'>Brayan Vidal</p>
         <p className='text-5xl text-hazelBrown'>Dev</p>
 
-        <h1 className="font-aventi text-4xl">Título con Aventi</h1>
-        <h1 className="font-quloon text-4xl">Título con Quloon</h1>
-
       </div>
 
       {/* Panel derecho en desktop */}
