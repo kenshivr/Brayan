@@ -238,32 +238,19 @@ button:focus-visible {
   border-color: var(--softBeige) !important;
 }
 
-/* Estilo para el botón de cerrar del Toast */
-.p-toast .p-toast-message .p-toast-icon-close {
-  font-size: 1.2rem;
-  border: none !important;
-  background-color: var(--color-peachTint) !important;
-}
-
-.p-toast .p-toast-message .p-toast-icon-close:hover {
-  background-color: var(--color-softOrange) !important;
-}
-
-
-
 
 
 
 /* Fondo del toast de éxito */
 .p-toast .p-toast-message.p-toast-message-success {
-  background-color: var(--color-softOrange) !important; /* cambia esto por tu color */
-  border-left: 4px solid var(--color-warmGreen) !important; /* opcional */
   color: var(--color-softBeige) !important; /* texto */
+  border-left: 4px solid var(--color-hazelBrown) !important; /* opcional */
+  background-color: var(--color-neutralBrown) !important; /* cambia esto por tu color */
 }
 
 /* Ícono del toast */
 .p-toast .p-toast-message.p-toast-message-success .p-toast-message-icon {
-  color: var(--color-warmGreen) !important;
+  color: var(--color-hazelBrown) !important;
 }
 
 /* Título y detalle del mensaje */
@@ -272,9 +259,17 @@ button:focus-visible {
   color: var(--color-softBeige) !important;
 }
 
-/* Botón de cerrar (si no lo hiciste ya) */
+
+/* Estilo para el botón de cerrar del Toast */
 .p-toast .p-toast-message .p-toast-icon-close {
-  color: var(--color-softBeige) !important;
+  font-size: 1.2rem;
+  border: none !important;
+  color: red;
+  background-color: var(--color-peachTint) !important;
+}
+
+.p-toast .p-toast-message .p-toast-icon-close:hover {
+  background-color: var(--color-softOrange) !important;
 }
 
 
