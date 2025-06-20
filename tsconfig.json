@@ -11,11 +11,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
+      "@src/*": [
         "src/*"
+      ],
+      "@public/*": [
+        "public/*"
       ]
     },
     "jsx": "react-jsx",
+    "lib": ["DOM", "ESNext"], 
     "types": [
       "react",
       "react-dom"

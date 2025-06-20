@@ -1,9 +1,9 @@
 import './App.css'
-import Hero from './components/hero';
-import Carrer from './components/carrer';
-import Table from './components/table';
-import Technologies from './components/technologies';
-import MainContainer from './components/mainContainer';
+import Hero from './components/section/hero';
+import Carrer from './components/section/carrer';
+import Table from './components/section/table';
+import Technologies from './components/section/technologies';
+import MainContainer from './components/section/mainContainer';
 
 export default function App() {
 

@@ -1,5 +1,5 @@
-import cn from '../services/clsx';
-import run from '../../public/run.png';
+import run from '@public/run.png';
+import cn from '@src/services/clsx';
 import { GiProgression } from "react-icons/gi";
 
 export default function CarouselCards() {

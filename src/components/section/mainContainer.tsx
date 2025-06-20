@@ -1,4 +1,4 @@
-import cn from '../services/clsx';
+import cn from '@src/services/clsx';
 import { type ReactNode } from 'react';
 
 export default function MainContainer({

@@ -1,16 +1,16 @@
-import cn from '../services/clsx';
-import down from '../../public/down.png';
+import cn from '@src/services/clsx';
+import down from '@public/down.png';
 import { useRef, useEffect } from 'react';
+import topLeftCorner from '@public/topLeftCorner.png';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import topLeftCorner from '../../public/topLeftCorner.png';
-import sadnessGreetings from '../../public/sadnessGreetings.png';
+import sadnessGreetings from '@public/sadnessGreetings.png';
 
-import CssLogo from '../svg/css';
-import GitLogo from '../svg/git';
-import ViteLogo from '../svg/vite';
-import ReactLogo from '../svg/react';
-import TailwindLogo from '../svg/tailwind';
-import TypescriptLogo from '../svg/typescript';
+import CssLogo from '@src/svg/css';
+import GitLogo from '@src/svg/git';
+import ViteLogo from '@src/svg/vite';
+import ReactLogo from '@src/svg/react';
+import TailwindLogo from '@src/svg/tailwind';
+import TypescriptLogo from '@src/svg/typescript';
 
 interface Card {
   icon?: any;

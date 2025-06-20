@@ -18,7 +18,8 @@ export default defineConfig({
   base: '/Brayan/',
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@src': path.resolve(__dirname, 'src'),
+      '@public': path.resolve(__dirname, 'public'),
     },
   },
   server: {

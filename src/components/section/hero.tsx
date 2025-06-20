@@ -1,11 +1,11 @@
-import cn from '../services/clsx';
-import { useState, type ReactNode } from 'react';
-import image from '../../public/wink.png';
-import { MdOutlineMilitaryTech } from 'react-icons/md';
+import image from '@public/wink.png';
+import cn from '@src/services/clsx';
+import { IoIosMenu } from 'react-icons/io';
 import { GrTechnology } from 'react-icons/gr';
 import { LiaDnaSolid } from 'react-icons/lia';
-import { IoIosMenu } from 'react-icons/io';
-import ThemeToggle from '../components/ThemeToggle';
+import { useState, type ReactNode } from 'react';
+import { MdOutlineMilitaryTech } from 'react-icons/md';
+import ThemeToggle from '@src/components/section/ThemeToggle';
 
 export default function Hero({
   className = ''
