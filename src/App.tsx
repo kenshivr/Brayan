@@ -1,23 +1,13 @@
 import './App.css'
-import Hero from './components/section/hero';
-import Carrer from './components/section/carrer';
-import Table from './components/section/table';
-import Technologies from './components/section/technologies';
-import MainContainer from './components/section/mainContainer';
+import Home from '@src/pages/home';
+// import MainContainer from '@components/UI/mainContainer';
+import MainContainer from '@src/components/UI/mainContainer';
 
 export default function App() {
 
   return (
     <MainContainer>
-
-      <Hero />
-
-      <Technologies />
-
-      <Carrer />
-
-      <Table />
-
+      <Home />
     </MainContainer>
   )
 };

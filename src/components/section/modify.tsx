@@ -1,6 +1,8 @@
+import { type Technology } from './table';
 import { Button } from 'primereact/button';
 import { useState, useEffect } from 'react';
 import { UIMessages } from '@src/models/messages';
+import { type ToastMessage } from 'primereact/toast';
 import { estatus as estatusOptions } from '@src/models/constans';
 import {
   FormText,
@@ -17,31 +19,43 @@ const MODE = {
   CREATE: 1
 };
 
-interface Form {
-  id: number;
-  name: string;
-  version: string;
-  link: string;
-  estatus: number;
+type TechnologyForm = Omit<Technology, 'image'>;
+
+interface ModifyProps {
+  show: (params: ToastMessage) => void;
+  data: Partial<Technology> | null;
+  mode: typeof MODE[keyof typeof MODE];
+  handleSave: (item: Omit<Technology, 'id' | 'image'>) => void;
+  handleUpdate: (item: Omit<Technology, 'image'>) => void;
+  closeHandler: () => void;
 }
 
-export default function EmployeesModify({
+export default function Modify({
   show,
   data,
   mode,
+  handleSave,
   closeHandler,
-  // }: any): JSX.Element {
-}: any): any {
-  const [form, setForm] = useState<Form>({
+  handleUpdate,
+}: ModifyProps) {
+  const [form, setForm] = useState<Omit<TechnologyForm, 'image'>>({
     id: 0,
     name: '',
     version: '',
     link: '',
-    estatus: 0,
+    usage: false
   });
 
   useEffect(() => {
-    setForm(data);
+    if (data) {
+      setForm({
+        id: data.id ?? null,
+        name: data.name ?? '',
+        version: data.version ?? '',
+        link: data.link ?? '',
+        usage: data.usage ? 1 : 0,
+      });
+    }
   }, [data]);
 
   const handleChange = (name: any, value: any) => {
@@ -55,12 +69,13 @@ export default function EmployeesModify({
     mode == MODE.CREATE ? createRegister() : saveRegister();
   };
 
-  const getData = () => {
-    const data = {
+  const getData = (): any => {
+    const data: any = {
+      id: form.id ?? null,
       name: form.name,
       version: form.version,
       link: form.link,
-      estatus: form.estatus,
+      usage: form.usage,
     }
 
     return data;
@@ -69,29 +84,19 @@ export default function EmployeesModify({
   const createRegister = async () => {
     const body = getData();
 
-    try {
+    handleSave(body);
 
-      console.log('body create: ', body);
-
-      show(UIMessages.createSuccessful);
-      closeHandler();
-    } catch (error) {
-      console.error(error);
-    }
+    show(UIMessages.createSuccessful);
+    closeHandler();
   };
 
   const saveRegister = async () => {
     const body = getData();
 
-    try {
+    handleUpdate(body);
 
-      console.log('body save: ', body);
-
-      show(UIMessages.updateSuccessful);
-      closeHandler();
-    } catch (error) {
-      console.error(error);
-    }
+    show(UIMessages.updateSuccessful);
+    closeHandler();
   };
 
   return (
@@ -127,8 +132,8 @@ export default function EmployeesModify({
           />
           <FieldDropdown
             label='Estado'
-            name='estatus'
-            value={form.estatus}
+            name='usage'
+            value={form.usage}
             options={estatusOptions}
             changeParent={handleChange}
           />

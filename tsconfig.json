@@ -16,7 +16,19 @@
       ],
       "@public/*": [
         "public/*"
-      ]
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@types/*": [
+        "src/types/*"
+      ],
+      "@svg/*": [
+        "src/svg/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
     },
     "jsx": "react-jsx",
     "lib": ["DOM", "ESNext"], 

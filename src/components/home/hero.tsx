@@ -68,8 +68,6 @@ export default function Hero({
         <img
           src={image}
           width={200}
-          className='logo'
-          loading='lazy'
           alt='Personaje'
         />
         <p className='text-5xl text-softBeige'>Brayan Vidal</p>

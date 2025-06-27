@@ -1,22 +1,20 @@
+import Modify from './modify';
 import top from '@public/top.png';
 import cn from '@src/services/clsx';
 import { Tag } from 'primereact/tag';
-import { useState, useRef } from 'react';
-import { Toast } from 'primereact/toast';
+import ReactLogo from '@src/svg/react';
 import { Button } from 'primereact/button';
 import { Column } from 'primereact/column';
+import TailwindLogo from '@src/svg/tailwind';
 import { FilterMatchMode } from 'primereact/api';
+import TypescriptLogo from '@src/svg/typescript';
+import { useState, useRef, useMemo } from 'react';
+import type { ButtonProps } from 'primereact/button';
+import { Toast, type ToastMessage } from 'primereact/toast';
+import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 import { DataTable, type DataTableFilterMeta } from 'primereact/datatable';
 
-import ReactLogo from '@src/svg/react';
-import TailwindLogo from '@src/svg/tailwind';
-import TypescriptLogo from '@src/svg/typescript';
-
-import Modify from './modify';
-import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
-
-
-interface technologie {
+export interface Technology {
     id: number;
     name: string;
     version: string;
@@ -26,17 +24,15 @@ interface technologie {
 }
 
 const MODE = {
-    MODIFY: 0,
-    CREATE: 1
+    CREATE: 1,
+    MODIFY: 2,
 };
 
 export default function CarouselCards() {
     const toast = useRef<Toast>(null);
-    const [selected, setSelected] = useState<technologie | null>(null);
-
-    const [item, setItem] = useState<any>({});
-    
-    const data: technologie[] = [
+    const [item, setItem] = useState<Technology | null>(null);
+    const [selected, setSelected] = useState<Technology | null>(null);
+    const [data, setData] = useState<Technology[]>([
         {
             id: 0,
             name: 'Tailwind',
@@ -61,31 +57,29 @@ export default function CarouselCards() {
             usage: false,
             image: <TypescriptLogo className='w-12 h-12' />,
         },
-    ];
+    ]);
 
     const [mode, setMode] = useState(MODE.MODIFY);
-
     const [popout, setPopout] = useState<boolean>(false);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [dataFiltered, setDataFiltered] = useState<any[]>([]);
+    
     const [filters, setFilters] = useState<DataTableFilterMeta>({
         name: { value: null, matchMode: FilterMatchMode.CONTAINS },
         version: { value: null, matchMode: FilterMatchMode.CONTAINS },
         link: { value: null, matchMode: FilterMatchMode.CONTAINS },
     });
 
-    const show = (params: any): void => {
+    const show = (params: ToastMessage): void => {
         toast.current?.show(params);
     };
 
-    const ModifyRegister = () => {
-        setMode(MODE.MODIFY);
-        setPopout(true);
+    const openEditForm = () => {
         setItem(selected);
+        setPopout(true);
+        setMode(MODE.MODIFY);
     };
 
-    const CreateRegister = () => {
-        setItem({});
+    const openCreateForm = () => {
+        setItem(null);
         setPopout(true);
         setMode(MODE.CREATE);
     };
@@ -94,75 +88,57 @@ export default function CarouselCards() {
         setPopout(false);
     };
 
-    const header = (
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-hazelBrown p-4 rounded-lg text-softBeige">
-            {/* TÍTULO */}
-            <span className="text-xl font-bold flex justify-center sm:justify-start">Tecnologías</span>
+    const generateNextId = (items: Technology[]): number =>
+        items.length ? Math.max(...items.map(i => i.id)) + 1 : 0;
 
-            {/* BOTONES */}
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                <Button
-                    outlined
-                    size="small"
-                    label="Crear"
-                    icon="pi pi-plus"
-                    severity="success"
-                    onClick={CreateRegister}
-                    className="!text-softBeige !bg-hazelBrown !border-softBeige"
-                />
-                <Button
-                    outlined
-                    size="small"
-                    severity="info"
-                    label="Modificar"
-                    icon="pi pi-pencil"
-                    disabled={!selected}
-                    onClick={ModifyRegister}
-                    className="!text-softBeige !bg-hazelBrown !border-softBeige"
-                />
-                <Button
-                    outlined
-                    size="small"
-                    label="Exportar"
-                    severity="danger"
-                    icon="pi pi-download"
-                    className="!text-softBeige !bg-hazelBrown !border-softBeige"
-                />
-            </div>
-        </div>
+    const handleSave = (item: Omit<Technology, 'id'>) => {
+        setData(prev => [...prev, { ...item, id: generateNextId(prev) }]);
+    };
+
+    const handleUpdate = (updatedItem: Technology) => {
+        setData(prev =>
+            prev.map(item =>
+                item.id === updatedItem.id ? updatedItem : item
+            )
+        );
+    };
+
+    const ActionButton = (props: ButtonProps) => (
+        <Button
+            {...props}
+            outlined
+            size="small"
+            className="!text-softBeige !bg-hazelBrown !border-softBeige"
+        />
     );
 
-    const imageBodyTemplate = (product: technologie) => {
-        const imageSrc = product.image;
+    const header = useMemo(() => (
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-hazelBrown p-4 rounded-lg text-softBeige">
+            <span className="text-xl font-bold flex justify-center sm:justify-start">Tecnologías</span>
 
-        return (
-            imageSrc
-        );
-    };
-
-    const getSeverity = (product: technologie) => {
-        return product.usage ? 'success' : 'danger';
-    };
-
-    const statusBodyTemplate = (product: technologie) => {
-        return (
-            <Tag
-                className='rounded-sm p-2 text-boneWhite'
-                value={product.usage ? 'Activo' : 'Inactivo'}
-                severity={getSeverity(product)}
-            />
-        );
-    };
-
-    const footer = () => {
-        return (
-            <div className='flex items-center h-4 pl-3'>
-                <span>
-                    Total de tecnologias : {data ? data.length : 0}
-                </span>
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                <ActionButton label="Crear" icon="pi pi-plus" onClick={openCreateForm} />
+                <ActionButton label="Modificar" icon="pi pi-pencil" onClick={openEditForm} disabled={!selected} />
+                <ActionButton label="Exportar" icon="pi pi-download" />
             </div>
-        );
-    }
+        </div>
+    ), [selected]);
+
+    const imageBodyTemplate = (tech: Technology) => tech.image;
+
+    const statusBodyTemplate = (tech: Technology) => (
+        <Tag
+            className="rounded-sm p-2"
+            value={tech.usage ? 'Activo' : 'Inactivo'}
+            severity={tech.usage ? 'success' : 'danger'}
+        />
+    );
+
+    const footer = useMemo(() => (
+        <div className="flex items-center h-4 pl-3">
+            <span> Total de tecnologías: {data.length} </span>
+        </div>
+    ), [data.length]);
 
     return (
         <div
@@ -182,7 +158,9 @@ export default function CarouselCards() {
                     data={item}
                     mode={mode}
                     show={show}
+                    handleSave={handleSave}
                     closeHandler={popoutClose}
+                    handleUpdate={handleUpdate}
                 />
             )}
 
@@ -201,11 +179,11 @@ export default function CarouselCards() {
                 <DataTable
                     scrollable
                     value={data}
-                    dataKey='name'
+                    dataKey='id'
                     header={header}
                     footer={footer}
                     filters={filters}
-                    // filterDisplay='row'
+                    filterDisplay='row'
                     scrollHeight="400px"
                     selection={selected!}
                     selectionMode="single"
@@ -216,32 +194,33 @@ export default function CarouselCards() {
                     onFilter={(e) => {
                         setFilters(e.filters);
                     }}
-                    onValueChange={(data: any) => {
-                        setDataFiltered(data);
-                    }}
+                    // onValueChange={(data: any) => {
+                    //     setDataFiltered(data);
+                    // }}
                     onSelectionChange={(e) => {
                         const value = e.value;
                         setSelected(value);
                     }}
                 >
                     <Column
+                        filter
                         field="name"
                         header="Nombre"
-                        filter
-                        filterPlaceholder="Buscar nombre"
-                        showFilterMatchModes={false}
                         showClearButton={false}
+                        filterPlaceholder="Buscar nombre"
                     />
                     <Column
+                        filter
                         field="version"
                         header="Versión"
-                        filter
+                        showClearButton={false}
                         filterPlaceholder="Buscar versión"
                     />
                     <Column
+                        filter
                         field="link"
                         header="Enlace"
-                        filter
+                        showClearButton={false}
                         filterPlaceholder="Buscar enlace"
                     />
                     <Column

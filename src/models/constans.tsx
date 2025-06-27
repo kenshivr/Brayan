@@ -1,10 +1,10 @@
 export const estatus = [
     {
-        name: 'Baja',
+        name: 'Inactivo',
         code: '0'
     },
     {
-        name: 'Alta',
+        name: 'Activo',
         code: '1'
     },
 ];

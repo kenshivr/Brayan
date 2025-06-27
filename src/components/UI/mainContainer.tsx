@@ -12,6 +12,7 @@ export default function MainContainer({
     <div
       className={cn(
         'h-max w-screen bg-darkBrown',
+        'transition-all duration-300 ease-in-out',
         className
       )}
     >
