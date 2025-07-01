@@ -1,11 +1,12 @@
-import image from '@public/wink.png';
 import cn from '@src/services/clsx';
+import image from '@public/wink.png';
+import { Link } from 'react-router-dom';
 import { IoIosMenu } from 'react-icons/io';
 import { GrTechnology } from 'react-icons/gr';
 import { LiaDnaSolid } from 'react-icons/lia';
 import { useState, type ReactNode } from 'react';
 import { MdOutlineMilitaryTech } from 'react-icons/md';
-import ThemeToggle from '@src/components/section/ThemeToggle';
+import ThemeToggle from '@src/components/UI/ThemeToggle';
 
 export default function Hero({
   className = ''
@@ -33,9 +34,11 @@ export default function Hero({
       <div className={cn(
         'fixed top-0 left-0 h-full z-40 transform transition-transform duration-300 md:hidden',
         menuOpen ? 'translate-x-0' : '-translate-x-full',
-        'bg-softOrange w-1/3 p-6 flex flex-col justify-center text-white text-lg font-medium gap-6'
+        'bg-hazelBrown w-1/3 p-6 flex flex-col justify-center text-white text-lg font-medium gap-6'
       )}>
-        <p>Primera opción</p>
+        <Link to='/report' className='text-white hover:text-darkBrown'>
+          Reporte
+        </Link>
         <p>Segunda opción</p>
         <p>Tercera opción</p>
       </div>

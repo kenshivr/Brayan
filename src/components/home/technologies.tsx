@@ -236,9 +236,9 @@ export default function CarouselCards() {
                 />
 
                 <div className="w-2/3 mt-2 mx-auto flex items-center gap-2">
-                  <div className="flex-1 h-2 bg-darkBrown rounded-full overflow-hidden">
+                  <div className="flex-1 h-2 bg-hazelBrown rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-charcoalBlack transition-all duration-500"
+                      className="h-full bg-darkBrown transition-all duration-500"
                       style={{ width: `${card.percentage}%` }}
                     />
                   </div>

@@ -28,7 +28,7 @@ const MODE = {
     MODIFY: 2,
 };
 
-export default function CarouselCards() {
+export default function Table() {
     const toast = useRef<Toast>(null);
     const [item, setItem] = useState<Technology | null>(null);
     const [selected, setSelected] = useState<Technology | null>(null);

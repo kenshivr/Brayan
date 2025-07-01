@@ -11,8 +11,8 @@ export default function MainContainer({
   return (
     <div
       className={cn(
-        'h-max w-screen bg-darkBrown',
         'transition-all duration-300 ease-in-out',
+        'h-screen w-screen bg-darkBrown overflow-y-auto',
         className
       )}
     >

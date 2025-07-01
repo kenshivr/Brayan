@@ -20,11 +20,11 @@ export default defineConfig({
     alias: {
       '@src': path.resolve(__dirname, 'src'),
       '@public': path.resolve(__dirname, 'public'),
-      '@components': path.resolve(__dirname, 'components'),
-      '@types': path.resolve(__dirname, 'types'),
-      '@svg': path.resolve(__dirname, 'svg'),
-      '@pages': path.resolve(__dirname, 'pages'),
-    },
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@types': path.resolve(__dirname, 'src/types'),
+      '@svg': path.resolve(__dirname, 'src/svg'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
+    }
   },
   server: {
     port: 3003,

@@ -1,13 +1,17 @@
 import './App.css'
 import Home from '@src/pages/home';
-// import MainContainer from '@components/UI/mainContainer';
-import MainContainer from '@src/components/UI/mainContainer';
+import Report from '@src/pages/report';
+import MainContainer from '@components/UI/mainContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 export default function App() {
 
   return (
-    <MainContainer>
-      <Home />
-    </MainContainer>
+    <BrowserRouter>
+      <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/report' element={<Report/>} />
+      </Routes>
+    </BrowserRouter>
   )
 };
