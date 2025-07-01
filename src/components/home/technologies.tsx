@@ -2,8 +2,6 @@ import cn from '@src/services/clsx';
 import down from '@public/winkHappyGreetings.png';
 import { useRef, useEffect, useState } from 'react';
 import topLeftCorner from '@public/topLeftCorner.png';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-// import sadnessGreetings from '@public/sadnessGreetings.png';
 import sadnessGreetings from '../../../public/sadnessGreetings.png';
 
 import CssLogo from '@src/svg/css';
@@ -139,154 +137,90 @@ const cards: Card[] = [
 ];
 
 export default function CarouselCards() {
-  const [activeColor, setActiveColor] = useState<string>('transparent');
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [centerIndex, setCenterIndex] = useState<number | null>(null);
+  const totalCards = cards.length;
+  const loopedCards = [...cards, ...cards, ...cards];
 
   useEffect(() => {
-    if (scrollRef.current) {
-      const { scrollWidth, clientWidth } = scrollRef.current;
-      const center = (scrollWidth - clientWidth) / 2;
-      scrollRef.current.scrollTo({
-        left: center,
-        behavior: 'smooth',
-      });
-    }
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const speed = 1.5;
+    let animationFrame: number;
+
+    const scroll = () => {
+      container.scrollLeft += speed;
+      if (container.scrollLeft >= container.scrollWidth / 3 * 2) {
+        container.scrollLeft = container.scrollWidth / 3;
+      }
+      animationFrame = requestAnimationFrame(scroll);
+    };
+
+    container.scrollLeft = container.scrollWidth / 3;
+    animationFrame = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationFrame);
   }, []);
 
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (dir: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollAmount = clientWidth * 0.6;
-      scrollRef.current.scrollTo({
-        left: dir === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
-        behavior: 'smooth',
-      });
-    }
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const container = scrollRef.current;
+      if (!container) return;
+      const { scrollLeft, clientWidth } = container;
+      const center = scrollLeft + clientWidth / 2;
+      const cardWidth = 200 + 32;
+      const index = Math.floor(center / cardWidth) % totalCards;
+      setCenterIndex(index);
+    }, 300);
+    return () => clearInterval(interval);
+  }, [totalCards]);
 
   return (
-    <div
-      className={cn(
-        'relative w-full h-[720px]',
-        'my-8 py-8 text-softBeige',
-        'transition-colors duration-500 flex items-center',
-      )}
-      style={{ backgroundColor: activeColor }}
-    >
-      <div
-        onClick={() => scroll('left')}
-        className={cn(
-          'absolute left-4 top-1/2 -translate-y-1/2 z-10',
-          'hover:scale-150 transition-transform',
-        )}
-      >
-        <ChevronLeft size={22} />
-      </div>
-
+    <div className="relative w-full h-[720px] my-8 py-8 text-softBeige flex items-center overflow-hidden">
       <div
         ref={scrollRef}
-        className={cn(
-          'flex gap-8 overflow-x-auto h-[740px] px-16',
-          'py-9 overflow-y-visible scroll-smooth',
-          'flex items-center',
-        )}
-        style={{ scrollbarWidth: 'none' }}
+        className="flex gap-8 h-[740px] px-16 py-9 items-center"
+        style={{ overflowX: 'auto', scrollBehavior: 'smooth', scrollbarWidth: 'none' }}
+        onWheel={(e) => e.preventDefault()}
       >
-
-        {cards.map((card: Card, idx) => (
-          <div
-            key={idx}
-            onMouseEnter={() => setActiveColor(card.color)}
-            onMouseLeave={() => setActiveColor('transparent')}
-            className={cn(
-              'relative group min-w-[200px] max-w-[200px]',
-              'h-[300px] cursor-pointer overflow-y-visible',
-              'transition-transform duration-500 hover:scale-120',
-              'bg-hazelBrown rounded-2xl',
-              'flex flex-col justify-end items-start',
-              'gap-4 pb-10 pl-5',
-            )}
-          >
-
+        {loopedCards.map((card: Card, idx) => {
+          const isActive = idx % totalCards === centerIndex;
+          return (
             <div
+              key={idx}
               className={cn(
-                `${card.color}`,
-                'backgroundCard rounded-xl',
-                'flex flex-col justify-start items-center',
-                'pt-12',
-                'absolute bottom-14 right-0 h-full w-1/2',
-                'transition-all duration-300 ease-in-out',
-                'group-hover:h-[130%] group-hover:w-[80%]',
-                'overflow-hidden'
+                'relative group min-w-[200px] max-w-[200px] h-[300px] cursor-pointer',
+                'transition-transform duration-500 ease-in-out',
+                isActive ? 'scale-[1.2]' : 'scale-100',
+                'bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5'
               )}
             >
               <div
                 className={cn(
-                  'opacity-0 group-hover:opacity-100',
-                  'transition-opacity duration-300 ease-in-out z-10',
-                  'w-full ml-2',
+                  `${card.color}`,
+                  'backgroundCard rounded-xl flex flex-col justify-start items-center pt-12',
+                  'absolute bottom-14 right-0 h-full w-1/2 transition-all duration-500 ease-in-out',
+                  isActive ? 'h-[130%] w-[80%]' : '',
+                  'overflow-hidden'
                 )}
               >
-                <img
-                  width={100}
-                  height={100}
-                  alt="character"
-                  src={card.chapter}
-                />
-
-                <div className="w-2/3 mt-2 mx-auto flex items-center gap-2">
-                  <div className="flex-1 h-2 bg-hazelBrown rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-darkBrown transition-all duration-500"
-                      style={{ width: `${card.percentage}%` }}
-                    />
+                <div className={cn('transition-opacity duration-300 z-10 w-full ml-2', isActive ? 'opacity-100' : 'opacity-0')}>
+                  <img width={100} height={100} alt="character" src={card.chapter} />
+                  <div className="w-2/3 mt-2 mx-auto flex items-center gap-2">
+                    <div className="flex-1 h-2 bg-hazelBrown rounded-full overflow-hidden">
+                      <div className="h-full bg-darkBrown transition-all duration-500" style={{ width: `${card.percentage}%` }} />
+                    </div>
+                    <span className="text-charcoalBlack text-sm whitespace-nowrap">{card.percentage}%</span>
                   </div>
-                  <span className="text-charcoalBlack text-sm whitespace-nowrap">{card.percentage}%</span>
                 </div>
-
               </div>
-
+              <div className="absolute top-10 right-5">{card.image}</div>
+              {card.icon}
+              <span className="text-base">{card.title}</span>
+              <span className="text-3xl mt-6">{card.subTitle}</span>
             </div>
-
-
-            <div
-              className={cn(
-                `absolute top-10 right-5`,
-              )}
-            >{card.image}</div>
-
-            {card.icon}
-
-            <span
-              className={cn(
-                'text-base',
-              )}
-            >
-              {card.title}
-            </span>
-
-            <span
-              className={cn(
-                'text-3xl mt-6',
-              )}
-            >
-              {card.subTitle}
-            </span>
-
-          </div>
-        ))}
-
-      </div>
-
-      <div
-        onClick={() => scroll('right')}
-        className={cn(
-          'absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white',
-          'hover:scale-150 transition-transform'
-        )}
-      >
-        <ChevronRight />
+          );
+        })}
       </div>
     </div>
   );

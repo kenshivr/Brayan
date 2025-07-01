@@ -1,17 +1,31 @@
-import './App.css'
-import Home from '@src/pages/home';
-import Report from '@src/pages/report';
+// import './App.css'
+// import Home from '@src/pages/home';
+// import MainContainer from './components/UI/mainContainer';
+
+// export default function App() {
+
+//   return (
+//     <MainContainer>
+//       <Home />
+//     </MainContainer>
+//   )
+// };
+
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
 import MainContainer from '@components/UI/mainContainer';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from '@pages/home';
+import Report from '@pages/report';
 
 export default function App() {
-
   return (
-    <BrowserRouter>
+    <MainContainer>
       <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/report' element={<Report/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/report" element={<Report />} />
+        {/* Agrega más rutas según sea necesario */}
       </Routes>
-    </BrowserRouter>
-  )
-};
+    </MainContainer>
+  );
+}
