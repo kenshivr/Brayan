@@ -146,20 +146,37 @@ export default function CarouselCards() {
     const container = scrollRef.current;
     if (!container) return;
 
-    const speed = 1.5;
+    const speed = 15;
     let animationFrame: number;
 
     const scroll = () => {
       container.scrollLeft += speed;
+
+      console.log('ScrollLeft:', container.scrollLeft);
+
       if (container.scrollLeft >= container.scrollWidth / 3 * 2) {
         container.scrollLeft = container.scrollWidth / 3;
       }
       animationFrame = requestAnimationFrame(scroll);
     };
 
-    container.scrollLeft = container.scrollWidth / 3;
+    const startPosition = () => {
+      if (container) {
+        container.scrollLeft = container.scrollWidth / 3;
+      }
+    };
+
+    // Iniciar posición inicial
+    startPosition();
     animationFrame = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationFrame);
+
+    // Recalcular posición en resize
+    window.addEventListener('resize', startPosition);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener('resize', startPosition);
+    };
   }, []);
 
   useEffect(() => {
@@ -179,8 +196,8 @@ export default function CarouselCards() {
     <div className="relative w-full h-[720px] my-8 py-8 text-softBeige flex items-center overflow-hidden">
       <div
         ref={scrollRef}
-        className="flex gap-8 h-[740px] px-16 py-9 items-center"
-        style={{ overflowX: 'auto', scrollBehavior: 'smooth', scrollbarWidth: 'none' }}
+        className="flex gap-12 h-[740px] px-16 py-9 items-center"
+        style={{ overflowX: 'hidden', scrollBehavior: 'smooth', scrollbarWidth: 'none' }}
         onWheel={(e) => e.preventDefault()}
       >
         {loopedCards.map((card: Card, idx) => {
@@ -194,7 +211,9 @@ export default function CarouselCards() {
                 isActive ? 'scale-[1.2]' : 'scale-100',
                 'bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5'
               )}
+              style={isActive ? { boxShadow: '0 0 20px #F6E3CE' } : {}}
             >
+
               <div
                 className={cn(
                   `${card.color}`,
