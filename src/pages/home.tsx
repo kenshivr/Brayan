@@ -1,6 +1,7 @@
 import Hero from '@components/home/hero';
 import Carrer from '@components/home/carrer';
 import Technologies from '@components/home/technologies';
+import Carrusel from '@components/home/carrusel';
 
 export default function Home() {
 
@@ -9,6 +10,8 @@ export default function Home() {
             <Hero />
 
             <Technologies />
+
+            <Carrusel />
 
             <Carrer />
 

@@ -239,6 +239,19 @@ button:focus-visible {
   background-color: var(--hazelBrown);
 }
 
+@keyframes scroll {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(calc(-200px * 12));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 13s linear infinite;
+}
+
 @theme {
   --color-darkBrown: #3B2F2F;
   --color-charcoalBlack: #1F1F1F;

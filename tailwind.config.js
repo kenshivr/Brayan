@@ -13,6 +13,9 @@ module.exports = {
         thurkle: ['Thurkle', 'sans-serif'],
       },
     },
+    container: {
+      center: true,
+    }
   },
   plugins: [],
   corePlugins: {

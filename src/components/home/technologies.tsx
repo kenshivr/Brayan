@@ -140,44 +140,7 @@ export default function CarouselCards() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [centerIndex, setCenterIndex] = useState<number | null>(null);
   const totalCards = cards.length;
-  const loopedCards = [...cards, ...cards, ...cards];
-
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const speed = 15;
-    let animationFrame: number;
-
-    const scroll = () => {
-      container.scrollLeft += speed;
-
-      console.log('ScrollLeft:', container.scrollLeft);
-
-      if (container.scrollLeft >= container.scrollWidth / 3 * 2) {
-        container.scrollLeft = container.scrollWidth / 3;
-      }
-      animationFrame = requestAnimationFrame(scroll);
-    };
-
-    const startPosition = () => {
-      if (container) {
-        container.scrollLeft = container.scrollWidth / 3;
-      }
-    };
-
-    // Iniciar posición inicial
-    startPosition();
-    animationFrame = requestAnimationFrame(scroll);
-
-    // Recalcular posición en resize
-    window.addEventListener('resize', startPosition);
-
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener('resize', startPosition);
-    };
-  }, []);
+  const loopedCards = [...cards, ...cards];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -196,9 +159,7 @@ export default function CarouselCards() {
     <div className="relative w-full h-[720px] my-8 py-8 text-softBeige flex items-center overflow-hidden">
       <div
         ref={scrollRef}
-        className="flex gap-12 h-[740px] px-16 py-9 items-center"
-        style={{ overflowX: 'hidden', scrollBehavior: 'smooth', scrollbarWidth: 'none' }}
-        onWheel={(e) => e.preventDefault()}
+        className="flex gap-12 h-[740px] px-16 py-9 items-center animate-scroll"
       >
         {loopedCards.map((card: Card, idx) => {
           const isActive = idx % totalCards === centerIndex;
@@ -209,6 +170,7 @@ export default function CarouselCards() {
                 'relative group min-w-[200px] max-w-[200px] h-[300px] cursor-pointer',
                 'transition-transform duration-500 ease-in-out',
                 isActive ? 'scale-[1.2]' : 'scale-100',
+                'border borde-solid border-white',
                 'bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5'
               )}
               style={isActive ? { boxShadow: '0 0 20px #F6E3CE' } : {}}
@@ -244,3 +206,4 @@ export default function CarouselCards() {
     </div>
   );
 };
+
