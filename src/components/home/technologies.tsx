@@ -16,6 +16,7 @@ import { FaGitAlt, FaReact, FaCss3Alt } from 'react-icons/fa';
 import { SiTypescript, SiVite } from 'react-icons/si';
 
 interface Card {
+  id: number;
   icon: any;
   image: any;
   title: string;
@@ -27,6 +28,7 @@ interface Card {
 
 const cards: Card[] = [
   {
+    id: 1,
     icon: <RiTailwindCssFill className="w-7 h-7" />,
     image: <TailwindLogo />,
     title: 'Tailwind',
@@ -36,6 +38,7 @@ const cards: Card[] = [
     color: 'bg-softBeige',
   },
   {
+    id: 2,
     icon: <FaGitAlt className="w-7 h-7" />,
     image: <GitLogo />,
     title: 'Git',
@@ -45,6 +48,7 @@ const cards: Card[] = [
     color: 'bg-blushPink',
   },
   {
+    id: 3,
     icon: <FaReact className="w-7 h-7" />,
     image: <ReactLogo />,
     title: 'React',
@@ -54,6 +58,7 @@ const cards: Card[] = [
     color: 'bg-boneWhite',
   },
   {
+    id: 4,
     icon: <SiTypescript className="w-7 h-7" />,
     image: <TypescriptLogo />,
     title: 'TypeScript',
@@ -63,6 +68,7 @@ const cards: Card[] = [
     color: 'bg-slateGray',
   },
   {
+    id: 5,
     icon: <FaCss3Alt className="w-7 h-7" />,
     image: <CssLogo />,
     title: 'CSS',
@@ -72,6 +78,7 @@ const cards: Card[] = [
     color: 'bg-peachTint',
   },
   {
+    id: 6,
     icon: <SiVite className="w-7 h-7" />,
     image: <ViteLogo />,
     title: 'Vite',
@@ -81,6 +88,7 @@ const cards: Card[] = [
     color: 'bg-softOrange',
   },
   {
+    id: 7,
     icon: <RiTailwindCssFill className="w-7 h-7" />,
     image: <TailwindLogo />,
     title: 'Tailwind',
@@ -90,6 +98,7 @@ const cards: Card[] = [
     color: 'bg-softBeige',
   },
   {
+    id: 8,
     icon: <FaGitAlt className="w-7 h-7" />,
     image: <GitLogo />,
     title: 'Git',
@@ -99,6 +108,7 @@ const cards: Card[] = [
     color: 'bg-blushPink',
   },
   {
+    id: 9,
     icon: <FaReact className="w-7 h-7" />,
     image: <ReactLogo />,
     title: 'React',
@@ -108,6 +118,7 @@ const cards: Card[] = [
     color: 'bg-boneWhite',
   },
   {
+    id: 10,
     icon: <SiTypescript className="w-7 h-7" />,
     image: <TypescriptLogo />,
     title: 'TS',
@@ -117,6 +128,7 @@ const cards: Card[] = [
     color: 'bg-slateGray',
   },
   {
+    id: 11,
     icon: <FaCss3Alt className="w-7 h-7" />,
     image: <CssLogo />,
     title: 'CSS',
@@ -126,6 +138,7 @@ const cards: Card[] = [
     color: 'bg-peachTint',
   },
   {
+    id: 12,
     icon: <SiVite className="w-7 h-7" />,
     image: <ViteLogo />,
     title: 'Vite',
@@ -142,23 +155,66 @@ export default function CarouselCards() {
   const totalCards = cards.length;
   const loopedCards = [...cards, ...cards];
 
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     const container = scrollRef.current;
+  //     if (!container) return;
+
+  //     const { scrollLeft, clientWidth } = container;
+  //     const containerCenter = (scrollLeft + clientWidth / 2) + 800;
+
+  //     const cards = container.querySelectorAll('.card');
+  //     let minDistance = Infinity;
+  //     let closestIndex = null;
+
+  //     cards.forEach((card, idx) => {
+  //       const cardRect = card.getBoundingClientRect();
+  //       const cardCenter = cardRect.left + cardRect.width / 2;
+  //       const distance = Math.abs(containerCenter - (scrollLeft + cardCenter));
+
+  //       if (distance < minDistance) {
+  //         minDistance = distance;
+  //         closestIndex = idx;
+  //       }
+  //     });
+
+  //     if (closestIndex !== null) {
+  //       setCenterIndex(closestIndex % totalCards);
+  //     }
+  //   }, 300);
+  //   return () => clearInterval(interval);
+  // }, [totalCards]);
+
+  const ref = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState<number>(0);
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      const container = scrollRef.current;
-      if (!container) return;
-      const { scrollLeft, clientWidth } = container;
-      const center = scrollLeft + clientWidth / 2;
-      const cardWidth = 200 + 32;
-      const index = Math.floor(center / cardWidth) % totalCards;
-      setCenterIndex(index);
-    }, 300);
-    return () => clearInterval(interval);
-  }, [totalCards]);
+    if (!ref.current) return;
+
+    const handleResize = () => {
+      if (ref.current) {
+        const newWidth = ref.current.offsetWidth;
+        setWidth(newWidth);
+        console.log('Nuevo ancho:', newWidth);
+      }
+    };
+
+    // Inicial
+    handleResize();
+
+    const observer = new ResizeObserver(() => {
+      handleResize();
+    });
+
+    observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="relative w-full h-[720px] my-8 py-8 text-softBeige flex items-center overflow-hidden">
       <div
-        ref={scrollRef}
+        ref={ref}
         className="flex gap-12 h-[740px] px-16 py-9 items-center animate-scroll"
       >
         {loopedCards.map((card: Card, idx) => {
@@ -168,9 +224,8 @@ export default function CarouselCards() {
               key={idx}
               className={cn(
                 'relative group min-w-[200px] max-w-[200px] h-[300px] cursor-pointer',
-                'transition-transform duration-500 ease-in-out',
+                'transition-transform duration-500 ease-in-out card',
                 isActive ? 'scale-[1.2]' : 'scale-100',
-                'border borde-solid border-white',
                 'bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5'
               )}
               style={isActive ? { boxShadow: '0 0 20px #F6E3CE' } : {}}
@@ -197,6 +252,7 @@ export default function CarouselCards() {
               </div>
               <div className="absolute top-10 right-5">{card.image}</div>
               {card.icon}
+              <span className="text-base">{card.id}</span>
               <span className="text-base">{card.title}</span>
               <span className="text-3xl mt-6">{card.subTitle}</span>
             </div>

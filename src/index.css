@@ -76,12 +76,10 @@ button:focus-visible {
 }
 
 .backgroundCard {
-  clip-path: polygon(
-      0% 0%,
+  clip-path: polygon(0% 0%,
       100% 20%,
       100% 100%,
-      0% 40%
-    );
+      0% 40%);
 }
 
 /* También aplicar redondeo al wrapper que contiene la tabla */
@@ -240,11 +238,12 @@ button:focus-visible {
 }
 
 @keyframes scroll {
-  0%{
+  0% {
     transform: translateX(0);
   }
-  100%{
-    transform: translateX(calc(-200px * 12));
+
+  100% {
+    transform: translateX(calc(-248px * 12));
   }
 }
 
