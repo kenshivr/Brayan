@@ -14,6 +14,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --shadow-active: 0 0 20px var(--color-boneWhite);
 }
 
 a {
@@ -248,7 +250,11 @@ button:focus-visible {
 }
 
 .animate-scroll {
-  animation: scroll 13s linear infinite;
+  animation: scroll 20s linear infinite;
+}
+
+.card-active {
+  box-shadow: var(--shadow-active);
 }
 
 @theme {

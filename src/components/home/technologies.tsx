@@ -150,85 +150,68 @@ const cards: Card[] = [
 ];
 
 export default function CarouselCards() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [centerIndex, setCenterIndex] = useState<number | null>(null);
   const totalCards = cards.length;
   const loopedCards = [...cards, ...cards];
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     const container = scrollRef.current;
-  //     if (!container) return;
-
-  //     const { scrollLeft, clientWidth } = container;
-  //     const containerCenter = (scrollLeft + clientWidth / 2) + 800;
-
-  //     const cards = container.querySelectorAll('.card');
-  //     let minDistance = Infinity;
-  //     let closestIndex = null;
-
-  //     cards.forEach((card, idx) => {
-  //       const cardRect = card.getBoundingClientRect();
-  //       const cardCenter = cardRect.left + cardRect.width / 2;
-  //       const distance = Math.abs(containerCenter - (scrollLeft + cardCenter));
-
-  //       if (distance < minDistance) {
-  //         minDistance = distance;
-  //         closestIndex = idx;
-  //       }
-  //     });
-
-  //     if (closestIndex !== null) {
-  //       setCenterIndex(closestIndex % totalCards);
-  //     }
-  //   }, 300);
-  //   return () => clearInterval(interval);
-  // }, [totalCards]);
-
-  const ref = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState<number>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [centerIndex, setCenterIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    if (!ref.current) return;
+    let animationFrameId: number;
 
-    const handleResize = () => {
-      if (ref.current) {
-        const newWidth = ref.current.offsetWidth;
-        setWidth(newWidth);
-        console.log('Nuevo ancho:', newWidth);
-      }
+    const detectCenterCard = () => {
+      const container = containerRef.current;
+      if (!container || cardRefs.current.length === 0) return;
+
+      const containerRect = container.getBoundingClientRect();
+      const centerX = containerRect.left + containerRect.width / 2;
+
+      let closestIdx = -1;
+      let closestDistance = Infinity;
+
+      cardRefs.current.forEach((ref, idx) => {
+        if (!ref) return;
+        const rect = ref.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(cardCenter - centerX);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIdx = idx % totalCards;
+        }
+      });
+
+      setCenterIndex(closestIdx);
+      animationFrameId = requestAnimationFrame(detectCenterCard);
     };
 
-    // Inicial
-    handleResize();
+    animationFrameId = requestAnimationFrame(detectCenterCard);
 
-    const observer = new ResizeObserver(() => {
-      handleResize();
-    });
-
-    observer.observe(ref.current);
-
-    return () => observer.disconnect();
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   return (
-    <div className="relative w-full h-[720px] my-8 py-8 text-softBeige flex items-center overflow-hidden">
+    <div ref={containerRef} className="relative w-full h-[720px] my-8 py-8 text-softBeige flex items-center overflow-hidden">
       <div
-        ref={ref}
         className="flex gap-12 h-[740px] px-16 py-9 items-center animate-scroll"
       >
         {loopedCards.map((card: Card, idx) => {
           const isActive = idx % totalCards === centerIndex;
+
           return (
             <div
               key={idx}
+              ref={el => {
+                cardRefs.current[idx] = el;
+              }}
               className={cn(
                 'relative group min-w-[200px] max-w-[200px] h-[300px] cursor-pointer',
                 'transition-transform duration-500 ease-in-out card',
-                isActive ? 'scale-[1.2]' : 'scale-100',
+                // isActive ? 'scale-[1.2]' : 'scale-100',
+                isActive ? 'scale-[1.2] card-active' : 'scale-100',
                 'bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5'
               )}
-              style={isActive ? { boxShadow: '0 0 20px #F6E3CE' } : {}}
+            // style={isActive ? { boxShadow: '0 0 20px #F6E3CE' } : {}}
             >
 
               <div
@@ -252,7 +235,6 @@ export default function CarouselCards() {
               </div>
               <div className="absolute top-10 right-5">{card.image}</div>
               {card.icon}
-              <span className="text-base">{card.id}</span>
               <span className="text-base">{card.title}</span>
               <span className="text-3xl mt-6">{card.subTitle}</span>
             </div>
@@ -262,4 +244,3 @@ export default function CarouselCards() {
     </div>
   );
 };
-
