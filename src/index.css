@@ -257,6 +257,42 @@ button:focus-visible {
   box-shadow: var(--shadow-active);
 }
 
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.marquee {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.marquee-left {
+  animation: slideLeft 10s linear infinite;
+  top: 0;
+}
+
+.marquee-right {
+  animation: slideRight 10s linear infinite;
+  bottom: 0;
+}
+
 @theme {
   --color-darkBrown: #3B2F2F;
   --color-charcoalBlack: #1F1F1F;

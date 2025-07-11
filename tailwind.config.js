@@ -12,6 +12,23 @@ module.exports = {
         sinisuka: ['Sinisuka', 'sans-serif'],
         thurkle: ['Thurkle', 'sans-serif'],
       },
+
+      keyframes: {
+        marqueeLeft: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        marqueeRight: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      
+      animation: {
+        marqueeLeft: 'marqueeLeft 10s linear infinite',
+        marqueeRight: 'marqueeRight 10s linear infinite',
+      },
+
     },
     container: {
       center: true,

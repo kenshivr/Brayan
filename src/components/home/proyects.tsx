@@ -126,6 +126,10 @@ export default function Proyects() {
                                 )}
                             >{'<'}{proyect.title.split(' ')[0]}{' />'}</span>
 
+                            <span className="marquee marquee-right text-4xl md:text-6xl lg:text-9xl">
+                                {'<'}{proyect.title.split(' ')[0]}{' />'}
+                            </span>
+
                             <img
                                 alt="character"
                                 src={proyect.image}
