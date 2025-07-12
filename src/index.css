@@ -259,7 +259,7 @@ button:focus-visible {
 
 @keyframes slideLeft {
   0% {
-    transform: translateX(100%);
+    transform: translateX(200%);
   }
 
   100% {
@@ -273,7 +273,7 @@ button:focus-visible {
   }
 
   100% {
-    transform: translateX(100%);
+    transform: translateX(220%);
   }
 }
 
@@ -284,12 +284,12 @@ button:focus-visible {
 }
 
 .marquee-left {
-  animation: slideLeft 10s linear infinite;
+  animation: slideLeft 8s linear infinite;
   top: 0;
 }
 
 .marquee-right {
-  animation: slideRight 10s linear infinite;
+  animation: slideRight 8s linear infinite;
   bottom: 0;
 }
 
