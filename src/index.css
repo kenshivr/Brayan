@@ -14,6 +14,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --shadow-active: 0 0 20px var(--color-boneWhite);
 }
 
 a {
@@ -39,7 +41,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -58,7 +60,7 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -248,7 +250,47 @@ button:focus-visible {
 }
 
 .animate-scroll {
-  animation: scroll 13s linear infinite;
+  animation: scroll 20s linear infinite;
+}
+
+.card-active {
+  box-shadow: var(--shadow-active);
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.marquee {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.marquee-left {
+  animation: slideLeft 10s linear infinite;
+  top: 0;
+}
+
+.marquee-right {
+  animation: slideRight 10s linear infinite;
+  bottom: 0;
 }
 
 @theme {

@@ -150,116 +150,68 @@ const cards: Card[] = [
 ];
 
 export default function CarouselCards() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [centerIndex, setCenterIndex] = useState<number | null>(null);
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const totalCards = cards.length;
   const loopedCards = [...cards, ...cards];
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [centerIndex, setCenterIndex] = useState<number | null>(null);
 
-  // Efecto para detectar cambios en el ancho de la ventana
   useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    let animationFrameId: number;
 
-  // Efecto principal para calcular la tarjeta centrada
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
+    const detectCenterCard = () => {
+      const container = containerRef.current;
+      if (!container || cardRefs.current.length === 0) return;
 
-    const updateCenterCard = () => {
       const containerRect = container.getBoundingClientRect();
-      const containerCenter = windowWidth / 2; // Centro de la ventana
+      const centerX = containerRect.left + containerRect.width / 2;
 
-      const cards = container.querySelectorAll(".card");
-      let minDistance = Infinity;
-      let closestIndex = null;
+      let closestIdx = -1;
+      let closestDistance = Infinity;
 
-      cards.forEach((card, idx) => {
-        const cardRect = card.getBoundingClientRect();
-        const cardCenter = cardRect.left + cardRect.width / 2;
-        const distance = Math.abs(containerCenter - cardCenter);
+      cardRefs.current.forEach((ref, idx) => {
+        if (!ref) return;
+        const rect = ref.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(cardCenter - centerX);
 
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestIndex = idx;
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIdx = idx % totalCards;
         }
       });
 
-      if (closestIndex !== null) {
-        setCenterIndex(closestIndex % totalCards);
-      }
+      setCenterIndex(closestIdx);
+      animationFrameId = requestAnimationFrame(detectCenterCard);
     };
 
-    // Configuramos el IntersectionObserver para mayor precisión
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            updateCenterCard();
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.5,
-      }
-    );
+    animationFrameId = requestAnimationFrame(detectCenterCard);
 
-    // Observamos todas las tarjetas
-    const cards = container.querySelectorAll(".card");
-    cards.forEach((card) => observer.observe(card));
-
-    // También actualizamos en el scroll
-    container.addEventListener("scroll", updateCenterCard);
-
-    // Actualización inicial
-    updateCenterCard();
-
-    // Limpieza
-    return () => {
-      observer.disconnect();
-      container.removeEventListener("scroll", updateCenterCard);
-    };
-  }, [windowWidth, totalCards]);
-
-  // Efecto para el desplazamiento automático
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (scrollRef.current) {
-        scrollRef.current.scrollBy({
-          left: 18,
-          behavior: "smooth",
-        });
-      }
-    }, 20);
-
-    return () => clearInterval(interval);
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   return (
-    <div className="relative w-full h-[720px] my-8 py-8 text-softBeige flex items-center overflow-hidden">
+    <div ref={containerRef} className="relative w-full h-[720px] my-8 py-8 text-softBeige flex items-center overflow-hidden">
       <div
-        ref={scrollRef}
-        className="flex gap-12 h-[740px] px-16 py-9 items-center overflow-x-auto scrollbar-hide"
+        className="flex gap-12 h-[740px] px-16 py-9 items-center animate-scroll"
       >
         {loopedCards.map((card: Card, idx) => {
           const isActive = idx % totalCards === centerIndex;
+
           return (
             <div
-              key={`${card.id}-${idx}`}
+              key={idx}
+              ref={el => {
+                cardRefs.current[idx] = el;
+              }}
               className={cn(
-                "relative group min-w-[200px] max-w-[200px] h-[300px] cursor-pointer card",
-                "transition-all duration-500 ease-in-out",
-                isActive ? "scale-[1.2] z-10" : "scale-100",
-                "bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5"
+                'relative group min-w-[200px] max-w-[200px] h-[300px] cursor-pointer',
+                'transition-transform duration-500 ease-in-out card',
+                // isActive ? 'scale-[1.2]' : 'scale-100',
+                isActive ? 'scale-[1.2] card-active' : 'scale-100',
+                'bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5'
               )}
-              style={isActive ? { boxShadow: "0 0 20px #F6E3CE" } : {}}
+            // style={isActive ? { boxShadow: '0 0 20px #F6E3CE' } : {}}
             >
               <div
                 className={cn(
@@ -305,4 +257,4 @@ export default function CarouselCards() {
       </div>
     </div>
   );
-}
+};
