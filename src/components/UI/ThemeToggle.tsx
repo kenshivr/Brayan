@@ -47,7 +47,7 @@ export default function ThemeToggle() {
   return (
     <div
       onClick={() => setIsDark(prev => !prev)}
-      className={`fixed top-4 right-4 z-50 w-[50px] h-[28px] rounded-full cursor-pointer transition-colors duration-500
+      className={`fixed top-3 right-4 z-50 w-[50px] h-[28px] rounded-full cursor-pointer transition-colors duration-500
     ${isDark
           ? 'bg-gradient-to-r from-green-400 to-lime-300'
           : 'bg-gradient-to-r from-yellow-300 to-amber-400'

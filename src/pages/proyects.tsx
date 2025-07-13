@@ -1,5 +1,6 @@
 import { useState } from "react";
 import cn from "@src/services/clsx";
+import Menu from "@src/components/UI/menu";
 import { CiCalendar } from "react-icons/ci";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
@@ -74,9 +75,11 @@ export default function Proyects() {
       className={cn(
         "w-screen h-screen overflow-hidden",
         "flex flex-row flex-nowrap",
-        "text-softBeige",
+        "text-softBeige relative",
       )}
     >
+      <Menu isDesktop={true} />
+
       <div
         className={cn(
           "flex transition-transform duration-500 ease-in-out",
@@ -90,17 +93,18 @@ export default function Proyects() {
           <div
             key={index}
             className={cn(
+              "py-6 relative",
               "w-screen h-screen",
               "flex flex-shrink-0",
               "flex-col justify-between items-center",
-              "py-6 relative"
             )}
           >
             <button
               onClick={() => handleSwipe("back")}
               className={cn(
-                "absolute top-1/2 left-10 w-10 h-10",
-                "transform -translate-y-1/2"
+                "transform -translate-y-1/2",
+                "flex justify-center items-center",
+                "absolute top-1/2 left-4 w-10 h-10",
               )}
             >
               <IoIosArrowBack className="w-5 h-5" />
@@ -108,10 +112,16 @@ export default function Proyects() {
 
             <div>No se que poner aqui</div>
 
-            <div className="relative overflow-hidden">
+            <div 
+              className={cn(
+                'relative',
+                'relative overflow-hidden',
+                'flex w-4/6 justify-center',
+              )}
+              >
               <span
                 className={cn(
-                  "marquee marquee-left text-4xl md:text-6xl lg:text-9xl"
+                  "marquee marquee-left text-4xl md:text-6xl lg:text-9xl",
                 )}
               >
                 {"<"}
@@ -122,7 +132,11 @@ export default function Proyects() {
               <img
                 alt="character"
                 src={proyect.image}
-                className="w-[50wh] h-[50vh] z-10 relative"
+                className={cn(
+                  'w-[70vw] h-[70vw]',
+                  'md:w-[30vw] md:h-[30vw]',
+                  'object-cover z-10 relative',
+                )}
               />
 
               <span
@@ -148,8 +162,9 @@ export default function Proyects() {
             <button
               onClick={() => handleSwipe("next")}
               className={cn(
-                "absolute top-1/2 right-10 w-10 h-10",
-                "transform -translate-y-1/2"
+                "transform -translate-y-1/2",
+                "flex justify-center items-center",
+                "absolute top-1/2 right-4 w-10 h-10",
               )}
             >
               <IoIosArrowForward className="w-5 h-5" />
