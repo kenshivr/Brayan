@@ -5,7 +5,7 @@ import ThemeToggle from "@src/components/UI/ThemeToggle";
 export default function Report() {
 
   return (
-    <div className="pt-30 pb-5 relative">
+    <div className="relative">
 
       <Menu isDesktop={true} />
 

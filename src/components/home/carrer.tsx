@@ -3,6 +3,7 @@ import cn from "@src/services/clsx";
 import { GiProgression } from "react-icons/gi";
 
 export default function CarouselCards() {
+
   const texts: string[] = [
     `
             Preslow: Trabaje como desarrollador de software junior
@@ -27,42 +28,17 @@ export default function CarouselCards() {
 
   return (
     <div
-      className={cn("relative overflow-hidden w-full text-softBeige", "flex flex-col md:flex-row mb-56")}
+      className={cn(
+        "min-h-[800px] bg-transparent",
+        "relative overflow-hidden w-full text-softBeige", 
+        "flex flex-col justify-center md:justify-center md:flex-row",
+      )}
     >
-      <div
-        className={cn(
-          "blur-3xl",
-          "rounded-full z-0",
-          "-top-20 -left-20",
-          "absolute w-40 h-40",
-          "bg-[color:var(--color-boneWhite)]/60"
-        )}
-      />
-
-      <div
-        className={cn(
-          "blur-3xl",
-          "rounded-full z-0",
-          "bottom-40 -right-20",
-          "absolute w-20 h-20",
-          "bg-[color:var(--color-boneWhite)]"
-        )}
-      />
-
-      <div
-        className={cn(
-          "blur-3xl",
-          "rounded-full z-0",
-          "bottom-40 left-30",
-          "absolute w-20 h-20",
-          "bg-[color:var(--color-boneWhite)]"
-        )}
-      />
 
       <div
         className={cn(
           "w-full md:w-1/2",
-          "flex justify-center items-center relative"
+          "flex justify-center items-center relative",
         )}
       >
         <img
@@ -70,15 +46,18 @@ export default function CarouselCards() {
           height={320}
           alt="Personaje Corriendo"
           src={run}
-          className="transform transition-transform duration-300 group-hover:scale-150 -translate-y-4"
-        />
+          className={cn(
+            'transform transition-transform duration-300',
+            'group-hover:scale-150 -translate-y-4',
+          )}
+          />
 
         <span
           className={cn(
-            "rounded-r-lg",
+            "rounded-r-lg md:top-3/5",
             "absolute bottom-10 left-0 pl-20",
             "bg-peachTint w-[250px] h-[40px]",
-            "text-charcoalBlack items-center flex"
+            "text-charcoalBlack items-center flex",
           )}
         >
           Software Developer
@@ -86,7 +65,9 @@ export default function CarouselCards() {
       </div>
 
       <div
-        className={cn("w-full md:w-1/2 flex flex-col justify-center items-end")}
+        className={cn(
+          "w-full md:w-1/2 flex flex-col justify-center items-end",
+        )}
       >
         <span className="text-2xl md:text-4xl text-peachTint pr-12">
           Trayectoria

@@ -11,7 +11,37 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   return (
-    <>
+    <div
+      className={cn(
+        "absolute h-screen w-[80px] pt-8 z-103",
+        "flex flex-col justify-start items-center"
+      )}
+    >
+      {/* Panel izquierdo en desktop */}
+      {!isDesktop && (
+        <div className={cn("hidden md:flex flex-col gap-6")}>
+          <Link to="/" className="group">
+            <MdOutlineMilitaryTech className="w-8 h-8 text-boneWhite group-hover:text-neutralBrown transition-colors duration-300 cursor-pointer" />
+          </Link>
+          <Link to="/report" className="group">
+            <GrTechnology className="w-8 h-8 text-boneWhite group-hover:text-softOrange transition-colors duration-300 cursor-pointer" />
+          </Link>
+          <Link to="/proyects" className="group">
+            <LiaDnaSolid className="w-8 h-8 text-boneWhite group-hover:text-peachTint transition-colors duration-300 cursor-pointer" />
+          </Link>
+        </div>
+      )}
+
+      {/* Icono de menu */}
+      <IoIosMenu
+        onClick={() => setMenuOpen(true)}
+        className={cn(
+          isDesktop ? "" : "md:hidden",
+          "absolute top-2 left-4 w-8 h-8",
+          "cursor-pointer text-boneWhite z-100"
+        )}
+      />
+
       {/* Fondo con sombra cuando el menú está abierto */}
       <div
         className={cn(
@@ -21,9 +51,7 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
           menuOpen
             ? "translate-x-0 opacity-100 pointer-events-auto bg-black/40"
             : "translate-x-full opacity-0 pointer-events-none",
-          isDesktop
-            ? "md:block"
-            : "md:hidden"
+          isDesktop ? "md:block" : "md:hidden"
         )}
         onClick={() => setMenuOpen(false)}
       />
@@ -36,7 +64,7 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
           "text-boneWhite text-lg gap-6",
           "fixed top-0 left-0 h-full z-101 transform",
           "transition-transform duration-300",
-          "bg-hazelBrown w-full sm:w-[200px] p-6 flex flex-col justify-center",
+          "bg-hazelBrown w-full sm:w-[200px] p-6 flex flex-col justify-center"
         )}
       >
         <MenuOption content="Inicio" />
@@ -44,41 +72,18 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
         <MenuOption content="Proyectos" route="proyects" />
       </div>
 
-      {/* Icono de menu */}
-      <IoIosMenu
-        onClick={() => setMenuOpen(true)}
-        className={cn(
-          "absolute top-2 left-4 w-8 h-8",
-          "cursor-pointer text-boneWhite z-100"
-        )}
-      />
-
       {/* Icono de cerrar */}
       {menuOpen && (
         <IoMdClose
           onClick={() => setMenuOpen(false)}
           className={cn(
+            isDesktop ? "" : "md:hidden",
             "absolute top-2 left-3 z-102",
-            "w-8 h-8 cursor-pointer text-boneWhite"
+            "w-8 h-8 cursor-pointer text-boneWhite",
           )}
         />
       )}
-
-      {/* Panel izquierdo en desktop */}
-      {!isDesktop && (
-        <div 
-          className={cn(
-            'hidden md:flex flex-col gap-6',
-            'items-center justify-center w-[70px]',
-            'border-4 border-solid border-black',
-          )}
-        >
-          <MdOutlineMilitaryTech className="w-8 h-8 text-white hover:text-neutralBrown cursor-pointer transition-colors duration-300" />
-          <GrTechnology className="w-8 h-8 text-white hover:text-softOrange cursor-pointer transition-colors duration-300" />
-          <LiaDnaSolid className="w-8 h-8 text-white hover:text-peachTint cursor-pointer transition-colors duration-300" />
-        </div>
-      )}
-    </>
+    </div>
   );
 }
 

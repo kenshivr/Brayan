@@ -11,18 +11,19 @@ import ReactLogo from "@src/svg/react";
 import TailwindLogo from "@src/svg/tailwind";
 import TypescriptLogo from "@src/svg/typescript";
 
+import type { JSX } from "react";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaGitAlt, FaReact, FaCss3Alt } from "react-icons/fa";
 import { SiTypescript, SiVite } from "react-icons/si";
 
 interface Card {
   id: number;
-  icon: any;
-  image: any;
+  icon: JSX.Element;
+  image: JSX.Element;
   title: string;
   subTitle: string;
   percentage: number;
-  chapter: any;
+  chapter: string;
   color: string;
 }
 
@@ -193,27 +194,11 @@ export default function CarouselCards() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[720px] my-8 py-8 text-softBeige flex items-center overflow-hidden"
+      className={cn(
+        'relative w-full h-[600px] pt-40 text-softBeige',
+        'flex items-center overflow-hidden bg-transparent',
+      )}
     >
-      <div
-        className={cn(
-          "blur-3xl",
-          "rounded-full z-0",
-          "top-40 -left-15",
-          "absolute w-20 h-20",
-          "bg-[color:var(--color-softOrange)]"
-        )}
-      />
-
-      <div
-        className={cn(
-          "blur-3xl",
-          "rounded-full z-0",
-          "bottom-40 -right-20",
-          "absolute w-20 h-20",
-          "bg-[color:var(--color-softOrange)]"
-        )}
-      />
 
       <div className="flex gap-12 h-[740px] px-16 py-9 items-center animate-scroll">
         {loopedCards.map((card: Card, idx) => {
@@ -228,11 +213,9 @@ export default function CarouselCards() {
               className={cn(
                 "relative group min-w-[200px] max-w-[200px] h-[300px] cursor-pointer",
                 "transition-transform duration-500 ease-in-out card",
-                // isActive ? 'scale-[1.2]' : 'scale-100',
                 isActive ? "scale-[1.2] card-active" : "scale-100",
                 "bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5"
               )}
-              // style={isActive ? { boxShadow: '0 0 20px #F6E3CE' } : {}}
             >
               <div
                 className={cn(
@@ -276,6 +259,7 @@ export default function CarouselCards() {
           );
         })}
       </div>
+
     </div>
   );
 }

@@ -143,9 +143,9 @@ export default function Table() {
     return (
         <div
             className={cn(
-                'w-full ',
+                'w-full pt-20',
+                'flex flex-col',
                 'text-softBeige',
-                'flex flex-col'
             )}
         >
 
@@ -164,9 +164,14 @@ export default function Table() {
                 />
             )}
 
-            <div className="relative w-full px-4">
+            <div className="relative w-full px-4 pb-4 md:pb-0">
 
-                <div className="absolute -top-32 left-1/2 transform -translate-x-1/2 z-10">
+                <div 
+                    className={cn(
+                        'absolute -top-32 left-1/2 transform',
+                        '-translate-x-1/2 z-10',
+                    )}
+                >
                     <img
                         src={top}
                         alt="Personaje Asomado"
@@ -187,7 +192,7 @@ export default function Table() {
                     scrollHeight="400px"
                     selection={selected!}
                     selectionMode="single"
-                    tableClassName="my-4"
+                    // tableClassName="my-4"
                     globalFilterMatchMode='contains'
                     rowClassName={() => "border-none"}
                     emptyMessage='No hay datos que mostrar'
