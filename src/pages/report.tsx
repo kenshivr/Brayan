@@ -5,7 +5,7 @@ import ThemeToggle from "@src/components/UI/ThemeToggle";
 export default function Report() {
 
   return (
-    <div className="relative">
+    <>
 
       <Menu isDesktop={true} />
 
@@ -14,6 +14,7 @@ export default function Report() {
       </div>
 
       <Table />
-    </div>
+      
+    </>
   );
 }

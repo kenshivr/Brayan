@@ -3,9 +3,13 @@ import cn from "@src/services/clsx";
 import { Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
-import { GrTechnology } from "react-icons/gr";
 import { LiaDnaSolid } from "react-icons/lia";
-import { MdOutlineMilitaryTech } from "react-icons/md";
+import { LuFile } from "react-icons/lu";
+import { GoHome } from "react-icons/go";
+import { AiOutlineFile } from "react-icons/ai";
+import { LiaFileSolid } from "react-icons/lia";
+import { LiaFile } from "react-icons/lia";
+import { BsBriefcase } from "react-icons/bs";
 
 export default function Menu({ isDesktop }: { isDesktop: boolean }) {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -20,14 +24,23 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
       {/* Panel izquierdo en desktop */}
       {!isDesktop && (
         <div className={cn("hidden md:flex flex-col gap-6")}>
-          <Link to="/" className="group">
-            <MdOutlineMilitaryTech className="w-8 h-8 text-boneWhite group-hover:text-neutralBrown transition-colors duration-300 cursor-pointer" />
+          <Link to="//" className="group">
+            <GoHome className="w-6 h-6 text-boneWhite group-hover:text-neutralBrown transition-colors duration-300 cursor-pointer" />
+          </Link>
+          {/* <Link to="/report" className="group">
+            <LuFile className="w-6 h-6 text-boneWhite group-hover:text-softOrange transition-colors duration-300 cursor-pointer" />
           </Link>
           <Link to="/report" className="group">
-            <GrTechnology className="w-8 h-8 text-boneWhite group-hover:text-softOrange transition-colors duration-300 cursor-pointer" />
+            <AiOutlineFile className="w-6 h-6 text-boneWhite group-hover:text-softOrange transition-colors duration-300 cursor-pointer" />
+          </Link> */}
+          <Link to="/report" className="group">
+            <LiaFile className="w-6 h-6 text-boneWhite group-hover:text-softOrange transition-colors duration-300 cursor-pointer" />
           </Link>
+          {/* <Link to="/report" className="group">
+            <LiaFileSolid className="w-6 h-6 text-boneWhite group-hover:text-softOrange transition-colors duration-300 cursor-pointer" />
+          </Link> */}
           <Link to="/proyects" className="group">
-            <LiaDnaSolid className="w-8 h-8 text-boneWhite group-hover:text-peachTint transition-colors duration-300 cursor-pointer" />
+            <BsBriefcase className="w-6 h-6 text-boneWhite group-hover:text-peachTint transition-colors duration-300 cursor-pointer" />
           </Link>
         </div>
       )}
@@ -64,10 +77,11 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
           "text-boneWhite text-lg gap-6",
           "fixed top-0 left-0 h-full z-101 transform",
           "transition-transform duration-300",
-          "bg-hazelBrown w-full sm:w-[200px] p-6 flex flex-col justify-center"
+          "shadow-lg backdrop-blur-md bg-hazelBrown/70",
+          "w-full sm:w-[200px] p-6 flex flex-col justify-center"
         )}
       >
-        <MenuOption content="Inicio" />
+        <MenuOption content="Inicio" route="/"/>
         <MenuOption content="Reporte" route="report" />
         <MenuOption content="Proyectos" route="proyects" />
       </div>

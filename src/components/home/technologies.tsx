@@ -213,7 +213,13 @@ export default function CarouselCards() {
               className={cn(
                 "relative group min-w-[200px] max-w-[200px] h-[300px] cursor-pointer",
                 "transition-transform duration-500 ease-in-out card",
-                isActive ? "scale-[1.2] card-active" : "scale-100",
+                // isActive ? "scale-[1.2] card-active-3" : "scale-100",
+                // isActive ? "scale-[1.2] card-active-13" : "scale-100",
+                // isActive ? "scale-[1.2] card-active-16" : "scale-100",
+                // isActive ? "scale-[1.2] card-active-1" : "scale-100",
+                // isActive ? "scale-[1.2] card-active-1" : "scale-100",
+                // isActive ? "scale-[1.2] card-active-4" : "scale-100",
+                isActive ? "scale-[1.2] card-active-16" : "scale-100",
                 "bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5"
               )}
             >

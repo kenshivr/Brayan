@@ -17,7 +17,7 @@ export default function MainContainer({
         className
       )}
     >
-      <div
+      {/* <div
         className={cn(
           "blur-3xl",
           "rounded-full z-0",
@@ -55,7 +55,7 @@ export default function MainContainer({
           "absolute w-20 h-20",
           "bg-[color:var(--color-boneWhite)]"
         )}
-      />
+      /> */}
 
       {children}
     </div>

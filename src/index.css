@@ -222,9 +222,295 @@ h1 {
   animation: scroll 20s linear infinite;
 }
 
-.card-active {
+/* .card-active {
   box-shadow: var(--shadow-active);
+} */
+
+.card-active {
+  box-shadow:
+    -10px -10px 30px #F3F9FF,
+    /* COLORS.lightShadow */
+    10px 10px 30px #AEAEC0;
+  /* COLORS.darkShadow */
 }
+
+/* .card-active-1 {
+  box-shadow: -10px -10px 30px #F3F9FF, 10px 10px 30px #AEAEC0;
+}
+
+.card-active-2 {
+  box-shadow:
+    -10px -10px 30px #FFFFFF,
+    10px 10px 30px #AEAEC0,
+    inset -10px -10px 30px rgba(0, 0, 0, 0.25),
+    inset 10px 10px 30px #F3F9FF;
+}
+
+.card-active-3 {
+  box-shadow:
+    inset -10px -10px 25px rgba(255, 255, 255, 0.9),
+    inset 10px 10px 25px rgba(170, 174, 236, 0.8);
+}
+
+.card-active-4 {
+  box-shadow:
+    inset -4px -4px 6px #FFFFFF,
+    inset 4px 4px 6px #AEAEC0;
+}
+
+.card-active-5 {
+  box-shadow:
+    inset -4px -4px 6px #FFFFFF,
+    inset 4px 4px 6px rgba(174, 174, 192, 0.2);
+}
+
+.card-active-6 {
+  box-shadow:
+    -8px -8px 16px rgba(255, 255, 255, 0.6),
+    8px 8px 16px rgba(0, 0, 0, 0.1),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.6),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-active-8 {
+  box-shadow:
+    -20px -20px 20px rgba(255, 255, 255, 0.6),
+    10px 10px 20px rgba(174, 174, 192, 0.4),
+    inset 4px 4px 6px #FFFFFF;
+}
+
+.card-active-10 {
+  box-shadow:
+    28px 28px 20px rgba(13, 39, 80, 0.5),
+    10px 10px 20px rgba(255, 255, 255, 0.45),
+    inset 4px 4px 6px #FFFFFF;
+}
+
+.card-active-11 {
+  box-shadow:
+    28px 28px 50px rgba(13, 39, 80, 0.16),
+    -23px -23px 45px rgba(255, 255, 255, 1),
+    inset -31px -31px 43px rgba(255, 255, 255, 0.64),
+    inset 26px 26px 48px rgba(13, 39, 80, 0.16);
+}
+
+.card-active-12 {
+  box-shadow:
+    28px 28px 50px rgba(13, 39, 80, 0.16),
+    -23px -23px 45px rgba(255, 255, 255, 1);
+}
+
+.card-active-13 {
+  box-shadow:
+    inset -31px -31px 43px rgba(255, 255, 255, 0.64),
+    inset 26px 26px 48px rgba(13, 39, 80, 0.16);
+}
+
+.card-active-15 {
+  box-shadow:
+    19px 27px 150px 7px rgba(155, 45, 193, 0.5),
+    -91px -93px 250px -62px rgba(66, 255, 123, 0.92),
+    86px -61px 107px -66px rgba(18, 220, 158, 0.73),
+    -85px 1px 133px -42px rgba(215, 255, 100, 1),
+    inset 0px 4px 204px 0px rgba(0, 0, 0, 0.2),
+    0px 28px 133px 0px rgba(255, 120, 174, 0.35);
+}
+
+
+.card-active-16 {
+  box-shadow:
+    -12px -12px 35px #F3F9FF,
+    12px 12px 35px #AEAEC0,
+    inset -12px -12px 35px #F3F9FF,
+    inset 12px 12px 35px #AEAEC0;
+} */
+
+/*
+.card-active-1 {
+  box-shadow:
+    -10px -10px 30px #795E59,
+    10px 10px 30px #34131A;
+}
+
+.card-active-2 {
+  box-shadow:
+    -10px -10px 30px #795E59,
+    10px 10px 30px #34131A,
+    inset -10px -10px 30px rgba(0, 0, 0, 0.25),
+    inset 10px 10px 30px #795E59;
+}
+
+.card-active-3 {
+  box-shadow:
+    inset -10px -10px 25px rgba(255, 255, 255, 0.9),
+    inset 10px 10px 25px rgba(170, 174, 236, 0.8);
+}
+
+.card-active-4 {
+  box-shadow:
+    inset -4px -4px 6px #FFFFFF,
+    inset 4px 4px 6px #34131A;
+}
+
+.card-active-5 {
+  box-shadow:
+    inset -4px -4px 6px #FFFFFF,
+    inset 4px 4px 6px rgba(174, 174, 192, 0.2);
+}
+
+.card-active-6 {
+  box-shadow:
+    -8px -8px 16px rgba(255, 255, 255, 0.6),
+    8px 8px 16px rgba(0, 0, 0, 0.1),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.6),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-active-8 {
+  box-shadow:
+    -20px -20px 20px rgba(255, 255, 255, 0.6),
+    10px 10px 20px rgba(174, 174, 192, 0.4),
+    inset 4px 4px 6px #FFFFFF;
+}
+
+.card-active-10 {
+  box-shadow:
+    28px 28px 20px rgba(13, 39, 80, 0.5),
+    10px 10px 20px rgba(255, 255, 255, 0.45),
+    inset 4px 4px 6px #FFFFFF;
+}
+
+.card-active-11 {
+  box-shadow:
+    28px 28px 50px rgba(13, 39, 80, 0.16),
+    -23px -23px 45px rgba(255, 255, 255, 1),
+    inset -31px -31px 43px rgba(255, 255, 255, 0.64),
+    inset 26px 26px 48px rgba(13, 39, 80, 0.16);
+}
+
+.card-active-12 {
+  box-shadow:
+    28px 28px 50px rgba(13, 39, 80, 0.16),
+    -23px -23px 45px rgba(255, 255, 255, 1);
+}
+
+.card-active-13 {
+  box-shadow:
+    inset -31px -31px 43px rgba(255, 255, 255, 0.64),
+    inset 26px 26px 48px rgba(13, 39, 80, 0.16);
+}
+
+.card-active-15 {
+  box-shadow:
+    19px 27px 150px 7px rgba(155, 45, 193, 0.5),
+    -91px -93px 250px -62px rgba(66, 255, 123, 0.92),
+    86px -61px 107px -66px rgba(18, 220, 158, 0.73),
+    -85px 1px 133px -42px rgba(215, 255, 100, 1),
+    inset 0px 4px 204px 0px rgba(0, 0, 0, 0.2),
+    0px 28px 133px 0px rgba(255, 120, 174, 0.35);
+}
+
+.card-active-16 {
+  box-shadow:
+    -12px -12px 35px #795E59,
+    12px 12px 35px #34131A,
+    inset -12px -12px 35px #795E59,
+    inset 12px 12px 35px #34131A;
+}
+*/
+/*
+.card-active-1 {
+  box-shadow:
+    -10px -10px 30px var(--shadow-external-light),
+    10px 10px 30px var(--shadow-external-dark);
+}
+
+.card-active-2 {
+  box-shadow:
+    -10px -10px 30px var(--shadow-external-light),
+    10px 10px 30px var(--shadow-external-dark),
+    inset -10px -10px 30px rgba(0, 0, 0, 0.25),
+    inset 10px 10px 30px var(--shadow-external-light);
+}
+
+.card-active-3 {
+  box-shadow:
+    inset -10px -10px 25px rgba(255, 255, 255, 0.9),
+    inset 10px 10px 25px rgba(170, 174, 236, 0.8);
+}
+
+.card-active-4 {
+  box-shadow:
+    inset -4px -4px 6px var(--shadow-internal-light),
+    inset 4px 4px 6px var(--shadow-external-dark);
+}
+
+.card-active-5 {
+  box-shadow:
+    inset -4px -4px 6px var(--shadow-internal-light),
+    inset 4px 4px 6px rgba(174, 174, 192, 0.2);
+}
+
+.card-active-6 {
+  box-shadow:
+    -8px -8px 16px rgba(255, 255, 255, 0.6),
+    8px 8px 16px rgba(0, 0, 0, 0.1),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.6),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-active-8 {
+  box-shadow:
+    -20px -20px 20px rgba(255, 255, 255, 0.6),
+    10px 10px 20px rgba(174, 174, 192, 0.4),
+    inset 4px 4px 6px var(--shadow-internal-light);
+}
+
+.card-active-10 {
+  box-shadow:
+    28px 28px 20px rgba(13, 39, 80, 0.5),
+    10px 10px 20px rgba(255, 255, 255, 0.45),
+    inset 4px 4px 6px var(--shadow-internal-light);
+}
+
+.card-active-11 {
+  box-shadow:
+    28px 28px 50px rgba(13, 39, 80, 0.16),
+    -23px -23px 45px rgba(255, 255, 255, 1),
+    inset -31px -31px 43px rgba(255, 255, 255, 0.64),
+    inset 26px 26px 48px rgba(13, 39, 80, 0.16);
+}
+
+.card-active-12 {
+  box-shadow:
+    28px 28px 50px rgba(13, 39, 80, 0.16),
+    -23px -23px 45px rgba(255, 255, 255, 1);
+}
+
+.card-active-13 {
+  box-shadow:
+    inset -31px -31px 43px rgba(255, 255, 255, 0.64),
+    inset 26px 26px 48px rgba(13, 39, 80, 0.16);
+}
+
+.card-active-15 {
+  box-shadow:
+    19px 27px 150px 7px rgba(155, 45, 193, 0.5),
+    -91px -93px 250px -62px rgba(66, 255, 123, 0.92),
+    86px -61px 107px -66px rgba(18, 220, 158, 0.73),
+    -85px 1px 133px -42px rgba(215, 255, 100, 1),
+    inset 0px 4px 204px 0px rgba(0, 0, 0, 0.2),
+    0px 28px 133px 0px rgba(255, 120, 174, 0.35);
+}
+
+.card-active-16 {
+  box-shadow:
+    -12px -12px 35px var(--shadow-external-light),
+    12px 12px 35px var(--shadow-external-dark),
+    inset -12px -12px 35px var(--shadow-external-light),
+    inset 12px 12px 35px var(--shadow-external-dark);
+}
+*/
 
 @keyframes slideLeft {
   0% {
@@ -262,6 +548,59 @@ h1 {
   bottom: 0;
 }
 
+.card-active-1 {
+  box-shadow: -10px -10px 30px var(--shadow-external-light), 10px 10px 30px var(--shadow-external-dark);
+}
+
+.card-active-2 {
+  box-shadow: -10px -10px 30px var(--shadow-external-light), 10px 10px 30px var(--shadow-external-dark), inset -10px -10px 30px rgba(0,0,0,0.25), inset 10px 10px 30px var(--shadow-external-light);
+}
+
+.card-active-3 {
+  box-shadow: inset -10px -10px 25px rgba(var(--color-darkBrown-rgb),0.9), inset 10px 10px 25px rgba(170,174,236,0.8);
+}
+
+.card-active-4 {
+  box-shadow: inset -4px -4px 6px var(--color-darkBrown), inset 4px 4px 6px var(--shadow-external-dark);
+}
+
+.card-active-5 {
+  box-shadow: inset -4px -4px 6px var(--color-darkBrown), inset 4px 4px 6px rgba(174,174,192,0.2);
+}
+
+.card-active-6 {
+  box-shadow: -8px -8px 16px rgba(var(--color-darkBrown-rgb),0.6), 8px 8px 16px rgba(0,0,0,0.1), inset 8px 8px 16px rgba(var(--color-darkBrown-rgb),0.6), inset -8px -8px 16px rgba(0,0,0,0.1);
+}
+
+.card-active-8 {
+  box-shadow: -20px -20px 20px rgba(var(--color-darkBrown-rgb),0.6), 10px 10px 20px rgba(174,174,192,0.4), inset 4px 4px 6px var(--color-darkBrown);
+}
+
+.card-active-10 {
+  box-shadow: 28px 28px 20px rgba(13,39,80,0.5), 10px 10px 20px rgba(var(--color-darkBrown-rgb),0.45), inset 4px 4px 6px var(--color-darkBrown);
+}
+
+.card-active-11 {
+  box-shadow: 28px 28px 50px rgba(13,39,80,0.16), -23px -23px 45px var(--color-darkBrown), inset -31px -31px 43px rgba(var(--color-darkBrown-rgb),0.64), inset 26px 26px 48px rgba(13,39,80,0.16);
+}
+
+.card-active-12 {
+  box-shadow: 28px 28px 50px rgba(13,39,80,0.16), -23px -23px 45px var(--color-darkBrown);
+}
+
+.card-active-13 {
+  box-shadow: inset -31px -31px 43px rgba(var(--color-darkBrown-rgb),0.64), inset 26px 26px 48px rgba(13,39,80,0.16);
+}
+
+.card-active-15 {
+  box-shadow: 19px 27px 150px 7px rgba(155,45,193,0.5), -91px -93px 250px -62px rgba(66,255,123,0.92), 86px -61px 107px -66px rgba(18,220,158,0.73), -85px 1px 133px -42px rgba(215,255,100,1), inset 0px 4px 204px 0px rgba(0,0,0,0.2), 0px 28px 133px 0px rgba(255,120,174,0.35);
+}
+
+.card-active-16 {
+  box-shadow: -12px -12px 35px var(--shadow-external-light), 12px 12px 35px var(--shadow-external-dark), inset -12px -12px 35px var(--shadow-external-light), inset 12px 12px 35px var(--shadow-external-dark);
+}
+
+
 @theme {
   --color-darkBrown: #3B2F2F;
   --color-charcoalBlack: #1F1F1F;
@@ -273,6 +612,12 @@ h1 {
   --color-peachTint: #FFD6AF;
   --color-softOrange: #FF8A65;
   --color-neutralBrown: #8D6E63;
+
+  --shadow-external-light: #795E59;
+  --shadow-external-dark: #34131A;
+  --shadow-internal-light: #856459;
+
+  --color-darkBrown-rgb: 59, 47, 47;
 
   --color-warmGreen: #6DBE7B;
   --color-warmRed: #C95B52;

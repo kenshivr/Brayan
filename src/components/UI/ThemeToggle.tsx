@@ -10,7 +10,7 @@ export default function ThemeToggle() {
     if (isDark) {
       root.style.setProperty('--color-darkBrown', '#3B2F2F');
       root.style.setProperty('--color-peachTint', '#FFD6AF');
-      
+
       root.style.setProperty('--color-softBeige', '#F6E3CE');
       root.style.setProperty('--color-charcoalBlack', '#1F1F1F');
 
@@ -27,16 +27,23 @@ export default function ThemeToggle() {
       root.style.setProperty('--color-darkBrown', '#FFD6AF');
 
       root.style.setProperty('--color-charcoalBlack', '#F6E3CE');
-      root.style.setProperty('--color-softBeige', '#1F1F1F');
+      root.style.setProperty('--color-softBeige', '#6D4C41');
 
       root.style.setProperty('--color-slateGray', '#F7B2B7');
       root.style.setProperty('--color-blushPink', '#6E6E6E');
-      
+
       root.style.setProperty('--color-softOrange', '#6D4C41');
       root.style.setProperty('--color-hazelBrown', '#FF8A65');
-      
+
       root.style.setProperty('--color-neutralBrown', '#FAF9F6');
-      root.style.setProperty('--color-boneWhite', '#8D6E63');
+      root.style.setProperty('--color-boneWhite', '#1F1F1F');
+
+      // posible root.style.setProperty('--color-boneWhite', '#F7B2B7'); // blushPink
+      
+      // posible root.style.setProperty('--color-boneWhite', '#FF8A65'); // softOrange
+      
+      // posible root.style.setProperty('--color-boneWhite', '#C95B52'); // warmRed
+
     }
   };
 

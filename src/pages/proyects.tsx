@@ -71,13 +71,8 @@ export default function Proyects() {
   };
 
   return (
-    <div
-      className={cn(
-        "w-screen h-screen overflow-hidden",
-        "flex flex-row flex-nowrap",
-        "text-softBeige relative",
-      )}
-    >
+    <>
+
       <Menu isDesktop={true} />
 
       <div
@@ -112,13 +107,13 @@ export default function Proyects() {
 
             <div>No se que poner aqui</div>
 
-            <div 
+            <div
               className={cn(
                 'relative',
                 'relative overflow-hidden',
                 'flex w-4/6 justify-center',
               )}
-              >
+            >
               <span
                 className={cn(
                   "marquee marquee-left text-4xl md:text-6xl lg:text-9xl",
@@ -172,6 +167,8 @@ export default function Proyects() {
           </div>
         ))}
       </div>
-    </div>
-  );
+
+    </>
+
+);
 }
