@@ -195,13 +195,11 @@ export default function CarouselCards() {
     <div
       ref={containerRef}
       className={cn(
-        'relative w-full h-[600px] pt-40 text-softBeige',
-        'flex items-center overflow-hidden bg-transparent',
+        "relative w-full h-[600px] pt-40 text-softBeige",
+        "flex items-center overflow-hidden bg-transparent"
       )}
     >
-
-      {/* <div className="flex gap-12 h-[740px] px-16 py-9 items-center animate-scroll"> */}
-      <div className="flex gap-12 h-[740px] px-16 py-9 items-center">
+      <div className="flex gap-12 h-[740px] px-16 py-9 items-center animate-scroll">
         {loopedCards.map((card: Card, idx) => {
           const isActive = idx % totalCards === centerIndex;
 
@@ -266,7 +264,6 @@ export default function CarouselCards() {
           );
         })}
       </div>
-
     </div>
   );
 }

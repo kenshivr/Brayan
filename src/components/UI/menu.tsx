@@ -84,6 +84,7 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
         <MenuOption content="Inicio" route="/"/>
         <MenuOption content="Reporte" route="report" />
         <MenuOption content="Proyectos" route="proyects" />
+        <MenuOption content="Componentes" route="test" />
       </div>
 
       {/* Icono de cerrar */}
