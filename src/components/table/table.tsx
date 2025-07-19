@@ -10,8 +10,8 @@ import { FilterMatchMode } from 'primereact/api';
 import TypescriptLogo from '@src/svg/typescript';
 import { useState, useRef, useMemo } from 'react';
 import type { ButtonProps } from 'primereact/button';
+import { ConfirmDialog } from 'primereact/confirmdialog';
 import { Toast, type ToastMessage } from 'primereact/toast';
-import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 import { DataTable, type DataTableFilterMeta } from 'primereact/datatable';
 
 export interface Technology {
@@ -192,16 +192,12 @@ export default function Table() {
                     scrollHeight="400px"
                     selection={selected!}
                     selectionMode="single"
-                    // tableClassName="my-4"
                     globalFilterMatchMode='contains'
                     rowClassName={() => "border-none"}
                     emptyMessage='No hay datos que mostrar'
                     onFilter={(e) => {
                         setFilters(e.filters);
                     }}
-                    // onValueChange={(data: any) => {
-                    //     setDataFiltered(data);
-                    // }}
                     onSelectionChange={(e) => {
                         const value = e.value;
                         setSelected(value);

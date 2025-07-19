@@ -600,7 +600,6 @@ h1 {
   box-shadow: -12px -12px 35px var(--shadow-external-light), 12px 12px 35px var(--shadow-external-dark), inset -12px -12px 35px var(--shadow-external-light), inset 12px 12px 35px var(--shadow-external-dark);
 }
 
-
 @theme {
   --color-darkBrown: #3B2F2F;
   --color-charcoalBlack: #1F1F1F;

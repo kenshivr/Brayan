@@ -200,7 +200,8 @@ export default function CarouselCards() {
       )}
     >
 
-      <div className="flex gap-12 h-[740px] px-16 py-9 items-center animate-scroll">
+      {/* <div className="flex gap-12 h-[740px] px-16 py-9 items-center animate-scroll"> */}
+      <div className="flex gap-12 h-[740px] px-16 py-9 items-center">
         {loopedCards.map((card: Card, idx) => {
           const isActive = idx % totalCards === centerIndex;
 
