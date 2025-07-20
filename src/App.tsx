@@ -5,6 +5,7 @@ import Home from '@pages/home';
 import Test from '@pages/test';
 import Report from '@pages/report';
 import Proyects from '@pages/proyects';
+import NotFound from '@pages/notFound';
 import MainContainer from '@components/UI/mainContainer';
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/report" element={<Report />} />
         <Route path="/proyects" element={<Proyects />} />
         <Route path="/test" element={<Test />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </MainContainer>
   );

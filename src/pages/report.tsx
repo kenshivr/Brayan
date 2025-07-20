@@ -7,7 +7,7 @@ export default function Report() {
   return (
     <>
 
-      <Menu isDesktop={true} />
+      <Menu isDesktop={false} />
 
       <div className="flex flex-col gap-6 pr-4 items-end justify-center w-1/2 h-12">
         <ThemeToggle />

@@ -210,7 +210,7 @@ export default function CarouselCards() {
                 cardRefs.current[idx] = el;
               }}
               className={cn(
-                "relative group min-w-[200px] max-w-[200px] h-[300px] cursor-pointer",
+                "relative group min-w-[200px] max-w-[200px] h-[300px]",
                 "transition-transform duration-500 ease-in-out card",
                 // isActive ? "scale-[1.2] card-active-3" : "scale-100",
                 // isActive ? "scale-[1.2] card-active-13" : "scale-100",

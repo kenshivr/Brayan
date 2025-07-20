@@ -4,7 +4,8 @@ import image from "@public/wink.png";
 
 // Paleta de colores base para neumorphism
 const COLORS = {
-    base: '#E7E7E7',
+    base: '#3B2F2F',
+    // base: '#E7E7E7',
     lightShadow: '#F3F9FF',
     darkShadow: '#AEAEC0',
     insetDarkShadow: 'rgba(0, 0, 0, 0.25)',
@@ -198,6 +199,32 @@ const Neumorphism9: React.FC<NeumorphismProps> = () => {
     )
 };
 
+// const Neumorphism10: React.FC<NeumorphismProps> = ({
+//     w = 300,
+//     h = 300,
+//     children,
+//     className,
+// }) => (
+//     <div
+//         style={{
+//             width: `${w}px`,
+//             height: `${h}px`,
+//             backgroundColor: COLORS.base,
+//             boxShadow:
+//                 `
+//                     28px 28px 20px rgba(13,39,80,0.5),
+//                     10px 10px 20px rgba(255,255,255,0.45),
+//                     inset 4px 4px 6px #FFFFFF
+//                 `
+//                     .trim()
+//                     .replace(/\s+/g, " ")
+//         }}
+//         className={`rounded-xl ${className}`}
+//     >
+//         {children}
+//     </div>
+// );
+
 const Neumorphism10: React.FC<NeumorphismProps> = ({
     w = 300,
     h = 300,
@@ -211,9 +238,9 @@ const Neumorphism10: React.FC<NeumorphismProps> = ({
             backgroundColor: COLORS.base,
             boxShadow:
                 `
-                    28px 28px 20px rgba(13,39,80,0.5),
-                    10px 10px 20px rgba(255,255,255,0.45),
-                    inset 4px 4px 6px #FFFFFF
+                    28px 28px 20px rgba(0,0,0,0.5),
+                    10px 10px 20px rgba(0,0,0,0.45),
+                    inset 4px 4px 6px #534747
                 `
                     .trim()
                     .replace(/\s+/g, " ")

@@ -73,7 +73,7 @@ export default function Proyects() {
   return (
     <>
 
-      <Menu isDesktop={true} />
+      <Menu isDesktop={false} />
 
       <div
         className={cn(

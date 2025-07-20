@@ -47,7 +47,7 @@ export default function ThemeToggle() {
   return (
     <div
       onClick={() => setIsDark((prev) => !prev)}
-      className={`fixed top-3 right-3 z-50 w-[60px] h-[34px] rounded-full cursor-pointer transition-colors duration-500
+      className={`fixed top-3 right-3 z-50 w-[60px] h-[34px] rounded-full transition-colors duration-500
     ${
       isDark
         ? "bg-gradient-to-r from-darkBrown to-charcoalBlack"

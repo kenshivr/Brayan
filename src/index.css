@@ -222,6 +222,10 @@ h1 {
   animation: scroll 20s linear infinite;
 }
 
+a, a:hover, a:focus {
+  cursor: none !important;
+}
+
 /* .card-active {
   box-shadow: var(--shadow-active);
 } */

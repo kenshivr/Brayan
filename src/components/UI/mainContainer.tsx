@@ -1,5 +1,6 @@
 import cn from "@src/services/clsx";
 import { type ReactNode } from "react";
+import AnimationMouse from "./animationMouse";
 
 export default function MainContainer({
   children,
@@ -17,6 +18,9 @@ export default function MainContainer({
         className
       )}
     >
+
+      <AnimationMouse />
+      
       {/* <div
         className={cn(
           "blur-3xl",
