@@ -16,6 +16,8 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import { FaGitAlt, FaReact, FaCss3Alt } from "react-icons/fa";
 import { SiTypescript, SiVite } from "react-icons/si";
 
+import { Neumorphism1 } from "@src/pages/test";
+
 interface Card {
   id: number;
   icon: JSX.Element;
@@ -204,7 +206,59 @@ export default function CarouselCards() {
           const isActive = idx % totalCards === centerIndex;
 
           return (
-            <div
+            // <div
+            //   key={idx}
+            //   ref={(el) => {
+            //     cardRefs.current[idx] = el;
+            //   }}
+            //   className={cn(
+            //     "relative group min-w-[200px] max-w-[200px] h-[300px]",
+            //     "transition-transform duration-500 ease-in-out card",
+            //     isActive ? "scale-[1.2] card-active-16" : "scale-100",
+            //     "bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5"
+            //   )}
+            // >
+            //   <div
+            //     className={cn(
+            //       `${card.color}`,
+            //       "backgroundCard rounded-xl flex flex-col justify-start items-center pt-12",
+            //       "absolute bottom-14 right-0 h-full w-1/2 transition-all duration-500 ease-in-out",
+            //       isActive ? "h-[130%] w-[80%]" : "",
+            //       "overflow-hidden"
+            //     )}
+            //   >
+            //     <div
+            //       className={cn(
+            //         "transition-opacity duration-300 z-10 w-full ml-2",
+            //         isActive ? "opacity-100" : "opacity-0"
+            //       )}
+            //     >
+            //       <img
+            //         width={100}
+            //         height={100}
+            //         alt="character"
+            //         src={card.chapter}
+            //       />
+            //       <div className="w-2/3 mt-2 mx-auto flex items-center gap-2">
+            //         <div className="flex-1 h-2 bg-hazelBrown rounded-full overflow-hidden">
+            //           <div
+            //             className="h-full bg-darkBrown transition-all duration-500"
+            //             style={{ width: `${card.percentage}%` }}
+            //           />
+            //         </div>
+            //         <span className="text-charcoalBlack text-sm whitespace-nowrap">
+            //           {card.percentage}%
+            //         </span>
+            //       </div>
+            //     </div>
+            //   </div>
+            //   <div className="absolute top-10 right-5">{card.image}</div>
+            //   {card.icon}
+            //   <span className="text-base">{card.title}</span>
+            //   <span className="text-3xl mt-6">{card.subTitle}</span>
+            // </div>
+
+            <Neumorphism1
               key={idx}
               ref={(el) => {
                 cardRefs.current[idx] = el;
@@ -212,12 +266,6 @@ export default function CarouselCards() {
               className={cn(
                 "relative group min-w-[200px] max-w-[200px] h-[300px]",
                 "transition-transform duration-500 ease-in-out card",
-                // isActive ? "scale-[1.2] card-active-3" : "scale-100",
-                // isActive ? "scale-[1.2] card-active-13" : "scale-100",
-                // isActive ? "scale-[1.2] card-active-16" : "scale-100",
-                // isActive ? "scale-[1.2] card-active-1" : "scale-100",
-                // isActive ? "scale-[1.2] card-active-1" : "scale-100",
-                // isActive ? "scale-[1.2] card-active-4" : "scale-100",
                 isActive ? "scale-[1.2] card-active-16" : "scale-100",
                 "bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5"
               )}
@@ -260,7 +308,7 @@ export default function CarouselCards() {
               {card.icon}
               <span className="text-base">{card.title}</span>
               <span className="text-3xl mt-6">{card.subTitle}</span>
-            </div>
+            </Neumorphism1>
           );
         })}
       </div>
