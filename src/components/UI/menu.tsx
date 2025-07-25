@@ -72,7 +72,7 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
           <Link to="/proyects" className="group">
             <PiProjectorScreen className="w-6 h-6 text-boneWhite group-hover:text-peachTint transition-colors duration-300" />
           </Link>
-          <Link to="/test" className="group">
+          <Link to="/components" className="group">
             <GoPackage className="w-6 h-6 text-boneWhite group-hover:text-peachTint transition-colors duration-300" />
           </Link>
         </div>

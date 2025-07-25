@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && powershell -Command \"Copy-Item -Path dist/index.html -Destination dist/404.html\"",    
+    "build": "vite build && powershell -Command \"Copy-Item -Path dist/index.html -Destination dist/404.html\"",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint ."
@@ -22,7 +22,8 @@
     "react-router-dom": "^7.6.3",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.8",
-    "vite-imagetools": "^7.1.0"
+    "vite-imagetools": "^7.1.0",
+    "zustand": "^5.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
