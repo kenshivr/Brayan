@@ -1,5 +1,6 @@
 // types/theme.ts
-export type ColorPalette = {
+
+export type Theme = {
   firstColor: string;
   secondColor: string;
   thirdColor: string;
@@ -7,8 +8,4 @@ export type ColorPalette = {
   fifthColor: string;
 };
 
-export type Theme = {
-  name: string;
-  light: ColorPalette;
-  dark: ColorPalette;
-};
+export type Themes = Record<string, Theme>

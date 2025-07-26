@@ -292,11 +292,11 @@ a:focus {
   --color-warmGreen: #6DBE7B;
   --color-warmRed: #C95B52;
 
-  --first-color: #1E90FF;
-  --second-color: #00CED1;
-  --third-color: #87CEFA;
-  --fourth-color: #E0FFFF;
-  --fifth-color: #F0F8FF;
+  --first-color: #1F1F1F;
+  --second-color: #3B2F2F;
+  --third-color: #6D4C41;
+  --fourth-color: #F7B2B7;
+  --fifth-color: #F6E3CE;
 }
 
 /* 
