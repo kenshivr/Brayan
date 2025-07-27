@@ -11,16 +11,16 @@ export default function MainContainer({
 }) {
   return (
     <div
+      style={{ backgroundColor: "var(--color-fifthColor)" }}
       className={cn(
         "overflow-x-hidden",
         "transition-all duration-300 ease-in-out relative",
-        "h-screen w-screen bg-darkBrown overflow-y-auto",
+        "h-screen w-screen overflow-y-auto",
         className
       )}
     >
-
       <AnimationMouse />
-      
+
       {/* <div
         className={cn(
           "blur-3xl",

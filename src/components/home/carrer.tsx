@@ -3,7 +3,6 @@ import cn from "@src/services/clsx";
 import { GiProgression } from "react-icons/gi";
 
 export default function CarouselCards() {
-
   const texts: string[] = [
     `
             Preslow: Trabaje como desarrollador de software junior
@@ -28,17 +27,17 @@ export default function CarouselCards() {
 
   return (
     <div
+      style={{ color: "var(--color-firstColor)" }}
       className={cn(
         "min-h-[800px] bg-transparent",
-        "relative overflow-hidden w-full text-softBeige", 
-        "flex flex-col justify-center md:justify-center md:flex-row",
+        "relative overflow-hidden w-full",
+        "flex flex-col justify-center md:justify-center md:flex-row"
       )}
     >
-
       <div
         className={cn(
           "w-full md:w-1/2",
-          "flex justify-center items-center relative",
+          "flex justify-center items-center relative"
         )}
       >
         <img
@@ -47,17 +46,21 @@ export default function CarouselCards() {
           alt="Personaje Corriendo"
           src={run}
           className={cn(
-            'transform transition-transform duration-300',
-            'group-hover:scale-150 -translate-y-4',
+            "transform transition-transform duration-300",
+            "group-hover:scale-150 -translate-y-4"
           )}
-          />
+        />
 
         <span
+          style={{
+            color: "var(--color-firstColor)",
+            backgroundColor: "var(--color-secondColor)",
+          }}
           className={cn(
             "rounded-r-lg md:top-3/5",
             "absolute bottom-10 left-0 pl-20",
             "bg-peachTint w-[250px] h-[40px]",
-            "text-charcoalBlack items-center flex",
+            "items-center flex"
           )}
         >
           Software Developer
@@ -65,15 +68,19 @@ export default function CarouselCards() {
       </div>
 
       <div
-        className={cn(
-          "w-full md:w-1/2 flex flex-col justify-center items-end",
-        )}
+        className={cn("w-full md:w-1/2 flex flex-col justify-center items-end")}
       >
-        <span className="text-2xl md:text-4xl text-peachTint pr-12">
+        <span
+          style={{ color: "var(--color-secondColor)" }}
+          className="text-2xl md:text-4xl pr-12"
+        >
           Trayectoria
         </span>
 
-        <h3 className="text-5xl md:text-7xl mb-4 text-softOrange pr-12">
+        <h3
+          style={{ color: "var(--color-firstColor)" }}
+          className="text-5xl md:text-7xl mb-4 pr-12"
+        >
           Profecional
         </h3>
 

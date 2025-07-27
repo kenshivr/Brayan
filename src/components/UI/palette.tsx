@@ -1,43 +1,5 @@
 import { type Themes } from "@src/types/theme";
 
-// export const themes: Themes = {
-//   stoneMist: {
-//     firstColor: "#7B737D",
-//     secondColor: "#958B8C",
-//     thirdColor: "#ABA7A6",
-//     fourthColor: "#BAC1C5",
-//     fifthColor: "#E3E6D8",
-//   },
-//   midnightRose: {
-//     firstColor: "#11121D",
-//     secondColor: "#29243E",
-//     thirdColor: "#3F458A",
-//     fourthColor: "#7A4CC5",
-//     fifthColor: "#BF7A8D",
-//   },
-//   steelDepths: {
-//     firstColor: "#06141B",
-//     secondColor: "#11212D",
-//     thirdColor: "#253745",
-//     fourthColor: "#4A5C6A",
-//     fifthColor: "#9BA8AB",
-//   },
-//   antiqueInk: {
-//     firstColor: "#27363F",
-//     secondColor: "#6B212C",
-//     thirdColor: "#685652",
-//     fourthColor: "#8EA1AE",
-//     fifthColor: "#DCE0E8",
-//   },
-//   plumOcean: {
-//     firstColor: "#0F2D4D",
-//     secondColor: "#133B5E",
-//     thirdColor: "#174871",
-//     fourthColor: "#A77693",
-//     fifthColor: "#DED1C6",
-//   },
-// };
-
 export const themes: Themes = {
   stoneMist: {
     firstColor: "#E3E6D8",

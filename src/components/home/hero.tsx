@@ -20,8 +20,12 @@ export default function Hero({
       {/* Contenido principal */}
       <div className="relative flex flex-col justify-center items-center w-full order-2 md:order-none py-6">
         <img src={image} width={200} alt="Personaje" />
-        <p className="text-5xl text-softBeige">Brayan Vidal</p>
-        <p className="text-5xl text-boneWhite">Dev</p>
+        <p 
+          style={{ color: "var(--color-firstColor)" }}
+          className="text-5xl">Brayan Vidal</p>
+        <p 
+          style={{ color: "var(--color-secondColor)" }}
+          className="text-5xl">Dev</p>
       </div>
       
     </div>

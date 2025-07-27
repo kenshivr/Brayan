@@ -17,6 +17,7 @@ import { FaGitAlt, FaReact, FaCss3Alt } from "react-icons/fa";
 import { SiTypescript, SiVite } from "react-icons/si";
 
 import { Neumorphism1 } from "@src/pages/components";
+import { useThemeStore } from "@src/context/themeStore";
 
 interface Card {
   id: number;
@@ -38,7 +39,7 @@ const cards: Card[] = [
     subTitle: "Framework CSS",
     percentage: 80,
     chapter: sadnessGreetings,
-    color: "bg-softBeige",
+    color: "firstColor",
   },
   {
     id: 2,
@@ -48,7 +49,7 @@ const cards: Card[] = [
     subTitle: "Version Control",
     percentage: 70,
     chapter: topLeftCorner,
-    color: "bg-blushPink",
+    color: "secondColor",
   },
   {
     id: 3,
@@ -58,7 +59,7 @@ const cards: Card[] = [
     subTitle: "Libreria JS",
     percentage: 85,
     chapter: down,
-    color: "bg-boneWhite",
+    color: "thirdColor",
   },
   {
     id: 4,
@@ -68,7 +69,7 @@ const cards: Card[] = [
     subTitle: "TS Language",
     percentage: 90,
     chapter: sadnessGreetings,
-    color: "bg-slateGray",
+    color: "fourthColor",
   },
   {
     id: 5,
@@ -78,7 +79,7 @@ const cards: Card[] = [
     subTitle: "Stylesheets",
     percentage: 65,
     chapter: topLeftCorner,
-    color: "bg-peachTint",
+    color: "thirdColor",
   },
   {
     id: 6,
@@ -88,7 +89,7 @@ const cards: Card[] = [
     subTitle: "Vite JS",
     percentage: 75,
     chapter: down,
-    color: "bg-softOrange",
+    color: "firstColor",
   },
   {
     id: 7,
@@ -98,7 +99,7 @@ const cards: Card[] = [
     subTitle: "Tailwind CSS",
     percentage: 80,
     chapter: sadnessGreetings,
-    color: "bg-softBeige",
+    color: "secondColor",
   },
   {
     id: 8,
@@ -108,7 +109,7 @@ const cards: Card[] = [
     subTitle: "Git Control",
     percentage: 72,
     chapter: topLeftCorner,
-    color: "bg-blushPink",
+    color: "thirdColor",
   },
   {
     id: 9,
@@ -118,7 +119,7 @@ const cards: Card[] = [
     subTitle: "React Framework",
     percentage: 85,
     chapter: down,
-    color: "bg-boneWhite",
+    color: "fourthColor",
   },
   {
     id: 10,
@@ -128,7 +129,7 @@ const cards: Card[] = [
     subTitle: "TypeScript",
     percentage: 90,
     chapter: sadnessGreetings,
-    color: "bg-slateGray",
+    color: "thirdColor",
   },
   {
     id: 11,
@@ -138,7 +139,7 @@ const cards: Card[] = [
     subTitle: "CSS3",
     percentage: 68,
     chapter: topLeftCorner,
-    color: "bg-peachTint",
+    color: "firstColor",
   },
   {
     id: 12,
@@ -148,11 +149,12 @@ const cards: Card[] = [
     subTitle: "Next-gen tooling",
     percentage: 78,
     chapter: down,
-    color: "bg-softOrange",
+    color: "secondColor",
   },
 ];
 
 export default function CarouselCards() {
+  const palette = useThemeStore((state) => state.themes[state.selectedPalette]);
   const totalCards = cards.length;
   const loopedCards = [...cards, ...cards];
   const containerRef = useRef<HTMLDivElement>(null);
@@ -196,8 +198,9 @@ export default function CarouselCards() {
   return (
     <div
       ref={containerRef}
+      style={{ color: "var(--color-firstColor)" }}
       className={cn(
-        "relative w-full h-[600px] pt-40 text-softBeige",
+        "relative w-full h-[600px] pt-40",
         "flex items-center overflow-hidden bg-transparent"
       )}
     >
@@ -215,17 +218,19 @@ export default function CarouselCards() {
                 "relative group min-w-[200px] max-w-[200px] h-[300px]",
                 "transition-transform duration-500 ease-in-out card",
                 isActive ? "scale-[1.2] card-active-16" : "scale-100",
-                "bg-hazelBrown rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5"
+                "rounded-2xl flex flex-col justify-end items-start gap-4 pb-10 pl-5"
               )}
             >
               <div
                 className={cn(
-                  `${card.color}`,
                   "backgroundCard rounded-xl flex flex-col justify-start items-center pt-12",
                   "absolute bottom-14 right-0 h-full w-1/2 transition-all duration-500 ease-in-out",
                   isActive ? "h-[130%] w-[80%]" : "",
                   "overflow-hidden"
                 )}
+                style={{
+                  backgroundColor: palette[card.color as keyof typeof palette],
+                }}
               >
                 <div
                   className={cn(

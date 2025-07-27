@@ -13,6 +13,7 @@ import type { ButtonProps } from 'primereact/button';
 import { ConfirmDialog } from 'primereact/confirmdialog';
 import { Toast, type ToastMessage } from 'primereact/toast';
 import { DataTable, type DataTableFilterMeta } from 'primereact/datatable';
+import { useThemeStore } from '@src/context/themeStore';
 
 export interface Technology {
     id: number;
@@ -29,6 +30,9 @@ const MODE = {
 };
 
 export default function Table() {
+    const { themes, selectedPalette } = useThemeStore();
+    const theme = themes[selectedPalette];
+
     const toast = useRef<Toast>(null);
     const [item, setItem] = useState<Technology | null>(null);
     const [selected, setSelected] = useState<Technology | null>(null);
@@ -61,7 +65,7 @@ export default function Table() {
 
     const [mode, setMode] = useState(MODE.MODIFY);
     const [popout, setPopout] = useState<boolean>(false);
-    
+
     const [filters, setFilters] = useState<DataTableFilterMeta>({
         name: { value: null, matchMode: FilterMatchMode.CONTAINS },
         version: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -108,12 +112,19 @@ export default function Table() {
             {...props}
             outlined
             size="small"
-            className="!text-softBeige !bg-hazelBrown !border-softBeige"
+            style={{
+                color: theme.firstColor,
+                backgroundColor: theme.fifthColor,
+                borderColor: theme.firstColor,
+            }}
         />
     );
 
     const header = useMemo(() => (
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-hazelBrown p-4 rounded-lg text-softBeige">
+        <div
+            className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-4 rounded-lg"
+            style={{ backgroundColor: theme.fifthColor, color: theme.firstColor }}
+        >
             <span className="text-xl font-bold flex justify-center sm:justify-start">Tecnologías</span>
 
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
@@ -122,7 +133,7 @@ export default function Table() {
                 <ActionButton label="Exportar" icon="pi pi-download" />
             </div>
         </div>
-    ), [selected]);
+    ), [selected, theme]);
 
     const imageBodyTemplate = (tech: Technology) => tech.image;
 
@@ -143,12 +154,10 @@ export default function Table() {
     return (
         <div
             className={cn(
-                'w-full pt-20',
-                'flex flex-col',
-                'text-softBeige',
+                'w-full pt-20 flex flex-col'
             )}
+            style={{ color: theme.firstColor }}
         >
-
             <Toast ref={toast} position='bottom-right' />
 
             <ConfirmDialog />
@@ -168,8 +177,7 @@ export default function Table() {
 
                 <div 
                     className={cn(
-                        'absolute -top-32 left-1/2 transform',
-                        '-translate-x-1/2 z-10',
+                        'absolute -top-32 left-1/2 transform -translate-x-1/2 z-10'
                     )}
                 >
                     <img

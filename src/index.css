@@ -7,15 +7,15 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #3B2F2F;
+  color: var(--color-firstColor);
+  background-color: var(--color-fifthColor);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --shadow-active: 0 0 20px var(--color-boneWhite);
+  --shadow-active: 0 0 20px var(--color-fifthColor);
 }
 
 body {
@@ -33,16 +33,16 @@ h1 {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--color-charcoalBlack);
+    background-color: var(--color-softBeige);
   }
 
   a:hover {
-    color: #747bff;
+    color: var(--color-peachTint);
   }
 
   button {
-    background-color: #f9f9f9;
+    background-color: var(--color-softBeige);
   }
 }
 
@@ -53,26 +53,22 @@ h1 {
       0% 40%);
 }
 
-/* También aplicar redondeo al wrapper que contiene la tabla */
 .p-datatable-wrapper {
   border-radius: 0.5rem !important;
   background-color: var(--color-hazelBrown) !important;
 }
 
-/* Quitar bordes de las celdas */
 .p-datatable td,
 .p-datatable th {
   border: none !important;
   box-shadow: none !important;
 }
 
-/* Encabezados */
 .p-datatable .p-datatable-thead>tr>th {
   color: var(--color-softBeige);
   background-color: var(--color-hazelBrown);
 }
 
-/* Filas base normales */
 .p-datatable .p-datatable-tbody>tr {
   color: var(--color-softBeige);
   background-color: var(--color-hazelBrown);
@@ -98,7 +94,6 @@ h1 {
   background-color: var(--color-peachTint) !important;
 }
 
-/* Fondo del menú emergente */
 .p-column-filter-menu {
   box-shadow: none;
   border-radius: 8px;
@@ -149,25 +144,21 @@ h1 {
   background-color: var(--color-hazelBrown) !important;
 }
 
-/* Fondo del toast de éxito */
 .p-toast .p-toast-message.p-toast-message-success {
   color: var(--color-softBeige) !important;
   background-color: var(--color-neutralBrown) !important;
   border-left: 4px solid var(--color-hazelBrown) !important;
 }
 
-/* Ícono del toast */
 .p-toast .p-toast-message.p-toast-message-success .p-toast-message-icon {
   color: var(--color-hazelBrown) !important;
 }
 
-/* Título y detalle del mensaje */
 .p-toast .p-toast-message .p-toast-summary,
 .p-toast .p-toast-message .p-toast-detail {
   color: var(--color-softBeige) !important;
 }
 
-/* Estilo para el botón de cerrar del Toast */
 .p-toast .p-toast-message .p-toast-icon-close {
   font-size: 1.2rem;
   border: none !important;
@@ -179,43 +170,34 @@ h1 {
   background-color: var(--color-softOrange) !important;
 }
 
-/* Desaparece el boton de los filtros */
 .p-column-filter-menu-button {
   display: none !important;
 }
 
-/* Cambiar colores del componente dropdown */
 .p-dropdown {
   border-radius: 0.5rem;
-  color: var(--softBeige);
+  color: var(--color-softBeige);
   border-color: var(--color-boneWhite);
-  background-color: var(--hazelBrown);
+  background-color: var(--color-hazelBrown);
 }
 
 .p-dropdown-panel {
-  background-color: var(--hazelBrown);
+  background-color: var(--color-hazelBrown);
   border-color: var(--color-boneWhite);
 }
 
-/* Ítems dentro del panel */
 .p-dropdown-item {
   color: var(--color-boneWhite);
 }
 
-/* Opcional: cuando el ítem está enfocado o seleccionado */
 .p-dropdown-item.p-highlight {
-  color: var(--hazelBrown);
-  background-color: var(--hazelBrown);
+  color: var(--color-hazelBrown);
+  background-color: var(--color-hazelBrown);
 }
 
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(-248px * 12));
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-248px * 12)); }
 }
 
 .animate-scroll {
@@ -235,23 +217,13 @@ a:focus {
 }
 
 @keyframes slideLeft {
-  0% {
-    transform: translateX(200%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(200%); }
+  100% { transform: translateX(-100%); }
 }
 
 @keyframes slideRight {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(220%);
-  }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(220%); }
 }
 
 .marquee {
@@ -271,52 +243,7 @@ a:focus {
 }
 
 @theme {
-  --color-darkBrown: #3B2F2F;
-  --color-charcoalBlack: #1F1F1F;
-  --color-softBeige: #F6E3CE;
-  --color-blushPink: #F7B2B7;
-  --color-hazelBrown: #6D4C41;
-  
-  --color-boneWhite: #FAF9F6;
-  --color-slateGray: #6E6E6E;
-  --color-peachTint: #FFD6AF;
-  --color-softOrange: #FF8A65;
-  --color-neutralBrown: #8D6E63;
-
-  --shadow-external-light: #795E59;
-  --shadow-external-dark: #34131A;
-  --shadow-internal-light: #856459;
-
   --color-darkBrown-rgb: 59, 47, 47;
-
   --color-warmGreen: #6DBE7B;
   --color-warmRed: #C95B52;
-
-  --first-color: #1F1F1F;
-  --second-color: #3B2F2F;
-  --third-color: #6D4C41;
-  --fourth-color: #F7B2B7;
-  --fifth-color: #F6E3CE;
 }
-
-/* 
-
-🎨 Colores para MODO CLARO (light mode)
-  
---color-softBeige: #F6E3CE;
---color-blushPink: #F7B2B7;
---color-boneWhite: #FAF9F6;
---color-peachTint: #FFD6AF;
---color-softOrange: #FF8A65;
---color-warmGreen: #6DBE7B;
-
-🌑 Colores para MODO OSCURO (dark mode)
-  
---color-darkBrown: #3B2F2F;
---color-charcoalBlack: #1F1F1F;
---color-hazelBrown: #6D4C41;
---color-slateGray: #6E6E6E;
---color-neutralBrown: #8D6E63;
---color-warmRed: #C95B52;
-
-¨*/
