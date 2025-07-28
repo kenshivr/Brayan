@@ -1,5 +1,5 @@
 import cn from "@src/services/clsx";
-import image from "@public/wink2.png";
+import image from "@public/inComputer3D.png";
 import { type ReactNode } from "react";
 
 export default function Hero({
@@ -19,7 +19,7 @@ export default function Hero({
 
       {/* Contenido principal */}
       <div className="relative flex flex-col justify-center items-center w-full order-2 md:order-none py-6">
-        <img src={image} width={200} alt="Personaje" />
+        <img src={image} width={300} alt="Personaje" />
         <p 
           style={{ color: "var(--color-firstColor)" }}
           className="text-5xl">Brayan Vidal</p>

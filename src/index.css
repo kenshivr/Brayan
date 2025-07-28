@@ -65,8 +65,8 @@ h1 {
 }
 
 .p-datatable .p-datatable-thead>tr>th {
-  color: var(--color-softBeige);
-  background-color: var(--color-hazelBrown);
+  color: var(--color-firstColor);
+  background-color: var(--color-thirdColor);
 }
 
 .p-datatable .p-datatable-tbody>tr {
@@ -82,7 +82,7 @@ h1 {
 .p-inputtext {
   color: var(--color-softBeige) !important;
   border: 1px solid var(--color-softBeige) !important;
-  background-color: var(--color-hazelBrown) !important;
+  background-color: var(--color-thirdColor) !important;
 }
 
 .p-button {
@@ -125,8 +125,8 @@ h1 {
 }
 
 .p-datatable .p-datatable-tbody>tr.p-highlight {
-  color: var(--color-charcoalBlack) !important;
-  background-color: var(--color-softOrange) !important;
+  color: var(--color-fifthColor) !important;
+  background-color: var(--color-firstColor) !important;
 }
 
 .p-datatable .p-datatable-header {
@@ -140,34 +140,34 @@ h1 {
 .p-datatable .p-datatable-header,
 .p-datatable .p-datatable-footer {
   border-radius: 0.5rem !important;
-  color: var(--color-softBeige) !important;
-  background-color: var(--color-hazelBrown) !important;
+  color: var(--color-firstColor) !important;
+  background-color: var(--color-thirdColor) !important;
 }
 
 .p-toast .p-toast-message.p-toast-message-success {
-  color: var(--color-softBeige) !important;
-  background-color: var(--color-neutralBrown) !important;
-  border-left: 4px solid var(--color-hazelBrown) !important;
+  color: var(--color-fifthColor) !important;
+  background-color: var(--color-firstColor) !important;
+  border-left: 4px solid var(--color-fourthColor) !important;
 }
 
 .p-toast .p-toast-message.p-toast-message-success .p-toast-message-icon {
-  color: var(--color-hazelBrown) !important;
+  color: var(--color-fifthColor) !important;
 }
 
 .p-toast .p-toast-message .p-toast-summary,
 .p-toast .p-toast-message .p-toast-detail {
-  color: var(--color-softBeige) !important;
+  color: var(--color-fifthColor) !important;
 }
 
 .p-toast .p-toast-message .p-toast-icon-close {
   font-size: 1.2rem;
   border: none !important;
-  color: red;
-  background-color: var(--color-peachTint) !important;
+  color: var(--color-thirdColor);
+  background-color: var(--color-fourthColor) !important;
 }
 
 .p-toast .p-toast-message .p-toast-icon-close:hover {
-  background-color: var(--color-softOrange) !important;
+  background-color: var(--color-secondColor) !important;
 }
 
 .p-column-filter-menu-button {
@@ -176,14 +176,15 @@ h1 {
 
 .p-dropdown {
   border-radius: 0.5rem;
-  color: var(--color-softBeige);
-  border-color: var(--color-boneWhite);
-  background-color: var(--color-hazelBrown);
+  color: var(--color-firstColor);
+  border-color: var(--color-firstColor);
+  background-color: var(--color-thirdColor);
 }
 
 .p-dropdown-panel {
-  background-color: var(--color-hazelBrown);
-  border-color: var(--color-boneWhite);
+  color: var(--color-fifthColor);
+  background-color: var(--color-firstColor);
+  border-color: var(--color-fifthColor);
 }
 
 .p-dropdown-item {

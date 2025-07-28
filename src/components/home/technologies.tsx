@@ -1,7 +1,9 @@
 import cn from "@src/services/clsx";
 import down from "@public/winkHappyGreetings.png";
 import { useRef, useEffect, useState } from "react";
-import topLeftCorner from "@public/topLeftCorner.png";
+
+import topLeftCorner from "@public/bothHands3D.png";
+
 import sadnessGreetings from "../../../public/sadnessGreetings.png";
 
 import CssLogo from "@src/svg/css";
@@ -39,7 +41,7 @@ const cards: Card[] = [
     subTitle: "Framework CSS",
     percentage: 80,
     chapter: sadnessGreetings,
-    color: "firstColor",
+    color: "fourthColor",
   },
   {
     id: 2,
@@ -89,7 +91,7 @@ const cards: Card[] = [
     subTitle: "Vite JS",
     percentage: 75,
     chapter: down,
-    color: "firstColor",
+    color: "fourthColor",
   },
   {
     id: 7,
@@ -139,7 +141,7 @@ const cards: Card[] = [
     subTitle: "CSS3",
     percentage: 68,
     chapter: topLeftCorner,
-    color: "firstColor",
+    color: "fourthColor",
   },
   {
     id: 12,
@@ -234,7 +236,7 @@ export default function CarouselCards() {
               >
                 <div
                   className={cn(
-                    "transition-opacity duration-300 z-10 w-full ml-2",
+                    "transition-opacity duration-300 z-10 w-full ml-4",
                     isActive ? "opacity-100" : "opacity-0"
                   )}
                 >
@@ -245,10 +247,16 @@ export default function CarouselCards() {
                     src={card.chapter}
                   />
                   <div className="w-2/3 mt-2 mx-auto flex items-center gap-2">
-                    <div className="flex-1 h-2 bg-hazelBrown rounded-full overflow-hidden">
+                    <div 
+                      className="flex-1 h-2 rounded-full overflow-hidden"
+                      style={{ backgroundColor: 'var(--color-thirdColor)' }}
+                    >
                       <div
-                        className="h-full bg-darkBrown transition-all duration-500"
-                        style={{ width: `${card.percentage}%` }}
+                        className="h-full transition-all duration-500"
+                        style={{ 
+                          width: `${card.percentage}%`,
+                          backgroundColor: 'var(--color-firstColor)', 
+                        }}
                       />
                     </div>
                     <span className="text-charcoalBlack text-sm whitespace-nowrap">
