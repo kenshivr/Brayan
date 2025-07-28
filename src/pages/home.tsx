@@ -2,7 +2,7 @@ import Hero from "@components/home/hero";
 import Menu from "@src/components/UI/menu";
 import Carrer from "@components/home/carrer";
 import Technologies from "@components/home/technologies";
-import ColorOrb from "@src/components/home/colorOrb";
+// import ColorOrb from "@src/components/home/colorOrb";
 import ThemeToggle from "@src/components/UI/ThemeToggle";
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
 
       <Carrer />
 
-      <ColorOrb colors={["#E3E6D8", "#BAC1C5", "#ABA7A6", "#958B8C", "#7B737D"]} size={96} />
+      {/* <ColorOrb colors={["#E3E6D8", "#BAC1C5", "#ABA7A6", "#958B8C", "#7B737D"]} size={96} />
 
       <div className="my-26" />
       
@@ -37,7 +37,7 @@ export default function Home() {
       <div className="my-26" />
       
       <ColorOrb colors={["#DED1C6", "#A77693", "#174871", "#133B5E", "#0F2D4D"]} size={96} /> 
-      
+       */}
     </>
   );
 }

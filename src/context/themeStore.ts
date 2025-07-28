@@ -13,7 +13,7 @@ interface ThemeState {
 
 export const useThemeStore = create<ThemeState>((set, get) => ({
   isDark: false,
-  selectedPalette: 'stoneMist',
+  selectedPalette: 'steelDepths',
   themes: {
     stoneMist: {
       firstColor: "#E3E6D8",

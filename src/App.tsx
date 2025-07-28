@@ -8,7 +8,16 @@ import Proyects from '@pages/proyects';
 import NotFound from '@pages/notFound';
 import MainContainer from '@components/UI/mainContainer';
 
+import { useThemeStore } from './context/themeStore';
+import { useEffect } from 'react';
+
 export default function App() {
+  const applyTheme = useThemeStore((state) => state.applyTheme);
+
+  useEffect(() => {
+    applyTheme();
+  }, []);
+
   return (
     <MainContainer>
       <Routes>

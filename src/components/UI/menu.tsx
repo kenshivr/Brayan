@@ -42,26 +42,46 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
   };
 
   return (
-    <div className={cn("absolute h-full w-[80px] pt-8 z-103", "flex flex-col justify-start items-center")}> 
+    <div
+      className={cn(
+        "fixed h-full w-[80px] pt-8 z-103",
+        "flex flex-col justify-start items-center"
+      )}
+    >
       {!isDesktop && (
         <Neumorphism>
-          <div className={cn("hidden md:flex flex-col gap-6 z-10")}> 
+          <div className={cn("hidden md:flex flex-col gap-6 z-10")}>
             <Link to="//" className="group">
-              <RiHome9Line className="w-6 h-6 text-boneWhite group-hover:text-neutralBrown transition-colors duration-300" />
+              <RiHome9Line
+                style={{ color: 'var(--color-firstColor)' }} 
+                className="w-6 h-6 transition-colors duration-300" 
+              />
             </Link>
             <Link to="/report" className="group">
-              <TbFileHorizontal className="w-6 h-6 text-boneWhite group-hover:text-softOrange transition-colors duration-300" />
+              <TbFileHorizontal
+                style={{ color: 'var(--color-firstColor)' }} 
+                className="w-6 h-6 transition-colors duration-300" 
+              />
             </Link>
             <Link to="/proyects" className="group">
-              <PiProjectorScreen className="w-6 h-6 text-boneWhite group-hover:text-peachTint transition-colors duration-300" />
+              <PiProjectorScreen
+                style={{ color: 'var(--color-firstColor)' }} 
+                className="w-6 h-6 transition-colors duration-300" 
+              />
             </Link>
             <Link to="/components" className="group">
-              <GoPackage className="w-6 h-6 text-boneWhite group-hover:text-peachTint transition-colors duration-300" />
+              <GoPackage
+                style={{ color: 'var(--color-firstColor)' }} 
+                className="w-6 h-6 transition-colors duration-300" 
+              />
             </Link>
             {Object.entries(themes).map(([key, palette]) => (
-              <Link key={key} to="/components" className="group">
-                <ColorOrb colors={Object.values(palette)} size={24} onClick={() => handleThemeChange(key as keyof typeof themes)} />
-              </Link>
+              <ColorOrb
+                key={key}
+                colors={Object.values(palette)}
+                size={24}
+                onClick={() => handleThemeChange(key as keyof typeof themes)}
+              />
             ))}
           </div>
         </Neumorphism>
@@ -69,7 +89,11 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
 
       <IoIosMenu
         onClick={() => setMenuOpen(true)}
-        className={cn(isDesktop ? "" : "md:hidden", "absolute top-2 left-4 w-8 h-8", "text-boneWhite z-100")}
+        style={{ color: 'var(--color-firstColor)' }}         
+        className={cn(
+          isDesktop ? "" : "md:hidden",
+          "absolute top-2 left-4 w-8 h-8 z-100",
+        )}
       />
 
       <div
@@ -77,7 +101,9 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
           "top-0 right-0 h-full w-[calc(100%-240px)]",
           "transition-all duration-300 transform",
           "fixed hidden sm:block z-102",
-          menuOpen ? "translate-x-0 opacity-100 pointer-events-auto bg-black/40" : "translate-x-full opacity-0 pointer-events-none",
+          menuOpen
+            ? "translate-x-0 opacity-100 pointer-events-auto bg-black/40"
+            : "translate-x-full opacity-0 pointer-events-none",
           isDesktop ? "md:block" : "md:hidden"
         )}
         onClick={() => setMenuOpen(false)}
@@ -87,11 +113,12 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
         className={cn(
           menuOpen ? "translate-x-0" : "-translate-x-full",
           isDesktop ? "" : "md:hidden",
-          "text-fifth-color text-lg gap-6",
+          "text-fifth-color text-lg gap-4",
           "fixed top-0 left-0 h-full z-101 transform",
           "transition-transform duration-300",
           "shadow-lg backdrop-blur-md",
-          "w-full sm:w-[240px] p-6 flex flex-col justify-start overflow-y-auto"
+          "pl-4 pr-4 pt-14",
+          "w-full sm:w-[240px] flex flex-col justify-start overflow-y-auto"
         )}
         style={{ backgroundColor: "var(--color-fifthColor)" }}
       >
@@ -127,7 +154,12 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
         <SocialMediaMenu socialMedias={socialMedias} />
         <DividerLight />
         <CategoryMenu category="Colores" />
-        <div className={cn("w-full max-w-full gap-4 justify-items-start", "grid grid-cols-3 grid-rows-2 md:grid-cols-2 md:grid-rows-3")}>
+        <div
+          className={cn(
+            "w-full max-w-full gap-4 justify-items-start",
+            "grid grid-cols-3 grid-rows-2 md:grid-cols-2 md:grid-rows-3"
+          )}
+        >
           {Object.entries(themes).map(([key, palette]) => (
             <ColorOrb
               key={key}
@@ -142,7 +174,11 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
       {menuOpen && (
         <IoMdClose
           onClick={() => setMenuOpen(false)}
-          className={cn(isDesktop ? "" : "md:hidden", "absolute top-2 left-3 z-102", "w-8 h-8 text-boneWhite")}
+          className={cn(
+            isDesktop ? "" : "md:hidden",
+            "absolute top-2 left-3 z-102",
+            "w-8 h-8 text-boneWhite"
+          )}
         />
       )}
     </div>
@@ -150,18 +186,43 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
 }
 
 function TitleMenu({ title }: { title: string }) {
-  return <span className="text-3xl text-softBeige">{title}</span>;
+  return (
+    <span
+      className="text-3xl flex justify-center"
+      style={{ color: "var(--color-firstColor)" }}
+    >
+      {title}
+    </span>
+  );
 }
 
 function CategoryMenu({ category }: { category: string }) {
-  return <span className={cn("text-boneWhite hover:text-softOrange text-[12px]")}>{category}</span>;
+  return (
+    <span className={cn("text-boneWhite hover:text-softOrange text-[12px]")}>
+      {category}
+    </span>
+  );
 }
 
-function MenuOption({ icon, route, content, activeColor }: { route?: string; content?: string; icon?: ReactNode; activeColor: string }) {
+function MenuOption({
+  icon,
+  route,
+  content,
+  activeColor,
+}: {
+  route?: string;
+  content?: string;
+  icon?: ReactNode;
+  activeColor: string;
+}) {
   return (
     <div className="flex flex-row justify-start items-center gap-2">
       {icon && icon}
-      <Link to={`/${route ?? ""}`} style={{ color: activeColor }} className="hover:text-softOrange text-lg">
+      <Link
+        to={`/${route ?? ""}`}
+        style={{ color: activeColor }}
+        className="hover:text-softOrange text-lg"
+      >
         {content}
       </Link>
     </div>
@@ -170,9 +231,21 @@ function MenuOption({ icon, route, content, activeColor }: { route?: string; con
 
 export function SocialMediaMenu({ socialMedias }: Props) {
   return (
-    <div className={cn("grid gap-4", "grid grid-cols-2 grid-rows-3", "sm:grid-cols-3 sm:grid-rows-2")}>
+    <div
+      className={cn(
+        "grid gap-4",
+        "grid grid-cols-2 grid-rows-3",
+        "sm:grid-cols-3 sm:grid-rows-2"
+      )}
+    >
       {socialMedias.map((socialMedia, index) => (
-        <a key={index} href={socialMedia.link} target="_blank" rel="noopener noreferrer" className="hover:opacity-75">
+        <a
+          key={index}
+          href={socialMedia.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:opacity-75"
+        >
           {socialMedia.icon}
         </a>
       ))}
@@ -181,24 +254,45 @@ export function SocialMediaMenu({ socialMedias }: Props) {
 }
 
 function DividerHeavy() {
-  return <div className={cn("w-full h-[2px] my-5 rounded-full", "bg-gradient-to-r from-transparent via-boneWhite/30 to-transparent")} />;
+  return (
+    <div
+      className="w-full h-[3px] my-5 rounded-full"
+      style={{
+        backgroundImage: `linear-gradient(to right, transparent, var(--color-firstColor), transparent)`,
+      }}
+    />
+  );
 }
 
 function DividerLight() {
-  return <div className={cn("w-full h-px my-2 rounded-full", "bg-gradient-to-r from-transparent via-boneWhite/30 to-transparent")} />;
+  return (
+    <div
+      className="w-full h-px my-3 rounded-full"
+      style={{
+        backgroundImage: `linear-gradient(to right, transparent, var(--color-firstColor), transparent)`,
+      }}
+    />
+  );
 }
 
-const Neumorphism: React.FC<any> = ({ w = 50, h = 450, children, className }) => (
+const Neumorphism: React.FC<any> = ({
+  w = 50,
+  h = 450,
+  children,
+  className,
+}) => (
   <div
     style={{
       width: `${w}px`,
       height: `${h}px`,
-      backgroundColor: "#3B2F2F",
+      backgroundColor: 'var(--color-fifthColor)',
       boxShadow: `
         20px 20px 12px rgba(0,0,0,0.5),
         2px 2px 12px rgba(0,0,0,0.45),
         inset 4px 4px 6px #534747
-      `.trim().replace(/\s+/g, " "),
+      `
+        .trim()
+        .replace(/\s+/g, " "),
     }}
     className={`rounded-xl justify-center items-center hidden md:flex ${className}`}
   >
