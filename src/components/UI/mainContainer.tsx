@@ -1,6 +1,8 @@
 import cn from "@src/services/clsx";
 import { type ReactNode } from "react";
 import AnimationMouse from "./animationMouse";
+import Light from "./light";
+import LightComplement from "./lightComplement";
 
 export default function MainContainer({
   children,
@@ -19,6 +21,11 @@ export default function MainContainer({
         className
       )}
     >
+
+      <Light />
+
+      <LightComplement />
+
       <AnimationMouse />
 
       {/* <div

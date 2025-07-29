@@ -154,7 +154,7 @@ export default function Table() {
     return (
         <div
             className={cn(
-                'w-full pt-20 flex flex-col'
+                'w-full pt-20 flex flex-col',
             )}
             style={{ color: theme.firstColor }}
         >

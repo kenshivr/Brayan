@@ -200,7 +200,11 @@ export default function CarouselCards() {
   return (
     <div
       ref={containerRef}
-      style={{ color: "var(--color-firstColor)" }}
+      style={{
+        color: "var(--color-firstColor)",
+        // background: 'linear-gradient(to bottom, var(--color-secondColor), var(--color-fifthColor))',
+        // background: 'linear-gradient(to bottom, color-mix(in srgb, var(--color-secondColor) 1%, transparent), var(--color-fifthColor))',
+      }}
       className={cn(
         "relative w-full h-[600px] pt-40",
         "flex items-center overflow-hidden bg-transparent"
@@ -247,15 +251,15 @@ export default function CarouselCards() {
                     src={card.chapter}
                   />
                   <div className="w-2/3 mt-2 mx-auto flex items-center gap-2">
-                    <div 
+                    <div
                       className="flex-1 h-2 rounded-full overflow-hidden"
                       style={{ backgroundColor: 'var(--color-thirdColor)' }}
                     >
                       <div
                         className="h-full transition-all duration-500"
-                        style={{ 
+                        style={{
                           width: `${card.percentage}%`,
-                          backgroundColor: 'var(--color-firstColor)', 
+                          backgroundColor: 'var(--color-firstColor)',
                         }}
                       />
                     </div>
