@@ -1,10 +1,9 @@
 import cn from "@src/services/clsx";
-import down from "@public/winkHappyGreetings.png";
 import { useRef, useEffect, useState } from "react";
 
-import topLeftCorner from "@public/bothHands3D.png";
-
-import sadnessGreetings from "../../../public/sadnessGreetings.png";
+import peekedTop3D from "@public/peekedTop3D.png";
+import bothHands3D from "@public/bothHands3D.png";
+import topLeft3D from "@public/topLeft3D.png";
 
 import CssLogo from "@src/svg/css";
 import GitLogo from "@src/svg/git";
@@ -40,7 +39,7 @@ const cards: Card[] = [
     title: "Tailwind",
     subTitle: "Framework CSS",
     percentage: 80,
-    chapter: sadnessGreetings,
+    chapter: topLeft3D,
     color: "fourthColor",
   },
   {
@@ -50,7 +49,7 @@ const cards: Card[] = [
     title: "Git",
     subTitle: "Version Control",
     percentage: 70,
-    chapter: topLeftCorner,
+    chapter: bothHands3D,
     color: "secondColor",
   },
   {
@@ -60,8 +59,8 @@ const cards: Card[] = [
     title: "React",
     subTitle: "Libreria JS",
     percentage: 85,
-    chapter: down,
-    color: "thirdColor",
+    chapter: peekedTop3D,
+    color: "fourthColor",
   },
   {
     id: 4,
@@ -70,8 +69,8 @@ const cards: Card[] = [
     title: "TypeScript",
     subTitle: "TS Language",
     percentage: 90,
-    chapter: sadnessGreetings,
-    color: "fourthColor",
+    chapter: topLeft3D,
+    color: "secondColor",
   },
   {
     id: 5,
@@ -80,8 +79,8 @@ const cards: Card[] = [
     title: "CSS",
     subTitle: "Stylesheets",
     percentage: 65,
-    chapter: topLeftCorner,
-    color: "thirdColor",
+    chapter: bothHands3D,
+    color: "fourthColor",
   },
   {
     id: 6,
@@ -90,8 +89,8 @@ const cards: Card[] = [
     title: "Vite",
     subTitle: "Vite JS",
     percentage: 75,
-    chapter: down,
-    color: "fourthColor",
+    chapter: peekedTop3D,
+    color: "secondColor",
   },
   {
     id: 7,
@@ -100,8 +99,8 @@ const cards: Card[] = [
     title: "Tailwind",
     subTitle: "Tailwind CSS",
     percentage: 80,
-    chapter: sadnessGreetings,
-    color: "secondColor",
+    chapter: topLeft3D,
+    color: "fourthColor",
   },
   {
     id: 8,
@@ -110,8 +109,8 @@ const cards: Card[] = [
     title: "Git",
     subTitle: "Git Control",
     percentage: 72,
-    chapter: topLeftCorner,
-    color: "thirdColor",
+    chapter: bothHands3D,
+    color: "secondColor",
   },
   {
     id: 9,
@@ -120,7 +119,7 @@ const cards: Card[] = [
     title: "React",
     subTitle: "React Framework",
     percentage: 85,
-    chapter: down,
+    chapter: peekedTop3D,
     color: "fourthColor",
   },
   {
@@ -130,8 +129,8 @@ const cards: Card[] = [
     title: "TS",
     subTitle: "TypeScript",
     percentage: 90,
-    chapter: sadnessGreetings,
-    color: "thirdColor",
+    chapter: topLeft3D,
+    color: "secondColor",
   },
   {
     id: 11,
@@ -140,7 +139,7 @@ const cards: Card[] = [
     title: "CSS",
     subTitle: "CSS3",
     percentage: 68,
-    chapter: topLeftCorner,
+    chapter: bothHands3D,
     color: "fourthColor",
   },
   {
@@ -150,7 +149,7 @@ const cards: Card[] = [
     title: "Vite",
     subTitle: "Next-gen tooling",
     percentage: 78,
-    chapter: down,
+    chapter: peekedTop3D,
     color: "secondColor",
   },
 ];
@@ -202,8 +201,6 @@ export default function CarouselCards() {
       ref={containerRef}
       style={{
         color: "var(--color-firstColor)",
-        // background: 'linear-gradient(to bottom, var(--color-secondColor), var(--color-fifthColor))',
-        // background: 'linear-gradient(to bottom, color-mix(in srgb, var(--color-secondColor) 1%, transparent), var(--color-fifthColor))',
       }}
       className={cn(
         "relative w-full h-[600px] pt-40",

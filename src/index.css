@@ -55,34 +55,47 @@ h1 {
 
 .p-datatable-wrapper {
   border-radius: 0.5rem !important;
-  background-color: var(--color-hazelBrown) !important;
 }
 
-.p-datatable td,
-.p-datatable th {
+.p-datatable .p-datatable-tbody>tr:not(:hover):not(.p-highlight)>td {
   border: none !important;
   box-shadow: none !important;
+  background-color: var(--color-thirdColor) !important;
+}
+
+.p-datatable .p-datatable-thead>tr>th {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: var(--color-thirdColor) !important;
+}
+
+.p-datatable .p-column-filter-row>th {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: var(--color-thirdColor) !important;
+}
+
+.p-datatable .p-datatable-tbody>tr:hover>td,
+.p-datatable .p-datatable-tbody>tr.p-highlight>td,
+.p-datatable .p-datatable-tbody>tr:focus>td {
+  border-bottom: none !important;
+  border-top: none !important;
+  outline: none !important;
 }
 
 .p-datatable .p-datatable-thead>tr>th {
   color: var(--color-firstColor);
-  background-color: var(--color-thirdColor);
-}
-
-.p-datatable .p-datatable-tbody>tr {
-  color: var(--color-softBeige);
-  background-color: var(--color-hazelBrown);
 }
 
 .p-datatable .p-datatable-tbody>tr:hover {
-  color: var(--color-charcoalBlack) !important;
-  background-color: var(--color-peachTint) !important;
+  color: var(--color-fifthColor) !important;
+  background-color: var(--color-secondColor) !important;
 }
 
 .p-inputtext {
   color: var(--color-softBeige) !important;
   border: 1px solid var(--color-softBeige) !important;
-  background-color: var(--color-thirdColor) !important;
+  background-color: var(--color-fifthColor) !important;
 }
 
 .p-button {
@@ -106,15 +119,15 @@ h1 {
   color: var(--color-softBeige) !important;
 }
 
-.p-column-filter-menu .p-menuitem:hover,
+/* .p-column-filter-menu .p-menuitem:hover,
 .p-column-filter-menu .p-menuitem-active {
   color: var(--color-charcoalBlack) !important;
   background-color: var(--color-peachTint) !important;
 }
 
 .p-column-filter-menu .p-menuitem-active {
-  background-color: var(--color-softOrange) !important;
-}
+  background-color: blue !important;
+} */
 
 .p-tag-success {
   background-color: var(--color-warmGreen) !important;
@@ -197,8 +210,13 @@ h1 {
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-248px * 12)); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-248px * 12));
+  }
 }
 
 .animate-scroll {
@@ -218,13 +236,23 @@ a:focus {
 }
 
 @keyframes slideLeft {
-  0% { transform: translateX(200%); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(200%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @keyframes slideRight {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(220%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(220%);
+  }
 }
 
 .marquee {

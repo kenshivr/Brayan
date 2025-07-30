@@ -246,8 +246,15 @@ export function ModifyContainer({ children }: any) {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(246,227,206,0.2)] backdrop-blur-md">
-      <div className="p-6 flex flex-col gap-4 h-[90%] w-[80%] rounded-md bg-hazelBrown shadow-lg">
+    <div
+      style={{ backgroundColor: 'var(--color-thirdColor)' }}
+      className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md"
+    >
+      {/* <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(246,227,206,0.2)] backdrop-blur-md"> */}
+      <div 
+        className="p-6 flex flex-col gap-4 h-[90%] w-[80%] rounded-md bg-hazelBrown shadow-lg"
+        style={{ backgroundColor: 'var(--color-thirdColor)' }}
+      >
         {children}
       </div>
     </div>

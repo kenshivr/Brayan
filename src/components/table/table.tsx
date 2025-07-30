@@ -1,5 +1,7 @@
 import Modify from './modify';
-import top from '@public/top.png';
+
+import top from '@public/peekedTop3D.png';
+
 import cn from '@src/services/clsx';
 import { Tag } from 'primereact/tag';
 import ReactLogo from '@src/svg/react';
@@ -154,7 +156,7 @@ export default function Table() {
     return (
         <div
             className={cn(
-                'w-full pt-20 flex flex-col',
+                'w-full mt-28 mb-14 flex flex-col',
             )}
             style={{ color: theme.firstColor }}
         >
@@ -177,7 +179,7 @@ export default function Table() {
 
                 <div 
                     className={cn(
-                        'absolute -top-32 left-1/2 transform -translate-x-1/2 z-10'
+                        'absolute -top-[134px] left-1/2 transform -translate-x-1/2 z-10'
                     )}
                 >
                     <img

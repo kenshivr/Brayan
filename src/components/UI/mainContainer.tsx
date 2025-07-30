@@ -22,9 +22,9 @@ export default function MainContainer({
       )}
     >
 
-      <Light />
+      {/* <Light /> */}
 
-      <LightComplement />
+      {/* <LightComplement /> */}
 
       <AnimationMouse />
 

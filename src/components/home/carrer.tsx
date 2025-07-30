@@ -1,4 +1,4 @@
-import run from "@public/run.png";
+import run from "@public/run3D.png";
 import cn from "@src/services/clsx";
 import { GiProgression } from "react-icons/gi";
 
@@ -29,7 +29,8 @@ export default function CarouselCards() {
     <div
       style={{ color: "var(--color-firstColor)" }}
       className={cn(
-        "min-h-[800px] bg-transparent",
+        "mt-16 md:mt-0",
+        "min-h-[600px] bg-transparent",
         "relative overflow-hidden w-full",
         "flex flex-col justify-center md:justify-center md:flex-row"
       )}

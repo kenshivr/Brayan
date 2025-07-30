@@ -10,7 +10,7 @@ export default function LightComplement() {
                     'transition-opacity duration-800 ease-in-out',
                 )}
                 style={{
-                    background: 'linear-gradient(to bottom, #9A99A2, var(--color-fifthColor))',
+                    background: 'linear-gradient(to bottom, #939198, var(--color-fifthColor))',
                 }}
             />
         </>
