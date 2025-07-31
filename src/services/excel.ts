@@ -1,90 +1,89 @@
-// import ExcelJS, { Workbook, Worksheet } from 'exceljs';
+import ExcelJS, { Workbook, type Worksheet } from 'exceljs';
 
-// class ExcelService {
-//   name: string;
-//   data: any[];
-//   columns: any[];
-//   workbook: Workbook;
-//   worksheet: Worksheet;
+class ExcelService {
+  name: string;
+  data: any[];
+  columns: any[];
+  workbook: Workbook;
+  worksheet: Worksheet;
 
-//   constructor() {
-//     this.name = 'excelfile';
-//     this.data = [];
-//     this.columns = [];
-//     this.workbook = new ExcelJS.Workbook();
-//     this.worksheet = this.workbook.addWorksheet('Sheet1');
-//   }
+  constructor() {
+    this.name = 'excelfile';
+    this.data = [];
+    this.columns = [];
+    this.workbook = new ExcelJS.Workbook();
+    this.worksheet = this.workbook.addWorksheet('Sheet1');
+  }
 
-//   public setName(report: string): this {
-//     const now = new Date();
-//     const year = now.getFullYear();
-//     const month = String(now.getMonth() + 1).padStart(2, '0');
-//     const day = String(now.getDate()).padStart(2, '0');
-//     const hours = String(now.getHours()).padStart(2, '0');
-//     const minutes = String(now.getMinutes()).padStart(2, '0');
-//     const seconds = String(now.getSeconds()).padStart(2, '0');
+  public setName(report: string): this {
+    this.name = report;
 
-//     const date = `${year}-${month}-${day}`;
-//     const hour = `${hours}${minutes}${seconds}`;
+    return this;
+  }
 
-//     const name = `${report} - ${date} ${hour}`;
+  public define(data: any[], columns: any[]): this {
+    this.data = data;
+    this.columns = columns;
 
-//     this.name = name;
+    this.worksheet.columns = this.columns;
 
-//     return this;
-//   }
+    this.data.forEach((row) => {
+      this.worksheet.addRow(row);
+    });
 
-//   public define(data: any[], columns: any[]): this {
-//     this.data = data;
-//     this.columns = columns;
+    this.worksheet.getRow(1).eachCell((cell) => {
+      cell.alignment = { vertical: 'middle', horizontal: 'center' };
+    });
 
-//     this.worksheet.columns = this.columns;
+    this.worksheet.eachRow((row, rowNumber) => {
+      if (rowNumber === 1) return;
 
-//     this.data.forEach((row) => {
-//       this.worksheet.addRow(row);
-//     });
+      row.eachCell((cell) => {
+        cell.alignment = { vertical: 'middle', horizontal: 'center' };
+      });
+    });
 
-//     return this;
-//   }
+    return this;
+  }
 
-//   public styleRange(
-//     wh: Worksheet,
-//     range: [number, number],
-//     width: number,
-//     fillColor?: string
-//   ): void {
-//     for (let i = 0; i < range[1]; ++i) {
-//       const index = range[0] + i;
-//       const column = wh.getColumn(index);
+  public styleRange(
+    wh: Worksheet,
+    range: [number, number],
+    width: number,
+    fillColor?: string
+  ): void {
+    for (let i = 0; i < range[1]; ++i) {
+      const index = range[0] + i;
+      const column = wh.getColumn(index);
 
-//       column.width = width;
+      column.width = width;
 
-//       if (!fillColor) {
-//         continue;
-//       }
+      if (!fillColor) {
+        continue;
+      }
 
-//       let cell = wh.getColumn(index);
+      let cell = wh.getColumn(index);
 
-//       cell.fill = {
-//         type: 'pattern',
-//         pattern: 'solid',
-//         fgColor: { argb: fillColor }
-//       };
-//     }
-//   }
+      cell.fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: fillColor }
+      };
+    }
+  }
 
-//   public download(): void {
-//     this.workbook.xlsx.writeBuffer().then((buffer) => {
-//       const blob = new Blob([buffer], {
-//         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-//       });
-//       const url = URL.createObjectURL(blob);
-//       const anchor = document.createElement('a');
-//       anchor.href = url;
-//       anchor.download = this.name + '.xlsx';
-//       anchor.click();
-//     });
-//   }
-// }
+  public download(): void {
+    this.workbook.xlsx.writeBuffer().then((buffer) => {
+      const blob = new Blob([buffer], {
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+      });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = this.name + '.xlsx';
+      anchor.click();
+    });
+  }
+}
 
-// export default ExcelService;
+export default ExcelService;

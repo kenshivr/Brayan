@@ -1,11 +1,8 @@
 import cn from '../../services/clsx';
-import { Dialog } from 'primereact/dialog';
-import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
-import { InputTextarea } from 'primereact/inputtextarea';
-import { type ChangeEvent, type ReactNode, useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 
 interface FormLabelProps {
   name: string;
@@ -247,11 +244,9 @@ export function ModifyContainer({ children }: any) {
 
   return (
     <div
-      style={{ backgroundColor: 'var(--color-thirdColor)' }}
-      className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center"
     >
-      {/* <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(246,227,206,0.2)] backdrop-blur-md"> */}
-      <div 
+      <div
         className="p-6 flex flex-col gap-4 h-[90%] w-[80%] rounded-md bg-hazelBrown shadow-lg"
         style={{ backgroundColor: 'var(--color-thirdColor)' }}
       >

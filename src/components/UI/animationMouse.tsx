@@ -113,7 +113,7 @@ const AnimationMouse: React.FC = () => {
         style={{
           width: dotSize,
           height: dotSize,
-          backgroundColor: "var(--color-firstColor)",
+          backgroundColor: "var(--color-secondColor)",
           transform: `translate(${x - dotSize / 2}px, ${
             y - dotSize / 2
           }px) scale(${dotScale})`,

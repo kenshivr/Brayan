@@ -1,9 +1,41 @@
 @font-face {
-  font-family: 'Aventi';
-  src: url('../assets/fonts/Aventi-Bold.ttf') format('truetype');
+  font-family: 'agneos_outline';
+  src: url('../assets/fonts/agneos-outline.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'Quloon';
+  font-family: 'agneos_regular';
+  src: url('../assets/fonts/agneos-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'aventi';
+  src: url('../assets/fonts/Aventi-Bold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'quloon';
   src: url('../assets/fonts/Quloon.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'slabion';
+  src: url('../assets/fonts/Slabion-ZpJZB.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'falling';
+  src: url('../assets/fonts/ss-falling.otf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
 }
