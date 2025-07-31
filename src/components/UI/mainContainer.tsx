@@ -13,7 +13,11 @@ export default function MainContainer({
 }) {
   return (
     <div
-      style={{ backgroundColor: "var(--color-fifthColor)" }}
+      style={{
+        backgroundColor: "var(--color-fifthColor)",
+        fontFamily: 'slabion',
+        // fontFamily: 'var(--font-FontText)',
+      }}
       className={cn(
         "overflow-x-hidden",
         "transition-all duration-300 ease-in-out relative",

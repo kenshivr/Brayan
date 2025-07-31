@@ -217,7 +217,7 @@ function MenuOption({
 }) {
   return (
     <div className="flex flex-row justify-start items-center gap-2">
-      {icon && icon}
+      {icon}
       <Link
         to={`/${route ?? ""}`}
         style={{ color: activeColor }}

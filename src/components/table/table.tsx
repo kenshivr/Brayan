@@ -150,7 +150,7 @@ export default function Table() {
                     icon="pi pi-pencil"
                     disabled={!selected}
                     onClick={openEditForm}
-                    />
+                />
                 <ActionButton
                     label="Exportar"
                     icon="pi pi-download"
@@ -181,7 +181,10 @@ export default function Table() {
             className={cn(
                 'w-full mt-28 mb-14 flex flex-col',
             )}
-            style={{ color: theme.firstColor }}
+            style={{
+                color: theme.firstColor,
+                fontFamily: 'var(--font-FontText)'
+            }}
         >
             <Toast ref={toast} position='bottom-right' />
 

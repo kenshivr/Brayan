@@ -1,6 +1,7 @@
 import cn from "@src/services/clsx";
 import image from "@public/Down3D.png";
 import { type ReactNode } from "react";
+import FontSelector from "@components/UI/font";
 
 export default function Introduction({
     className = "",
@@ -34,41 +35,8 @@ export default function Introduction({
                         optio ea quisquam sit iusto consequatur, modi magni tempore omnis ullam?
                     `}
                 />
-                <Paragraph1
-                    content={`
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sunt nihil 
-                        nihil  sint dolores, asperiores, praesentium beatae nulla aperiam corporis
-                        optio ea quisquam sit iusto consequatur, modi magni tempore omnis ullam?
-                    `}
-                />
-                <Paragraph2
-                    content={`
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sunt nihil 
-                        nihil  sint dolores, asperiores, praesentium beatae nulla aperiam corporis
-                        optio ea quisquam sit iusto consequatur, modi magni tempore omnis ullam?
-                    `}
-                />
-                <Paragraph3
-                    content={`
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sunt nihil 
-                        nihil  sint dolores, asperiores, praesentium beatae nulla aperiam corporis
-                        optio ea quisquam sit iusto consequatur, modi magni tempore omnis ullam?
-                    `}
-                />
-                <Paragraph4
-                    content={`
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sunt nihil 
-                        nihil  sint dolores, asperiores, praesentium beatae nulla aperiam corporis
-                        optio ea quisquam sit iusto consequatur, modi magni tempore omnis ullam?
-                    `}
-                />
-                <Paragraph5
-                    content={`
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sunt nihil 
-                        nihil  sint dolores, asperiores, praesentium beatae nulla aperiam corporis
-                        optio ea quisquam sit iusto consequatur, modi magni tempore omnis ullam?
-                    `}
-                />
+
+                {/* <FontSelector /> */}
             </div>
 
             {/* Personaje */}
@@ -121,8 +89,7 @@ function Paragraph({
         <span
             className="text-2xl text-justify mb-6"
             style={{ 
-                color: 'var(--color-firstColor)',
-                fontFamily: 'agneos_outline'
+                color: 'var(--color-firstColor)'
             }}
         >
             {content}
