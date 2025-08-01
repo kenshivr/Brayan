@@ -55,7 +55,7 @@ export default function CarouselCards() {
         <span
           style={{
             color: "var(--color-firstColor)",
-            backgroundColor: "var(--color-secondColor)",
+            backgroundColor: "var(--color-thirdColor)",
           }}
           className={cn(
             "rounded-r-lg md:top-3/5",

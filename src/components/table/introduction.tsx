@@ -1,7 +1,6 @@
 import cn from "@src/services/clsx";
 import image from "@public/Down3D.png";
 import { type ReactNode } from "react";
-import FontSelector from "@components/UI/font";
 
 export default function Introduction({
     className = "",
@@ -30,13 +29,16 @@ export default function Introduction({
                 />
                 <Paragraph
                     content={`
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sunt nihil 
-                        nihil  sint dolores, asperiores, praesentium beatae nulla aperiam corporis
-                        optio ea quisquam sit iusto consequatur, modi magni tempore omnis ullam?
+                        En esta sección podrás interactuar con una tabla dinámica que muestra 
+                        datos sobre distintas tecnologías, incluyendo su nombre, versión e imagen 
+                        representativa. Tendrás la posibilidad de agregar nuevos registros con la 
+                        información que desees, editar o eliminar los existentes, y aplicar filtros 
+                        para visualizar solo los que te interesen. Además, puedes exportar todo el 
+                        contenido de la tabla en un archivo Excel. 
+                        ¡Te invito a probarla y explorar sus funciones!
                     `}
                 />
 
-                {/* <FontSelector /> */}
             </div>
 
             {/* Personaje */}
@@ -88,7 +90,7 @@ function Paragraph({
     return (
         <span
             className="text-2xl text-justify mb-6"
-            style={{ 
+            style={{
                 color: 'var(--color-firstColor)'
             }}
         >
@@ -105,7 +107,7 @@ function Paragraph1({
     return (
         <span
             className="text-2xl text-justify mb-6"
-            style={{ 
+            style={{
                 color: 'var(--color-firstColor)',
                 fontFamily: 'agneos_regular'
             }}
@@ -123,7 +125,7 @@ function Paragraph2({
     return (
         <span
             className="text-2xl text-justify mb-6"
-            style={{ 
+            style={{
                 color: 'var(--color-firstColor)',
                 fontFamily: 'aventi'
             }}
@@ -141,7 +143,7 @@ function Paragraph3({
     return (
         <span
             className="text-2xl text-justify mb-6"
-            style={{ 
+            style={{
                 color: 'var(--color-firstColor)',
                 fontFamily: 'quloon'
             }}
@@ -159,7 +161,7 @@ function Paragraph4({
     return (
         <span
             className="text-2xl text-justify mb-6"
-            style={{ 
+            style={{
                 color: 'var(--color-firstColor)',
                 fontFamily: 'slabion'
             }}
@@ -177,7 +179,7 @@ function Paragraph5({
     return (
         <span
             className="text-2xl text-justify mb-6"
-            style={{ 
+            style={{
                 color: 'var(--color-firstColor)',
                 fontFamily: 'falling'
             }}

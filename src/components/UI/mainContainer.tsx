@@ -1,8 +1,6 @@
 import cn from "@src/services/clsx";
 import { type ReactNode } from "react";
 import AnimationMouse from "./animationMouse";
-import Light from "./light";
-import LightComplement from "./lightComplement";
 
 export default function MainContainer({
   children,
@@ -16,7 +14,6 @@ export default function MainContainer({
       style={{
         backgroundColor: "var(--color-fifthColor)",
         fontFamily: 'slabion',
-        // fontFamily: 'var(--font-FontText)',
       }}
       className={cn(
         "overflow-x-hidden",
@@ -26,20 +23,18 @@ export default function MainContainer({
       )}
     >
 
-      {/* <Light /> */}
-
-      {/* <LightComplement /> */}
-
       <AnimationMouse />
-
+ 
       {/* <div
         className={cn(
           "blur-3xl",
           "rounded-full z-0",
           "-top-20 -left-20",
           "absolute w-40 h-40",
-          "bg-[color:var(--color-boneWhite)]/60"
         )}
+        style={{
+          backgroundColor: 'var(--color-firstColor)'
+        }}
       />
 
       <div
@@ -48,8 +43,10 @@ export default function MainContainer({
           "rounded-full z-0",
           "bottom-40 -right-20",
           "absolute w-20 h-20",
-          "bg-[color:var(--color-boneWhite)]"
         )}
+        style={{
+          backgroundColor: 'var(--color-firstColor)'
+        }}
       />
 
       <div
@@ -58,8 +55,10 @@ export default function MainContainer({
           "rounded-full z-0",
           "bottom-20 left-60",
           "absolute w-40 h-40",
-          "bg-[color:var(--color-boneWhite)]/60"
         )}
+        style={{
+          backgroundColor: 'var(--color-firstColor)'
+        }}
       />
 
       <div
@@ -68,8 +67,10 @@ export default function MainContainer({
           "rounded-full z-0",
           "top-40 right-150",
           "absolute w-20 h-20",
-          "bg-[color:var(--color-boneWhite)]"
         )}
+        style={{
+          backgroundColor: 'var(--color-firstColor)'
+        }}
       /> */}
 
       {children}

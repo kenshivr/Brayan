@@ -1,31 +1,98 @@
-// src/pages/notFound.tsx
-import { Link, useLocation } from 'react-router-dom';
+import cn from "@src/services/clsx";
+import type { ReactNode } from "react";
+import { Link } from 'react-router-dom';
+import image from "@public/thinking3D.png";
 
 export default function NotFound() {
-  const location = useLocation();
   return (
-    <div className="flex flex-col items-center justify-center py-20 text-center">
-      <h1 className="text-5xl font-bold mb-4">404</h1>
-      <p className="text-xl mb-2">
-        No encontramos la ruta: <span className="font-mono text-red-500">{location.pathname}</span>
-      </p>
-      <p className="text-gray-500 mb-6">
-        Verifica la URL o vuelve al inicio.
-      </p>
-      <div className="flex gap-4">
-        <Link
-          to="/"
-          className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition"
-        >
-          Ir al Inicio
-        </Link>
-        <button
-          onClick={() => window.history.back()}
-          className="px-4 py-2 rounded border border-gray-400 hover:bg-gray-100 transition"
-        >
-          Regresar
-        </button>
-      </div>
+    <Content>
+
+      <Title />
+
+      <Image />
+
+      <Buttons />
+
+    </Content>
+  );
+}
+
+function Content({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  return (
+    <div className={cn(
+      'text-center mt-10 gap-6',
+      'flex flex-col items-center justify-center',
+    )}>
+      {children}
     </div>
   );
+}
+
+function Title() {
+  return (
+    <p className="text-7xl">
+      Page not found
+    </p>
+  )
+}
+
+function Image() {
+  return (
+    <div
+      className={cn(
+        'relative w-full',
+        'flex flex-col justify-center items-center',
+      )}
+    >
+
+      <img
+        src={image}
+        width={300}
+        alt="Personaje"
+        className="z-10"
+      />
+
+      <span
+        className={cn(
+          'absolute inset-0 z-0 text-[38vw]',
+          'flex justify-center items-center',
+        )}
+      >
+        404
+      </span>
+
+    </div>
+  )
+}
+
+function Buttons() {
+  return (
+    <div className="flex gap-4 z-10">
+      <Link
+        to="/"
+        className="px-4 py-2 rounded"
+        style={{
+          color: 'var(--color-fifthColor)',
+          backgroundColor: 'var(--color-firstColor)'
+        }}
+      >
+        Ir al Inicio
+      </Link>
+      <button
+        onClick={() => window.history.back()}
+        className="px-4 py-2 rounded border border-gray-400"
+        style={{
+          borderWidth: '1px',
+          color: 'var(--color-firstColor)',
+          backgroundColor: 'var(--color-fifthColor)'
+        }}
+      >
+        Regresar
+      </button>
+    </div>
+  )
 }

@@ -126,34 +126,34 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
         <DividerHeavy />
         <CategoryMenu category="Menu" />
         <MenuOption
-          content="Inicio"
+          content="Home"
           route="/"
           icon={<RiHome9Line className="w-5 h-5" />}
           activeColor={themes[selectedPalette].firstColor}
         />
         <MenuOption
-          content="Reporte"
+          content="Report"
           route="report"
           icon={<TbFileHorizontal className="w-5 h-5" />}
           activeColor={themes[selectedPalette].firstColor}
         />
         <MenuOption
-          content="Proyectos"
+          content="Proyects"
           route="proyects"
           icon={<PiProjectorScreen className="w-5 h-5" />}
           activeColor={themes[selectedPalette].firstColor}
         />
         <MenuOption
-          content="Componentes"
+          content="Components"
           route="components"
           icon={<GoPackage className="w-5 h-5" />}
           activeColor={themes[selectedPalette].firstColor}
         />
         <DividerLight />
-        <CategoryMenu category="Redes" />
+        <CategoryMenu category="Networks" />
         <SocialMediaMenu socialMedias={socialMedias} />
         <DividerLight />
-        <CategoryMenu category="Colores" />
+        <CategoryMenu category="Colors" />
         <div
           className={cn(
             "w-full max-w-full gap-4 justify-items-start",

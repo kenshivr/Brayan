@@ -2,10 +2,9 @@ import { useState } from "react";
 import cn from "@src/services/clsx";
 import Menu from "@src/components/UI/menu";
 import { CiCalendar } from "react-icons/ci";
+import topLeftCorner from "@public/fall3D.png";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
-// import topLeftCorner from "@public/inComputer3D.png";
-import topLeftCorner from "@public/fall3D.png";
 
 interface Proyect {
   title: string;
