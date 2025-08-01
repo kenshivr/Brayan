@@ -1,4 +1,5 @@
 import cn from '../../services/clsx';
+import image from "@public/aboveWall3D.png";
 import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
@@ -244,12 +245,23 @@ export function ModifyContainer({ children }: any) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center"
+      className={cn(
+        'fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md',
+        '',
+      )}
     >
       <div
         className="p-6 flex flex-col gap-4 h-[90%] w-[80%] rounded-md bg-hazelBrown shadow-lg"
         style={{ backgroundColor: 'var(--color-thirdColor)' }}
       >
+
+        <img 
+          src={image} 
+          width={150} 
+          alt="Personaje" 
+          className='absolute top-[37vh] left-[-5vw]'
+        />
+
         {children}
       </div>
     </div>

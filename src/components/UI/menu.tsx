@@ -157,7 +157,7 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
         <div
           className={cn(
             "w-full max-w-full gap-4 justify-items-start",
-            "grid grid-cols-3 grid-rows-2 md:grid-cols-2 md:grid-rows-3"
+            "grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2"
           )}
         >
           {Object.entries(themes).map(([key, palette]) => (
