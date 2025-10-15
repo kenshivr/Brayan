@@ -1,18 +1,20 @@
-import { useState, type ReactNode } from "react";
 import cn from "@src/services/clsx";
+import ColorOrb from "../home/colorOrb";
 import { Link } from "react-router-dom";
+import MenuColor from "../home/MenuColor";
 import { IoIosMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
-import { RiHome9Line } from "react-icons/ri";
-import { PiProjectorScreen } from "react-icons/pi";
-import { TbFileHorizontal } from "react-icons/tb";
 import { GoPackage } from "react-icons/go";
-import { RxInstagramLogo } from "react-icons/rx";
-import { RiFacebookCircleLine } from "react-icons/ri";
-import { RiTwitterXLine } from "react-icons/ri";
-import { PiTiktokLogoLight } from "react-icons/pi";
 import { FaWhatsapp } from "react-icons/fa";
-import ColorOrb from "../home/colorOrb";
+import { RiHome9Line } from "react-icons/ri";
+import { CiCirclePlus } from "react-icons/ci";
+import { RiTwitterXLine } from "react-icons/ri";
+import { useState, type ReactNode } from "react";
+import { RxInstagramLogo } from "react-icons/rx";
+import { TbFileHorizontal } from "react-icons/tb";
+import { PiProjectorScreen } from "react-icons/pi";
+import { PiTiktokLogoLight } from "react-icons/pi";
+import { RiFacebookCircleLine } from "react-icons/ri";
 import { useThemeStore } from "@src/context/themeStore";
 
 interface SocialMediaInterface {
@@ -36,6 +38,7 @@ const socialMedias: SocialMediaInterface[] = [
 export default function Menu({ isDesktop }: { isDesktop: boolean }) {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const { themes, selectedPalette, setPalette } = useThemeStore();
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
   const handleThemeChange = (themeName: keyof typeof themes) => {
     setPalette(themeName);
@@ -45,6 +48,7 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
     <div
       className={cn(
         "fixed h-full w-[80px] pt-8 z-103",
+        !isDesktop ? 'py-4' : '',
         "flex flex-col justify-start items-center"
       )}
     >
@@ -53,26 +57,26 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
           <div className={cn("hidden md:flex flex-col gap-6 z-10")}>
             <Link to="//" className="group">
               <RiHome9Line
-                style={{ color: 'var(--color-firstColor)' }} 
-                className="w-6 h-6 transition-colors duration-300" 
+                style={{ color: 'var(--color-firstColor)' }}
+                className="w-6 h-6 transition-colors duration-300"
               />
             </Link>
             <Link to="/report" className="group">
               <TbFileHorizontal
-                style={{ color: 'var(--color-firstColor)' }} 
-                className="w-6 h-6 transition-colors duration-300" 
+                style={{ color: 'var(--color-firstColor)' }}
+                className="w-6 h-6 transition-colors duration-300"
               />
             </Link>
             <Link to="/proyects" className="group">
               <PiProjectorScreen
-                style={{ color: 'var(--color-firstColor)' }} 
-                className="w-6 h-6 transition-colors duration-300" 
+                style={{ color: 'var(--color-firstColor)' }}
+                className="w-6 h-6 transition-colors duration-300"
               />
             </Link>
             <Link to="/components" className="group">
               <GoPackage
-                style={{ color: 'var(--color-firstColor)' }} 
-                className="w-6 h-6 transition-colors duration-300" 
+                style={{ color: 'var(--color-firstColor)' }}
+                className="w-6 h-6 transition-colors duration-300"
               />
             </Link>
             {Object.entries(themes).map(([key, palette]) => (
@@ -83,13 +87,16 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
                 onClick={() => handleThemeChange(key as keyof typeof themes)}
               />
             ))}
+
+            {/* <div className="h-4 border border-solid border-transparent" /> */}
+
           </div>
         </Neumorphism>
       )}
 
       <IoIosMenu
         onClick={() => setMenuOpen(true)}
-        style={{ color: 'var(--color-firstColor)' }}         
+        style={{ color: 'var(--color-firstColor)' }}
         className={cn(
           isDesktop ? "" : "md:hidden",
           "absolute top-2 left-4 w-8 h-8 z-100",
@@ -98,11 +105,11 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
 
       <div
         className={cn(
-          "top-0 right-0 h-full w-[calc(100%-240px)]",
+          "top-0 right-0 h-full w-[calc(100%-280px)]",
           "transition-all duration-300 transform",
           "fixed hidden sm:block z-102",
           menuOpen
-            ? "translate-x-0 opacity-100 pointer-events-auto bg-black/40"
+            ? "translate-x-0 opacity-100 pointer-events-auto bg-black/50"
             : "translate-x-full opacity-0 pointer-events-none",
           isDesktop ? "md:block" : "md:hidden"
         )}
@@ -111,64 +118,83 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
 
       <div
         className={cn(
-          menuOpen ? "translate-x-0" : "-translate-x-full",
+          "w-full sm:w-[280px]",
           isDesktop ? "" : "md:hidden",
-          "text-fifth-color text-lg gap-4",
-          "fixed top-0 left-0 h-full z-101 transform",
+          "shadow-lg backdrop-blur-3xl",
           "transition-transform duration-300",
-          "shadow-lg backdrop-blur-md",
-          "pl-4 pr-4 pt-14",
-          "w-full sm:w-[240px] flex flex-col justify-start overflow-y-auto"
+          "fixed top-0 left-0 h-full z-101 transform",
+          menuOpen ? "translate-x-0" : "-translate-x-full",
         )}
-        style={{ backgroundColor: "var(--color-fifthColor)" }}
       >
-        <TitleMenu title="<Kenshi />" />
-        <DividerHeavy />
-        <CategoryMenu category="Menu" />
-        <MenuOption
-          content="Home"
-          route="/"
-          icon={<RiHome9Line className="w-5 h-5" />}
-          activeColor={themes[selectedPalette].firstColor}
-        />
-        <MenuOption
-          content="Report"
-          route="report"
-          icon={<TbFileHorizontal className="w-5 h-5" />}
-          activeColor={themes[selectedPalette].firstColor}
-        />
-        <MenuOption
-          content="Proyects"
-          route="proyects"
-          icon={<PiProjectorScreen className="w-5 h-5" />}
-          activeColor={themes[selectedPalette].firstColor}
-        />
-        <MenuOption
-          content="Components"
-          route="components"
-          icon={<GoPackage className="w-5 h-5" />}
-          activeColor={themes[selectedPalette].firstColor}
-        />
-        <DividerLight />
-        <CategoryMenu category="Networks" />
-        <SocialMediaMenu socialMedias={socialMedias} />
-        <DividerLight />
-        <CategoryMenu category="Colors" />
         <div
           className={cn(
-            "w-full max-w-full gap-4 justify-items-start",
-            "grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2"
+            'pt-14 overflow-y-scroll h-full px-4 backdrop-blur-3xl',
           )}
         >
-          {Object.entries(themes).map(([key, palette]) => (
-            <ColorOrb
-              key={key}
-              colors={Object.values(palette)}
-              size={24}
-              onClick={() => handleThemeChange(key as keyof typeof themes)}
+          <TitleMenu title="<Kenshi />" />
+          <DividerHeavy />
+          <CategoryMenu category="Menu" />
+          <MenuOption
+            content="Home"
+            route="/"
+            icon={<RiHome9Line className="w-5 h-5" />}
+            activeColor={themes[selectedPalette].firstColor}
+          />
+          <MenuOption
+            content="Report"
+            route="report"
+            icon={<TbFileHorizontal className="w-5 h-5" />}
+            activeColor={themes[selectedPalette].firstColor}
+          />
+          <MenuOption
+            content="Proyects"
+            route="proyects"
+            icon={<PiProjectorScreen className="w-5 h-5" />}
+            activeColor={themes[selectedPalette].firstColor}
+          />
+          <MenuOption
+            content="Components"
+            route="components"
+            icon={<GoPackage className="w-5 h-5" />}
+            activeColor={themes[selectedPalette].firstColor}
+          />
+          <DividerLight />
+          <CategoryMenu category="Networks" />
+          <SocialMediaMenu socialMedias={socialMedias} />
+          <DividerLight />
+          <CategoryMenu category="Colors" />
+          <div
+            className={cn(
+              "w-full max-w-full gap-4 justify-items-start my-6",
+              "grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2"
+            )}
+          >
+            {Object.entries(themes).map(([key, palette]) => (
+              <ColorOrb
+                key={key}
+                colors={Object.values(palette)}
+                size={24}
+                onClick={() => handleThemeChange(key as keyof typeof themes)}
+              />
+            ))}
+
+            <CiCirclePlus
+              className="w-6 h-6"
+              onClick={() => setIsDialogOpen(!isDialogOpen)}
             />
-          ))}
+          </div>
+
+
+          {isDialogOpen && (
+            <div className="w-full max-h-[80vh] overflow-y-auto bg-black/30 rounded-lg">
+              <MenuColor
+                onSave={() => setIsDialogOpen(false)}
+                onCancel={() => setIsDialogOpen(false)}
+              />
+            </div>
+          )}
         </div>
+
       </div>
 
       {menuOpen && (
@@ -198,7 +224,11 @@ function TitleMenu({ title }: { title: string }) {
 
 function CategoryMenu({ category }: { category: string }) {
   return (
-    <span className={cn("text-boneWhite hover:text-softOrange text-[12px]")}>
+    <span
+      className={cn(
+        'text-boneWhite hover:text-red-400 text-[16px]',
+      )}
+    >
       {category}
     </span>
   );
@@ -216,7 +246,7 @@ function MenuOption({
   activeColor: string;
 }) {
   return (
-    <div className="flex flex-row justify-start items-center gap-2">
+    <div className="flex flex-row justify-start items-center gap-2 my-4">
       {icon}
       <Link
         to={`/${route ?? ""}`}
@@ -233,6 +263,7 @@ export function SocialMediaMenu({ socialMedias }: Props) {
   return (
     <div
       className={cn(
+        "my-6",
         "grid gap-4",
         "grid grid-cols-2 grid-rows-3",
         "sm:grid-cols-3 sm:grid-rows-2"
@@ -284,7 +315,7 @@ const Neumorphism: React.FC<any> = ({
   <div
     style={{
       width: `${w}px`,
-      height: `${h}px`,
+      minHeight: `${h}px`,
       backgroundColor: 'var(--color-fifthColor)',
       boxShadow: `
         20px 20px 12px rgba(0,0,0,0.5),
@@ -294,7 +325,7 @@ const Neumorphism: React.FC<any> = ({
         .trim()
         .replace(/\s+/g, " "),
     }}
-    className={`rounded-xl justify-center items-center hidden md:flex ${className}`}
+    className={`overflow-y-scroll py-4 rounded-xl justify-center hidden md:flex ${className}`}
   >
     {children}
   </div>

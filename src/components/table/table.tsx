@@ -4,13 +4,18 @@ import top from '@public/peekedTop3D.png';
 
 import cn from '@src/services/clsx';
 import { Tag } from 'primereact/tag';
-import ReactLogo from '@src/svg/react';
+
+import CssLogo from "@src/svg/css";
+import GitLogo from "@src/svg/git";
+import ViteLogo from "@src/svg/vite";
+import ReactLogo from "@src/svg/react";
+import TailwindLogo from "@src/svg/tailwind";
+import TypescriptLogo from "@src/svg/typescript";
+
 import { Button } from 'primereact/button';
 import { Column } from 'primereact/column';
-import TailwindLogo from '@src/svg/tailwind';
 import ExcelService from '@src/services/excel';
 import { FilterMatchMode } from 'primereact/api';
-import TypescriptLogo from '@src/svg/typescript';
 import { useState, useRef, useMemo } from 'react';
 import type { ButtonProps } from 'primereact/button';
 import { ConfirmDialog } from 'primereact/confirmdialog';
@@ -23,7 +28,7 @@ import { technologiesExcel } from '@src/models/files';
 export interface Technology {
     id: number;
     name: string;
-    version: string;
+    version?: string;
     link: string;
     usage: boolean;
     image: any;
@@ -44,27 +49,50 @@ export default function Table() {
     const [data, setData] = useState<Technology[]>([
         {
             id: 0,
-            name: 'Tailwind',
-            version: '4.1.8',
-            link: 'tailwind.com',
+            name: 'React',
+            version: '19.1.0',
+            link: 'https://es.react.dev/',
             usage: true,
             image: <ReactLogo className='w-12 h-12' />,
         },
         {
             id: 1,
-            name: 'React',
-            version: '19.1.0',
-            link: 'react.com',
+            name: 'Tailwind',
+            version: '4.1.8',
+            link: 'https://tailwindcss.com/',
             usage: true,
             image: <TailwindLogo className='w-12 h-12' />,
         },
         {
             id: 2,
-            name: 'clsx',
-            version: '2.1.1',
-            link: 'clsx.com',
-            usage: false,
+            name: 'Typescript',
+            version: '5.8.3',
+            link: 'https://www.typescriptlang.org/',
+            usage: true,
             image: <TypescriptLogo className='w-12 h-12' />,
+        },
+        {
+            id: 3,
+            name: 'Css',
+            version: '4.1.8',
+            link: 'https://developer.mozilla.org/es/docs/Web/CSS',
+            usage: false,
+            image: <CssLogo className='w-12 h-12' />,
+        },
+        {
+            id: 4,
+            name: 'Git',
+            link: 'https://git-scm.com/',
+            usage: true,
+            image: <GitLogo className='w-12 h-12' />,
+        },
+        {
+            id: 5,
+            name: 'Vite',
+            version: '6.3.5',
+            link: 'https://vite.dev/',
+            usage: true,
+            image: <ViteLogo className='w-12 h-12' />,
         },
     ]);
 
@@ -225,7 +253,7 @@ export default function Table() {
                     footer={footer}
                     filters={filters}
                     filterDisplay='row'
-                    scrollHeight="400px"
+                    scrollHeight="800px"
                     selection={selected!}
                     selectionMode="single"
                     globalFilterMatchMode='contains'

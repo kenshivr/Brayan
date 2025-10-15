@@ -9,11 +9,17 @@ interface ThemeState {
   setIsDark: (value: boolean) => void;
   setPalette: (palette: keyof Themes) => void;
   applyTheme: () => void;
+  addTheme: (name: string, palette: Themes[string]) => void;
 }
+
+const savedThemes = localStorage.getItem('customThemes');
+const parsedThemes = savedThemes ? JSON.parse(savedThemes) : {};
+
+const storedPalette = localStorage.getItem('selectedPalette') ?? 'steelDepths';
 
 export const useThemeStore = create<ThemeState>((set, get) => ({
   isDark: false,
-  selectedPalette: 'steelDepths',
+  selectedPalette: storedPalette,
   themes: {
     stoneMist: {
       firstColor: "#E3E6D8",
@@ -50,6 +56,7 @@ export const useThemeStore = create<ThemeState>((set, get) => ({
       fourthColor: "#133B5E",
       fifthColor: "#0F2D4D",
     },
+    ...parsedThemes, // ← añade los temas personalizados aquí
   },
   toggleTheme: () => {
     set((state) => {
@@ -64,6 +71,7 @@ export const useThemeStore = create<ThemeState>((set, get) => ({
   },
   setPalette: (palette) => {
     set({ selectedPalette: palette });
+    localStorage.setItem('selectedPalette', palette);
     get().applyTheme();
   },
   applyTheme: () => {
@@ -77,6 +85,26 @@ export const useThemeStore = create<ThemeState>((set, get) => ({
 
     colorPairs.forEach(([key, value]) => {
       root.style.setProperty(`--color-${key}`, value);
+    });
+  },
+  addTheme: (name: string, palette: Themes[string]) => {
+    set((state) => {
+      const updatedThemes = {
+        ...state.themes,
+        [name]: palette,
+      };
+
+      // Guardar solo los temas personalizados
+      const customThemes = Object.fromEntries(
+        Object.entries(updatedThemes).filter(
+          ([key]) =>
+            !['stoneMist', 'midnightRose', 'steelDepths', 'antiqueInk', 'plumOcean'].includes(key)
+        )
+      );
+
+      localStorage.setItem('customThemes', JSON.stringify(customThemes));
+
+      return { themes: updatedThemes };
     });
   },
 }));

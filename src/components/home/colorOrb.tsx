@@ -1,7 +1,7 @@
 import cn from "@src/services/clsx";
 
 type ColorOrbProps = {
-  size: number; 
+  size: number;
   colors: string[];
   className?: string;
   onClick?: () => void;
@@ -44,7 +44,7 @@ export default function ColorOrb({
     <div
       className={cn(
         className,
-        "relative flex items-center justify-center", 
+        "relative flex items-center justify-center",
       )}
       onClick={onClick}
       style={{ width: size, height: size }}

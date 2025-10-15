@@ -251,17 +251,15 @@ export function ModifyContainer({ children }: any) {
       )}
     >
       <div
-        className="p-6 flex flex-col gap-4 h-[90%] w-[80%] rounded-md bg-hazelBrown shadow-lg"
+        className="relative p-6 flex flex-col gap-4 h-[90%] w-[70%] rounded-md bg-hazelBrown shadow-lg"
         style={{ backgroundColor: 'var(--color-thirdColor)' }}
       >
-
-        <img 
-          src={image} 
-          width={150} 
-          alt="Personaje" 
-          className='absolute top-[37vh] left-[-5vw]'
+        <img
+          src={image}
+          width={150}
+          alt="Personaje"
+          className="hidden md:block absolute top-[37vh] -left-[112px]"
         />
-
         {children}
       </div>
     </div>
