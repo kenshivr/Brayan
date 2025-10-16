@@ -19,7 +19,7 @@ export default function Introduction({
 
             {/* Texto */}
             <div
-                className="flex flex-col justify-center items-start w-full px-20"
+                className="order-2 md:order-1 flex flex-col justify-center items-start w-full px-20"
             >
                 <Title
                     content={'Report'}
@@ -43,7 +43,7 @@ export default function Introduction({
 
             {/* Personaje */}
             <div
-                className="flex flex-col justify-center items-center w-full"
+                className="order-1 md:order-2 flex flex-col justify-center items-center w-full"
             >
                 <img src={image} width={300} alt="Personaje" />
             </div>

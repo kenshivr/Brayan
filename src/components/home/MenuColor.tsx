@@ -89,13 +89,13 @@ export default function MenuColor({ onCancel, onSave }: MenuColorProps) {
                         <HexColorInput
                             prefixed
                             color={colors[varName]}
-                            onChange={(val) => handleColorChange(varName, val)}
+                            onChange={(val: any) => handleColorChange(varName, val)}
                             className="border rounded px-2 py-1 w-32 text-center"
                         />
 
                         <HexColorPicker
                             color={colors[varName]}
-                            onChange={(val) => handleColorChange(varName, val)}
+                            onChange={(val: any) => handleColorChange(varName, val)}
                             className="mt-3 w-full"
                         />
                     </div>

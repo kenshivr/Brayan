@@ -6,30 +6,55 @@ type TimelineEntry = {
   content: string;
 };
 
+// const timeline: TimelineEntry[] = [
+//   {
+//     content: `
+//       Preslow: Participé en el desarrollo de proyectos web, así como en el 
+//       mantenimiento de sistemas existentes en la nube. También estuve a cargo 
+//       de la administración y supervisión de servidores. Además, lideré un equipo 
+//       de desarrolladores para asegurar el cumplimiento de objetivos técnicos 
+//       y de entrega.`,
+//   },
+//   {
+//     content: `
+//       MAC: Como parte de mi trabajo de titulación, desarrollamos una página web 
+//       para la Facultad de Estudios Superiores Acatlán. A través de esta plataforma, 
+//       estudiantes y mentores podían programar, gestionar y comentar reuniones, 
+//       además de dar seguimiento al progreso de los proyectos académicos.`,
+//   },
+//   {
+//     content: `
+//       Página Personal: Esta página tiene como propósito fortalecer mi presencia 
+//       en línea y reflejar mis habilidades como desarrollador. Antes de crear esta 
+//       versión, desarrollé una primera iteración más sencilla, cuando aún contaba 
+//       con menos experiencia. Ese proyecto inicial fue fundamental para comprender 
+//       de forma práctica todo el proceso que conlleva diseñar, construir y desplegar 
+//       un sitio web en internet.`,
+//   },
+// ];
+
 const timeline: TimelineEntry[] = [
   {
     content: `
-      Preslow: Participé en el desarrollo de proyectos web, así como en el 
-      mantenimiento de sistemas existentes en la nube. También estuve a cargo 
-      de la administración y supervisión de servidores. Además, lideré un equipo 
-      de desarrolladores para asegurar el cumplimiento de objetivos técnicos 
-      y de entrega.`,
+      Preslow: I participated in the development of web projects, as well as 
+      the maintenance of existing cloud-based systems. I was also responsible 
+      for the administration and supervision of servers. Additionally, I led a 
+      team of developers to ensure the fulfillment of technical and delivery goals.`,
   },
   {
     content: `
-      MAC: Como parte de mi trabajo de titulación, desarrollamos una página web 
-      para la Facultad de Estudios Superiores Acatlán. A través de esta plataforma, 
-      estudiantes y mentores podían programar, gestionar y comentar reuniones, 
-      además de dar seguimiento al progreso de los proyectos académicos.`,
+      MAC: As part of my degree project, we developed a website for the Faculty 
+      of Higher Studies Acatlán. Through this platform, students and mentors 
+      could schedule, manage, and comment on meetings, as well as track the 
+      progress of academic projects.`,
   },
   {
     content: `
-      Página Personal: Esta página tiene como propósito fortalecer mi presencia 
-      en línea y reflejar mis habilidades como desarrollador. Antes de crear esta 
-      versión, desarrollé una primera iteración más sencilla, cuando aún contaba 
-      con menos experiencia. Ese proyecto inicial fue fundamental para comprender 
-      de forma práctica todo el proceso que conlleva diseñar, construir y desplegar 
-      un sitio web en internet.`,
+      Personal Website: This site aims to strengthen my online presence and 
+      showcase my skills as a developer. Before creating this version, I built 
+      a simpler first iteration when I had less experience. That initial project 
+      was fundamental in helping me understand the full process of designing, 
+      building, and deploying a website.`,
   },
 ];
 
@@ -73,13 +98,13 @@ export default function CarouselCards() {
           style={{ color: "var(--color-secondColor)" }}
           className="text-2xl md:text-4xl pr-12"
         >
-          Trayectoria
+          Professional
         </span>
         <h3
           style={{ color: "var(--color-firstColor)" }}
           className="text-5xl md:text-7xl mb-4 pr-12"
         >
-          Profesional
+          career
         </h3>
 
         {timeline.map((entry, index) => (
