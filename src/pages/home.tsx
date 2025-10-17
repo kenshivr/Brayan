@@ -1,3 +1,4 @@
+import Test from "@components/home/text";
 import Menu from "@src/components/UI/menu";
 import Carrer from "@components/home/carrer";
 import Characters from "@components/home/characters";
@@ -12,6 +13,8 @@ export default function Home() {
       <Introduction />
 
       <Characters />
+
+      <Test />
 
       <div className="my-26" />
 
