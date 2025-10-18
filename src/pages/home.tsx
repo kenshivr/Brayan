@@ -1,9 +1,9 @@
-import Test from "@components/home/text";
 import Menu from "@src/components/UI/menu";
 import Carrer from "@components/home/carrer";
-import Characters from "@components/home/characters";
 import Introduction from "@components/home/introduction";
 import Technologies from "@components/home/technologies";
+import CharactersMobile from "@components/home/charactersMobile";
+import CharactersDesktop from "@src/components/home/charactersDesktop";
 
 export default function Home() {
   return (
@@ -12,9 +12,13 @@ export default function Home() {
 
       <Introduction />
 
-      <Characters />
+      <div className="hidden md:flex">
+        <CharactersDesktop />
+      </div>
 
-      <Test />
+      <div className="flex md:hidden">
+        <CharactersMobile />
+      </div>
 
       <div className="my-26" />
 
