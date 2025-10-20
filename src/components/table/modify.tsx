@@ -49,11 +49,11 @@ export default function Modify({
   useEffect(() => {
     if (data) {
       setForm({
-        id: data.id ?? null,
+        id: data.id ?? 0,
         name: data.name ?? '',
         version: data.version ?? '',
         link: data.link ?? '',
-        usage: data.usage ? 1 : 0,
+        usage: data.usage ?? false,
       });
     }
   }, [data]);
@@ -66,20 +66,20 @@ export default function Modify({
   };
 
   const main = async (): Promise<void> => {
-    mode == MODE.CREATE ? createRegister() : saveRegister();
-  };
-
-  const getData = (): any => {
-    const data: any = {
-      id: form.id ?? null,
-      name: form.name,
-      version: form.version,
-      link: form.link,
-      usage: form.usage,
+    if (mode === MODE.CREATE) {
+      await createRegister();
+    } else {
+      await saveRegister();
     }
-
-    return data;
   };
+
+  const getData = (): Omit<Technology, 'image'> => ({
+    id: form.id,
+    name: form.name,
+    version: form.version,
+    link: form.link,
+    usage: form.usage,
+  });
 
   const createRegister = async () => {
     const body = getData();

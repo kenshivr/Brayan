@@ -8,8 +8,6 @@ import hoddie3D from "@public/hoddie3D.png";
 import drink3D from "@public/drink3D.png";
 import drinkHappy from "@public/drinkHappy.png";
 
-import icon from "@public/icon.png";
-
 interface Card {
   id: number;
   title: string;
@@ -22,44 +20,65 @@ const cards: Card[] = [
   {
     id: 1,
     image: lookUp,
-    title: "¡Bienvenido!",
-    content: "Introducción",
-    subTitle: "Introducción",
+    title: "¿Qué es esta página?",
+    subTitle: "Presentación",
+    content: `
+      Bienvenido a mi página web personal. Este espacio está diseñado para presentarme profesionalmente,
+      mostrar mis habilidades como desarrollador y ofrecerte una experiencia interactiva para que conozcas
+      lo que puedo crear.
+    `,
   },
   {
     id: 2,
     image: AngrySit,
-    content: "Introducción",
-    subTitle: "Introducción",
-    title: "¿Qué es esta pagina?",
+    title: "¿Quién soy?",
+    subTitle: "Sobre mí",
+    content: `
+      Mi nombre es brayan vidal romero y soy un desarrollador full stack con experiencia en la creación de aplicaciones web
+      completas, desde la base de datos hasta la interfaz de usuario.
+    `,
   },
   {
     id: 3,
     image: jumpHappy,
-    content: "Contenido",
-    subTitle: "Contenido",
-    title: "¿Que veras aqui?",
+    title: "¿Qué hago?",
+    subTitle: "Habilidades",
+    content: `
+      Me dedico al desarrollo de software utilizando tecnologías como JavaScript, TypeScript, React, Node, Express,
+      PostgreSQL, MongoDB, MySql y más.
+    `,
   },
   {
     id: 4,
     image: hoddie3D,
-    title: "TypeScript",
-    content: "TypeScript",
-    subTitle: "Superset language",
+    title: "¿Cuál es el objetivo?",
+    subTitle: "Propósito",
+    content: `
+      Esta página tiene como objetivo mostrar una parte de mi trabajo y habilidades. Aquí puedes interactuar con
+      diferentes componentes y explorar ejemplos de lo que puedo construir.
+    `,
   },
   {
     id: 5,
-    title: "CSS",
     image: drink3D,
-    content: "Style sheets",
-    subTitle: "Style sheets",
+    title: "¿Necesitas una web?",
+    subTitle: "Para clientes",
+    content: `
+      Si tienes una idea, un emprendimiento o necesitas mejorar tu presencia online, puedo ayudarte a crear una solución web
+      profesional, moderna y personalizada. Trabajo de forma cercana con mis clientes para transformar sus necesidades
+      en productos funcionales y atractivos.
+    `,
   },
   {
     id: 6,
-    title: "Vite",
-    content: "Vite",
     image: drinkHappy,
-    subTitle: "Build tool",
+    title: "¡Explora y disfruta!",
+    subTitle: "Interactividad",
+    content: `
+      Esta página está pensada para que no solo leas sobre mí, sino que también interactúes.
+      Puedes cambiar los colores del sitio creando tu propia paleta personalizada, modificar una tabla
+      (agregar, editar y eliminar información) y acceder fácilmente a mis redes sociales para contactarme.
+    `,
   },
 ];
 
@@ -70,19 +89,23 @@ export default function CharactersMobile() {
     <div
       className={cn(
         "mx-auto rounded-2xl relative",
-        "flex flex-col mb-40 mt-32 items-end",
+        "flex flex-col mb-60 mt-32 items-end",
         "w-5/6 h-[600px] border-5 border-solid",
       )}
       style={{
         borderColor: "var(--color-firstColor)",
       }}
     >
-      <div 
-        className="w-2/3 sm:w-full"
+      <div
+        className="w-2/3"
       >
-        
+
         <div
-          className={cn("flex flex-col justify-center items-center pt-6")}
+          key={target.id + "-text"}
+          className={cn(
+            "flex flex-col justify-center items-center pt-6",
+            'transition-all duration-700 ease-in-out opacity-0 scale-95 animate-fade-in text-center'
+          )}
         >
           <h4
             className="text-xs sm:text-base"
@@ -105,39 +128,31 @@ export default function CharactersMobile() {
               WebkitTextFillColor: "transparent",
               display: "inline-block",
             }}
-            className="p-2 text-center text-3xl sm:text-5xl"
+            className="p-2 text-center text-3xl"
           >
             {target.title}
           </h2>
 
-          <p 
-            className="p-2 text-base sm:text-2xl" 
+          <p
+            className="text-base sm:text-lg p-4"
           >
             {target.content}
           </p>
-
-          <div className="flex gap-2 w-full justify-center">
-            <span>
-              <img alt="Icono" src={icon} className="w-[40px]" />
-            </span>
-            <span>
-              <img alt="Icono" src={icon} className="w-[40px]" />
-            </span>
-            <span>
-              <img alt="Icono" src={icon} className="w-[40px]" />
-            </span>
-          </div>
         </div>
 
       </div>
 
-      <div 
+      <div
         className='w-2/3'
       >
-        <img 
-            alt="Personaje" 
-            src={target.image} 
-            className="w-[270px] sm:w-[400px] absolute -bottom-22 sm:-bottom-55"
+        <img
+          key={target.id + "-image"}
+          alt="Personaje"
+          src={target.image}
+          className={cn(
+            'w-[270px] sm:w-[400px] absolute -bottom-70 sm:-bottom-80',
+            'transition-all duration-700 ease-in-out opacity-0 scale-95 animate-fade-in'
+          )}
         />
       </div>
 
@@ -154,7 +169,7 @@ export default function CharactersMobile() {
             <div
               key={card.id}
               className={cn(
-                "outline-2 outline-offset-4 p-2",
+                "outline-2 outline-offset-4 p-3",
                 "h-full m-2 flex justify-center items-center",
                 {
                   outline: isSelected,
@@ -170,7 +185,13 @@ export default function CharactersMobile() {
                   "linear-gradient(to bottom, var(--color-thirdColor), var(--color-fourthColor))",
               }}
             >
-              <img src={card.image} height={100} width={100} alt="Personaje" />
+              <img
+                src={card.image}
+                height={100}
+                width={100}
+                alt="Personaje"
+                className="h-full transition-transform duration-1000 hover:scale-130"
+              />
             </div>
           );
         })}

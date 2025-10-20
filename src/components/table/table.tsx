@@ -135,14 +135,23 @@ export default function Table() {
     const generateNextId = (items: Technology[]): number =>
         items.length ? Math.max(...items.map(i => i.id)) + 1 : 0;
 
-    const handleSave = (item: Omit<Technology, 'id'>) => {
-        setData(prev => [...prev, { ...item, id: generateNextId(prev) }]);
+    const handleSave = (item: Omit<Technology, 'id' | 'image'>) => {
+        setData(prev => [
+            ...prev,
+            {
+                ...item,
+                id: generateNextId(prev),
+                image: <img src="fav.ico" alt="Default" className="w-12 h-12" />,
+            },
+        ]);
     };
 
-    const handleUpdate = (updatedItem: Technology) => {
+    const handleUpdate = (updatedItem: Omit<Technology, 'image'>) => {
         setData(prev =>
             prev.map(item =>
-                item.id === updatedItem.id ? updatedItem : item
+                item.id === updatedItem.id
+                    ? { ...item, ...updatedItem, image: item.image }
+                    : item
             )
         );
     };
