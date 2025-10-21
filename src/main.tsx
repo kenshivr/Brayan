@@ -10,7 +10,7 @@ import App from "./App";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-// import './i18n';
+import './i18n';
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter basename="/Brayan">

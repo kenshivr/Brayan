@@ -24,7 +24,7 @@ export default function MainContainer({
     >
 
       <AnimationMouse />
- 
+
       {/* <div
         className={cn(
           "blur-3xl",

@@ -1,0 +1,34 @@
+{
+    "cards": {
+        "1": {
+            "title": "What is this page?",
+            "subTitle": "Introduction",
+            "content": "Welcome to my personal website. This space is designed to introduce myself professionally, showcase my skills as a developer, and offer you an interactive experience to explore what I can create."
+        },
+        "2": {
+            "title": "Who am I?",
+            "subTitle": "About me",
+            "content": "My name is Brayan Vidal Romero, and I am a full-stack developer with experience in building complete web applications — from the database to the user interface."
+        },
+        "3": {
+            "title": "What do I do?",
+            "subTitle": "Skills",
+            "content": "I specialize in software development using technologies such as JavaScript, TypeScript, React, Node, Express, PostgreSQL, MongoDB, MySQL, and more."
+        },
+        "4": {
+            "title": "What’s the goal?",
+            "subTitle": "Purpose",
+            "content": "This website aims to showcase part of my work and skills. Here, you can interact with different components and explore examples of what I can build."
+        },
+        "5": {
+            "title": "Need a website?",
+            "subTitle": "For clients",
+            "content": "If you have an idea, a business, or want to improve your online presence, I can help you create a professional, modern, and customized web solution. I work closely with my clients to turn their needs into functional and visually appealing products."
+        },
+        "6": {
+            "title": "Explore and enjoy!",
+            "subTitle": "Interactivity",
+            "content": "This site is designed not just for reading about me, but also for interacting with it. You can change the site’s colors by creating your own palette, edit a table (add, edit, delete data), and easily access my social media to get in touch."
+        }
+    }
+}

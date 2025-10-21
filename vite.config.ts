@@ -21,6 +21,7 @@ export default defineConfig({
       '@src': path.resolve(__dirname, 'src'),
       '@public': path.resolve(__dirname, 'public'),
       '@components': path.resolve(__dirname, 'src/components'),
+      '@models': path.resolve(__dirname, 'src/models'),
       '@locales': path.resolve(__dirname, 'src/locales'),
       '@types': path.resolve(__dirname, 'src/types'),
       '@svg': path.resolve(__dirname, 'src/svg'),
