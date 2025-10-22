@@ -12,48 +12,16 @@ import type Card from "@src/types/card";
 export const useCards = (): Card[] => {
     const { t } = useTranslation();
 
-    return [
-        {
-            id: 1,
-            image: lookUp,
-            title: t("cards.1.title"),
-            subTitle: t("cards.1.subTitle"),
-            content: t("cards.1.content"),
-        },
-        {
-            id: 2,
-            image: AngrySit,
-            title: t("cards.2.title"),
-            subTitle: t("cards.2.subTitle"),
-            content: t("cards.2.content"),
-        },
-        {
-            id: 3,
-            image: jumpHappy,
-            title: t("cards.3.title"),
-            subTitle: t("cards.3.subTitle"),
-            content: t("cards.3.content"),
-        },
-        {
-            id: 4,
-            image: hoddie3D,
-            title: t("cards.4.title"),
-            subTitle: t("cards.4.subTitle"),
-            content: t("cards.4.content"),
-        },
-        {
-            id: 5,
-            image: drink3D,
-            title: t("cards.5.title"),
-            subTitle: t("cards.5.subTitle"),
-            content: t("cards.5.content"),
-        },
-        {
-            id: 6,
-            image: drinkHappy,
-            title: t("cards.6.title"),
-            subTitle: t("cards.6.subTitle"),
-            content: t("cards.6.content"),
-        },
-    ];
+    const images = [lookUp, AngrySit, jumpHappy, hoddie3D, drink3D, drinkHappy];
+
+    return images.map((image, index) => {
+        const id = index + 1;
+        return {
+            id,
+            image,
+            title: t(`cards.${id}.title`),
+            subTitle: t(`cards.${id}.subTitle`),
+            content: t(`cards.${id}.content`),
+        };
+    });
 };

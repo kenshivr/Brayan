@@ -1,4 +1,5 @@
 import cn from "@src/services/clsx";
+import Translate from "./translate";
 import { type ReactNode } from "react";
 import AnimationMouse from "./animationMouse";
 
@@ -24,6 +25,7 @@ export default function MainContainer({
     >
 
       <AnimationMouse />
+      <Translate />
 
       {/* <div
         className={cn(

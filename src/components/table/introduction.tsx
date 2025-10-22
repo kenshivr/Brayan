@@ -1,6 +1,7 @@
 import cn from "@src/services/clsx";
 import image from "@public/Down3D.png";
 import { type ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Introduction({
     className = "",
@@ -8,6 +9,8 @@ export default function Introduction({
     children?: ReactNode;
     className?: string;
 }) {
+    const { t } = useTranslation();
+
     return (
         <div
             className={cn(
@@ -22,21 +25,13 @@ export default function Introduction({
                 className="order-2 md:order-1 flex flex-col justify-center items-start w-full px-20"
             >
                 <Title
-                    content={'Report'}
+                    content={t(`report.title`)}
                 />
                 <SubTitle
-                    content={'CRUD and exporting data.'}
+                    content={t(`report.subTitle`)}
                 />
                 <Paragraph
-                    content={`
-                        En esta sección podrás interactuar con una tabla dinámica que muestra 
-                        datos sobre distintas tecnologías, incluyendo su nombre, versión e imagen 
-                        representativa. Tendrás la posibilidad de agregar nuevos registros con la 
-                        información que desees, editar o eliminar los existentes, y aplicar filtros 
-                        para visualizar solo los que te interesen. Además, puedes exportar todo el 
-                        contenido de la tabla en un archivo Excel. 
-                        ¡Te invito a probarla y explorar sus funciones!
-                    `}
+                    content={t(`report.paragraph`)}
                 />
 
             </div>
@@ -98,113 +93,3 @@ function Paragraph({
         </span>
     )
 }
-
-function Paragraph1({
-    content
-}: {
-    content: string
-}) {
-    return (
-        <span
-            className="text-2xl text-justify mb-6"
-            style={{
-                color: 'var(--color-firstColor)',
-                fontFamily: 'agneos_regular'
-            }}
-        >
-            {content}
-        </span>
-    )
-}
-
-function Paragraph2({
-    content
-}: {
-    content: string
-}) {
-    return (
-        <span
-            className="text-2xl text-justify mb-6"
-            style={{
-                color: 'var(--color-firstColor)',
-                fontFamily: 'aventi'
-            }}
-        >
-            {content}
-        </span>
-    )
-}
-
-function Paragraph3({
-    content
-}: {
-    content: string
-}) {
-    return (
-        <span
-            className="text-2xl text-justify mb-6"
-            style={{
-                color: 'var(--color-firstColor)',
-                fontFamily: 'quloon'
-            }}
-        >
-            {content}
-        </span>
-    )
-}
-
-function Paragraph4({
-    content
-}: {
-    content: string
-}) {
-    return (
-        <span
-            className="text-2xl text-justify mb-6"
-            style={{
-                color: 'var(--color-firstColor)',
-                fontFamily: 'slabion'
-            }}
-        >
-            {content}
-        </span>
-    )
-}
-
-function Paragraph5({
-    content
-}: {
-    content: string
-}) {
-    return (
-        <span
-            className="text-2xl text-justify mb-6"
-            style={{
-                color: 'var(--color-firstColor)',
-                fontFamily: 'falling'
-            }}
-        >
-            {content}
-        </span>
-    )
-}
-
-// export default function Layout({
-//   children,
-//   className = ''
-// }: {
-//   children?: ReactNode;
-//   className?: string;
-// }) {
-//   return (
-//     <div
-//       className={cn(
-//         'mx-3 flex flex-col gap-2',
-//         'xl:mx-0 xl:flex-row xl:px-3',
-//         className
-//       )}
-//     >
-//       {children}
-//     </div>
-//   );
-// }

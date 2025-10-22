@@ -386,9 +386,7 @@ export default function Components({
         <Neumorphism13 className="flex justify-center items-center">
           <Neumorphism12 />
         </Neumorphism13>
-        <Neumorphism14 className="flex justify-center items-center">
-          <img src={image} alt="Wink" className="w-3/5 h-3/5 object-cover" />
-        </Neumorphism14>
+        <Neumorphism14 className="flex justify-center items-center" />
         <Neumorphism16 />
         <Neumorphism17 />
       </div>

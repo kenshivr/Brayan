@@ -1,4 +1,9 @@
 {
+    "report": {
+        "title": "Report",
+        "subTitle": "CRUD and exporting data.",
+        "paragraph": "In this section you will interact with a dynamic table showing data about different technologies, including their name, version and representative image. You will be able to add new records with the information you want, edit or delete existing ones, and apply filters to view only those you are interested in. Additionally, you can export the entire table content to an Excel file. I invite you to try it out and explore its features!"
+    },
     "cards": {
         "1": {
             "title": "What is this page?",
@@ -16,7 +21,7 @@
             "content": "I specialize in software development using technologies such as JavaScript, TypeScript, React, Node, Express, PostgreSQL, MongoDB, MySQL, and more."
         },
         "4": {
-            "title": "What’s the goal?",
+            "title": "What's the goal?",
             "subTitle": "Purpose",
             "content": "This website aims to showcase part of my work and skills. Here, you can interact with different components and explore examples of what I can build."
         },
@@ -28,7 +33,37 @@
         "6": {
             "title": "Explore and enjoy!",
             "subTitle": "Interactivity",
-            "content": "This site is designed not just for reading about me, but also for interacting with it. You can change the site’s colors by creating your own palette, edit a table (add, edit, delete data), and easily access my social media to get in touch."
+            "content": "This site is designed not just for reading about me, but also for interacting with it. You can change the site's colors by creating your own palette, edit a table (add, edit, delete data), and easily access my social media to get in touch."
         }
-    }
+    },
+    "projects": [
+        {
+            "title": "Preslow Ecommerce",
+            "content": "I developed a full-fledged eCommerce from scratch, covering both frontend and backend. I implemented a structured database for products, users, orders and settings, ensuring communication through a robust REST API. The frontend was designed with a user-experience focus, integrating payment gateways and multilingual support. I applied security measures such as input validation, SQL injection protection, brute-force prevention and sanitization to avoid code injection. The system was deployed on a dedicated server, with an administrative section for managers allowing editing of visual content, managing accounts and permissions, controlling inventory, prices, sizes, colours, discounts and responding to customer inquiries.",
+            "year": "25",
+            "month": "Sep",
+            "link": "https://www.preslow.com/"
+        },
+        {
+            "title": "Internal System",
+            "content": "I designed and developed an internal CRM-type platform connected directly to the company database, allowing viewing, editing and managing employees, departments, accounts and key reports on merchandise, sales, orders and billing. It functioned as a central repository of business information, with custom dashboards by area, report display on dedicated screens, data entry to feed metrics in real time and interactive modules like corporate product-related games. The solution facilitated decision-making and optimized the company's overall management.",
+            "year": "24",
+            "month": "Jun",
+            "link": ""
+        },
+        {
+            "title": "NFT's Store",
+            "content": "Simulation project of an NFT eCommerce developed entirely in the frontend, without connection to databases or APIs. Hosted on a free server, the main focus was aesthetics and user experience, using custom graphics, a carefully selected colour palette and a visually appealing interface. This project stands out for its intuitive design and usability focus, ideal to demonstrate web development skills centred on UI/UX.",
+            "year": "22",
+            "month": "Sep",
+            "link": ""
+        },
+        {
+            "title": "University Project",
+            "content": "University project developed at FES Acatlán aimed at connecting experienced professionals and students, facilitating personalised mentoring. The platform allowed scheduling sessions, recording feedback, generating statistics, managing comments and storing educational audiovisual content, providing users with comprehensive tools to support their academic and professional development.",
+            "year": "22",
+            "month": "Sep",
+            "link": ""
+        }
+    ]
 }

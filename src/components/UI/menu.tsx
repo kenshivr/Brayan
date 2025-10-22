@@ -27,12 +27,26 @@ type Props = {
 };
 
 const socialMedias: SocialMediaInterface[] = [
-  { icon: <RiFacebookCircleLine />, link: "" },
-  { icon: <RxInstagramLogo />, link: "" },
-  { icon: <RiTwitterXLine />, link: "" },
-  { icon: <PiTiktokLogoLight />, link: "" },
-  { icon: <FaWhatsapp />, link: "" },
-  { icon: <FaWhatsapp />, link: "" },
+  {
+    icon: <RiFacebookCircleLine />,
+    link: ""
+  },
+  {
+    icon: <RxInstagramLogo />,
+    link: 'https://www.instagram.com/kenshi.vr?igsh=MXdyZG9pMjFzNHN0aQ=='
+  },
+  {
+    icon: <RiTwitterXLine />,
+    link: ""
+  },
+  {
+    icon: <PiTiktokLogoLight />,
+    link: ""
+  },
+  {
+    icon: <FaWhatsapp />,
+    link: 'https://wa.me/5610191582'
+  },
 ];
 
 export default function Menu({ isDesktop }: { isDesktop: boolean }) {

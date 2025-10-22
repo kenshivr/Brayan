@@ -4,8 +4,11 @@ import cn from "@src/services/clsx";
 import type Card from "@src/types/card";
 import { useCards } from "@src/models/cards";
 
+import { useTranslation } from 'react-i18next';
+
 export default function CharactersDesktop() {
   const cards = useCards();
+  const { t } = useTranslation();
   const [target, setTarget] = useState<Card>(cards[0]);
 
   return (
@@ -46,7 +49,7 @@ export default function CharactersDesktop() {
               display: "inline-block",
             }}
           >
-            {target.subTitle}
+            {t(`cards.${target.id}.subTitle`)}
           </h4>
 
           <h2
@@ -59,10 +62,14 @@ export default function CharactersDesktop() {
               display: "inline-block",
             }}
           >
-            {target.title}
+            {t(`cards.${target.id}.title`)}
           </h2>
 
-          <p className="p-2 w-7/8 text-xs md:text-sm lg:text-lg">{target.content}</p>
+          <p
+            className="p-2 w-7/8 text-xs md:text-sm lg:text-lg"
+          >
+            {t(`cards.${target.id}.content`)}
+          </p>
         </div>
       </div>
 

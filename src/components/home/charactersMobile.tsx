@@ -4,8 +4,11 @@ import cn from "@src/services/clsx";
 import type Card from "@src/types/card";
 import { useCards } from "@src/models/cards";
 
+import { useTranslation } from "react-i18next";
+
 export default function CharactersMobile() {
   const cards = useCards();
+  const { t } = useTranslation();
   const [target, setTarget] = useState<Card>(cards[0]);
 
   return (
@@ -40,7 +43,7 @@ export default function CharactersMobile() {
               display: "inline-block",
             }}
           >
-            {target.subTitle}
+            {t(`cards.${target.id}.subTitle`)}
           </h4>
 
           <h2
@@ -53,13 +56,13 @@ export default function CharactersMobile() {
             }}
             className="p-2 text-center text-3xl"
           >
-            {target.title}
+            {t(`cards.${target.id}.title`)}
           </h2>
 
           <p
             className="text-base sm:text-lg p-4"
           >
-            {target.content}
+            {t(`cards.${target.id}.content`)}
           </p>
         </div>
 
