@@ -1,4 +1,9 @@
 {
+    "report": {
+        "title": "Reporte",
+        "subTitle": "CRUD y exportacion de datos.",
+        "paragraph": "En esta sección podrás interactuar con una tabla dinámica que muestra datos sobre distintas tecnologías, incluyendo su nombre, versión e imagen representativa. Tendrás la posibilidad de agregar nuevos registros con la información que desees, editar o eliminar los existentes, y aplicar filtros para visualizar solo los que te interesen. Además, puedes exportar todo el contenido de la tabla en un archivo Excel. ¡Te invito a probarla y explorar sus funciones!"
+    },
     "cards": {
         "1": {
             "title": "¿Qué es esta página?",
@@ -30,5 +35,35 @@
             "subTitle": "Interactividad",
             "content": "Esta página está pensada para que no solo leas sobre mí, sino que también interactúes. Puedes cambiar los colores del sitio creando tu propia paleta personalizada, modificar una tabla (agregar, editar y eliminar información) y acceder fácilmente a mis redes sociales para contactarme."
         }
-    }
+    },
+    "projects": [
+        {
+            "title": "Ecommerce Preslow",
+            "content": "Desarrollé un eCommerce completo desde cero, abarcando tanto el frontend como el backend. Implementé una base de datos estructurada para productos, usuarios, pedidos y configuraciones, asegurando la comunicación mediante una API REST robusta. El frontend fue diseñado con un enfoque en experiencia de usuario, integrando pasarelas de pago y soporte multilenguaje. Apliqué medidas de seguridad como validación de entradas, protección contra inyecciones SQL, ataques de fuerza bruta y sanitización para prevenir inyecciones de código. El sistema fue desplegado en un servidor dedicado, con una sección administrativa para gestores que permite editar contenido visual, gestionar cuentas y permisos, controlar inventarios, precios, tallas, colores, descuentos y responder consultas de clientes.",
+            "year": "25",
+            "month": "Sep",
+            "link": "https://www.preslow.com/"
+        },
+        {
+            "title": "Sistema Interno",
+            "content": "Diseñé y desarrollé una plataforma interna tipo CRM conectada directamente a la base de datos de la empresa, permitiendo visualizar, editar y gestionar empleados, departamentos, cuentas y reportes clave de mercadería, ventas, pedidos y facturación. Funcionaba como un repositorio central de información empresarial, con dashboards personalizados por área, visualización de reportes en pantallas dedicadas, ingreso de datos para alimentar métricas en tiempo real y módulos interactivos como juegos corporativos sobre productos. La solución facilitó la toma de decisiones y optimizó la gestión integral de la compañía.",
+            "year": "24",
+            "month": "Jun",
+            "link": ""
+        },
+        {
+            "title": "Tienda NFT'S",
+            "content": "Proyecto de simulación de un eCommerce de NFTs desarrollado completamente en frontend, sin conexión a bases de datos ni APIs. Implementado en un servidor gratuito, el enfoque principal fue la estética y experiencia del usuario, utilizando imágenes personalizadas, una paleta de colores cuidadosamente seleccionada y una interfaz visualmente atractiva. Este proyecto destaca por su diseño intuitivo y enfoque en usabilidad, ideal para demostrar habilidades en desarrollo web centrado en UI/UX.",
+            "year": "22",
+            "month": "Sep",
+            "link": ""
+        },
+        {
+            "title": "Proyecto Universitario",
+            "content": "Proyecto universitario desarrollado en FES Acatlán con el objetivo de conectar a profesionales con experiencia y estudiantes, facilitando la mentoría personalizada. La plataforma permitía agendar citas, registrar retroalimentación, generar estadísticas, gestionar comentarios y almacenar contenido audiovisual educativo, brindando a los usuarios herramientas integrales para apoyar su formación académica y profesional.",
+            "year": "22",
+            "month": "Sep",
+            "link": ""
+        }
+    ]
 }
