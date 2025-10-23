@@ -1,64 +1,18 @@
-import run from "@public/run3D.png";
 import cn from "@src/services/clsx";
+import runImage from "@public/run3D.png";
 import { GiProgression } from "react-icons/gi";
+import { useTranslation } from "react-i18next";
 
 type TimelineEntry = {
-  content: string;
+  company: string;
+  description: string;
 };
 
-// const timeline: TimelineEntry[] = [
-//   {
-//     content: `
-//       Preslow: Participé en el desarrollo de proyectos web, así como en el 
-//       mantenimiento de sistemas existentes en la nube. También estuve a cargo 
-//       de la administración y supervisión de servidores. Además, lideré un equipo 
-//       de desarrolladores para asegurar el cumplimiento de objetivos técnicos 
-//       y de entrega.`,
-//   },
-//   {
-//     content: `
-//       MAC: Como parte de mi trabajo de titulación, desarrollamos una página web 
-//       para la Facultad de Estudios Superiores Acatlán. A través de esta plataforma, 
-//       estudiantes y mentores podían programar, gestionar y comentar reuniones, 
-//       además de dar seguimiento al progreso de los proyectos académicos.`,
-//   },
-//   {
-//     content: `
-//       Página Personal: Esta página tiene como propósito fortalecer mi presencia 
-//       en línea y reflejar mis habilidades como desarrollador. Antes de crear esta 
-//       versión, desarrollé una primera iteración más sencilla, cuando aún contaba 
-//       con menos experiencia. Ese proyecto inicial fue fundamental para comprender 
-//       de forma práctica todo el proceso que conlleva diseñar, construir y desplegar 
-//       un sitio web en internet.`,
-//   },
-// ];
+export default function Carrer() {
+  const { t } = useTranslation();
 
-const timeline: TimelineEntry[] = [
-  {
-    content: `
-      Preslow: I participated in the development of web projects, as well as 
-      the maintenance of existing cloud-based systems. I was also responsible 
-      for the administration and supervision of servers. Additionally, I led a 
-      team of developers to ensure the fulfillment of technical and delivery goals.`,
-  },
-  {
-    content: `
-      MAC: As part of my degree project, we developed a website for the Faculty 
-      of Higher Studies Acatlán. Through this platform, students and mentors 
-      could schedule, manage, and comment on meetings, as well as track the 
-      progress of academic projects.`,
-  },
-  {
-    content: `
-      Personal Website: This site aims to strengthen my online presence and 
-      showcase my skills as a developer. Before creating this version, I built 
-      a simpler first iteration when I had less experience. That initial project 
-      was fundamental in helping me understand the full process of designing, 
-      building, and deploying a website.`,
-  },
-];
+  const timeline = t("carrer.timeline", { returnObjects: true }) as TimelineEntry[];
 
-export default function CarouselCards() {
   return (
     <div
       style={{ color: "var(--color-firstColor)" }}
@@ -70,10 +24,10 @@ export default function CarouselCards() {
     >
       <div className={cn("w-full md:w-1/2 flex justify-center items-center relative")}>
         <img
-          src={run}
+          src={runImage}
           width={320}
           height={320}
-          alt="Personaje Corriendo"
+          alt={t("carrer.softwareDeveloperLabel")}
           className={cn(
             "transform transition-transform duration-300",
             "group-hover:scale-150 -translate-y-4"
@@ -89,7 +43,7 @@ export default function CarouselCards() {
             "w-[250px] h-[40px] bg-peachTint flex items-center rounded-r-lg md:top-3/5"
           )}
         >
-          Software Developer
+          {t("carrer.softwareDeveloperLabel")}
         </span>
       </div>
 
@@ -98,20 +52,21 @@ export default function CarouselCards() {
           style={{ color: "var(--color-secondColor)" }}
           className="text-2xl md:text-4xl pr-12"
         >
-          Professional
+          {t("carrer.professionalLabel")}
         </span>
         <h3
           style={{ color: "var(--color-firstColor)" }}
           className="text-5xl md:text-7xl mb-4 pr-12"
         >
-          career
+          {t("carrer.careerLabel")}
         </h3>
 
-        {timeline.map((entry, index) => (
-          <div key={index} className="flex justify-center gap-4 mb-4 items-center">
+        {timeline.map((entry, idx) => (
+          <div key={idx} className="flex justify-center gap-4 mb-4 items-center">
             <GiProgression className="h-full shrink-0" />
             <p className="w-10/12 text-justify text-xs md:text-sm lg:text-base">
-              {entry.content.trim()}
+              <strong>{entry.company}: </strong>
+              {entry.description.trim()}
             </p>
           </div>
         ))}
