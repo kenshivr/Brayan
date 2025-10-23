@@ -1,8 +1,12 @@
 {
-    "report": {
-        "title": "Reporte",
-        "subTitle": "CRUD y exportacion de datos.",
-        "paragraph": "En esta sección podrás interactuar con una tabla dinámica que muestra datos sobre distintas tecnologías, incluyendo su nombre, versión e imagen representativa. Tendrás la posibilidad de agregar nuevos registros con la información que desees, editar o eliminar los existentes, y aplicar filtros para visualizar solo los que te interesen. Además, puedes exportar todo el contenido de la tabla en un archivo Excel. ¡Te invito a probarla y explorar sus funciones!"
+    "menu": {
+        "firstSectionLabel": "Menu",
+        "firstSectionContentOne": "Inicio",
+        "firstSectionContentTwo": "Reporte",
+        "firstSectionContentThree": "Proyectos",
+        "firstSectionContentFour": "Componentes",
+        "secondSectionLabel": "Redes",
+        "thirdSectionLabel": "Colores"
     },
     "cards": {
         "1": {
@@ -18,7 +22,7 @@
         "3": {
             "title": "¿Qué hago?",
             "subTitle": "Habilidades",
-            "content": "Me dedico al desarrollo de software utilizando tecnologías como JavaScript, TypeScript, React, Node, Express, PostgreSQL, MongoDB, MySQL y más."
+            "content": "Me dedico al desarrollo de software utilizando tecnologías como JavaScript, TypeScript, Python, React, Vite, Next, Tailwind, Node, Express, Hono, PostgreSQL, MongoDB, MySQL y más."
         },
         "4": {
             "title": "¿Cuál es el objetivo?",
@@ -35,6 +39,30 @@
             "subTitle": "Interactividad",
             "content": "Esta página está pensada para que no solo leas sobre mí, sino que también interactúes. Puedes cambiar los colores del sitio creando tu propia paleta personalizada, modificar una tabla (agregar, editar y eliminar información) y acceder fácilmente a mis redes sociales para contactarme."
         }
+    },
+    "carrer": {
+        "softwareDeveloperLabel": "Software Developer",
+        "professionalLabel": "Profecional",
+        "careerLabel": "Carrera",
+        "timeline": [
+            {
+                "company": "Preslow",
+                "description": "Participé en el desarrollo de proyectos web, así como en el mantenimiento de sistemas existentes en la nube. También estuve a cargo de la administración y supervisión de servidores. Además, lideré un equipo de desarrolladores para asegurar el cumplimiento de objetivos técnicos y de entrega."
+            },
+            {
+                "company": "MAC",
+                "description": "Como parte de mi trabajo de titulación, desarrollamos una página web para la Facultad de Estudios Superiores Acatlán. A través de esta plataforma, estudiantes y mentores podían programar, gestionar y comentar reuniones, además de dar seguimiento al progreso de los proyectos académicos."
+            },
+            {
+                "company": "Página Personal",
+                "description": "Esta página tiene como propósito fortalecer mi presencia en línea y reflejar mis habilidades como desarrollador. Antes de crear esta versión, desarrollé una primera versión más sencilla, cuando aún contaba con menos experiencia. Ese proyecto inicial fue fundamental para comprender de forma práctica todo el proceso que conlleva diseñar, construir y desplegar un sitio web en internet."
+            }
+        ]
+    },
+    "report": {
+        "title": "Reporte",
+        "subTitle": "CRUD y exportacion de datos.",
+        "paragraph": "En esta sección podrás interactuar con una tabla dinámica que muestra datos sobre distintas tecnologías, incluyendo su nombre, versión e imagen representativa. Tendrás la posibilidad de agregar nuevos registros con la información que desees, editar o eliminar los existentes, y aplicar filtros para visualizar solo los que te interesen. Además, puedes exportar todo el contenido de la tabla en un archivo Excel. ¡Te invito a probarla y explorar sus funciones!"
     },
     "projects": [
         {
