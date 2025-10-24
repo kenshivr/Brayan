@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
 import cn from '@src/services/clsx';
 import Menu from '@src/components/UI/menu';
 import { CiCalendar } from 'react-icons/ci';
-import { IoIosArrowForward } from 'react-icons/io';
+import { useState, useEffect } from 'react';
 import { useProyects } from '@src/models/proyects';
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 
 export default function Proyects() {
   const proyects = useProyects();
@@ -20,6 +20,11 @@ export default function Proyects() {
   const handleNext = () => {
     setIsTransitioning(true);
     setCurrentIndex((prev) => prev + 1);
+  };
+
+  const handleBack = () => {
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
   };
 
   // cuando llegamos al final, saltamos sin transición al primero "real"
@@ -60,12 +65,16 @@ export default function Proyects() {
           <div
             key={index}
             className={cn(
-              'py-6 relative w-screen h-screen flex flex-shrink-0 flex-col justify-between items-center'
+              'py-6 relative w-screen min-h-screen flex flex-shrink-0 flex-col justify-between items-center'
             )}
           >
-            <h2 className='text-4xl'>{proyect.title}</h2>
+            <h2
+              className='text-2xl md:text-4xl mt-16 sm:mt-0 mb-6 sm:mb-0'
+            >
+              {proyect.title}
+            </h2>
 
-            <div className='relative overflow-hidden flex w-4/6 justify-center'>
+            <div className='relative overflow-hidden flex w-5/6 justify-center'>
               <span className='marquee marquee-left text-4xl md:text-6xl lg:text-9xl'>
                 {'<'}
                 {proyect.title.split(' ')[0]}
@@ -75,7 +84,7 @@ export default function Proyects() {
               <img
                 alt='character'
                 src={proyect.image}
-                className='w-[35vw] md:w-[25vw] z-10 relative'
+                className='w-[55vw] md:w-[21vw] z-10 relative'
               />
 
               <span className='marquee marquee-right text-4xl md:text-6xl lg:text-9xl'>
@@ -83,6 +92,20 @@ export default function Proyects() {
                 {proyect.title.split(' ')[1]}
                 {' />'}
               </span>
+
+              <button
+                onClick={handleNext}
+                className='transform -translate-y-1/2 flex justify-center items-center absolute top-1/2 right-4 w-10 h-10'
+              >
+                <IoIosArrowForward className='w-5 h-5' />
+              </button>
+              
+              <button
+                onClick={handleBack}
+                className='transform -translate-y-1/2 flex justify-center items-center absolute top-1/2 left-4 w-10 h-10'
+              >
+                <IoIosArrowBack className='w-5 h-5' />
+              </button>
             </div>
 
             <div className='flex flex-col gap-2 mx-6'>
@@ -101,16 +124,9 @@ export default function Proyects() {
               </div>
               <p className='text-xl'>{proyect.content}</p>
             </div>
-
-            <button
-              onClick={handleNext}
-              className='transform -translate-y-1/2 flex justify-center items-center absolute top-1/2 right-4 w-10 h-10'
-            >
-              <IoIosArrowForward className='w-5 h-5' />
-            </button>
           </div>
         ))}
-      </div>
+      </div >
     </>
   );
 }

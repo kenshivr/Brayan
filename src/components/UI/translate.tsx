@@ -11,7 +11,7 @@ export default function Translate() {
           ? 'linear-gradient(to right, var(--color-thirdColor), var(--color-firstColor))'
           : 'linear-gradient(to right, var(--color-fifthColor), var(--color-thirdColor))',
       }}
-      className='fixed top-4 right-4 z-50 w-[85px] h-[47px] rounded-full transition-colors duration-700 ease-in-out'
+      className='fixed top-4 right-4 z-50 w-[85px] h-[47px] rounded-full transition-all duration-700 ease-in-out scale-[0.8] md:scale-100 origin-top-right'
     >
       <div
         style={{ backgroundColor: 'var(--color-firstColor)' }}
@@ -21,14 +21,14 @@ export default function Translate() {
       {i18n.language === 'en' ? (
         <span
           style={{ color: 'var(--color-fifthColor)' }}
-          className="absolute top-1/2 right-[13px] -translate-y-1/2"
+          className="absolute top-1/2 right-[13px] -translate-y-1/2 text-[14px]"
         >
           En
         </span>
       ) : (
         <span
           style={{ color: 'var(--color-firstColor)' }}
-          className="absolute top-1/2 right-[56px] -translate-y-1/2"
+          className="absolute top-1/2 right-[56px] -translate-y-1/2 text-[14px]"
         >
           Es
         </span>
