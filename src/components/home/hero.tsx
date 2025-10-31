@@ -16,8 +16,6 @@ export default function Hero({
         className
       )}
     >
-
-      {/* Contenido principal */}
       <div className="relative flex flex-col justify-center items-center w-full order-2 md:order-none py-6 pt-38">
         <img src={image} width={300} alt="Personaje" />
         <p
