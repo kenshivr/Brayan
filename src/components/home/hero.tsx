@@ -1,18 +1,16 @@
 import cn from "@src/services/clsx";
-import { type ReactNode } from "react";
 import image from "@public/inComputer3D.png";
 
 export default function Hero({
   className = "",
 }: {
-  children?: ReactNode;
   className?: string;
 }) {
   return (
     <div
       className={cn(
-        "bg-transparent",
-        "relative w-full h-auto overflow-hidden flex flex-col md:flex-row",
+        "relative w-full h-auto bg-transparent",
+        "overflow-hidden flex flex-col md:flex-row",
         className
       )}
     >
@@ -25,7 +23,6 @@ export default function Hero({
           style={{ color: "var(--color-secondColor)" }}
           className="text-5xl">Dev</p>
       </div>
-
     </div>
   );
-}
+};
