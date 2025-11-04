@@ -97,6 +97,12 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
                 className='w-6 h-6 transition-colors duration-300'
               />
             </Link>
+            <Link to='/cv' className='group'>
+              <PiPaperclip
+                style={{ color: 'var(--color-firstColor)' }}
+                className='w-6 h-6 transition-colors duration-300'
+              />
+            </Link>
             {Object.entries(themes).map(([key, palette]) => (
               <ColorOrb
                 key={key}
@@ -176,7 +182,7 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
           <MenuOption
             content={t('menu.firstSectionContentFive')}
             route='cv'
-            icon={<PiPaperclip  className='w-5 h-5' />}
+            icon={<PiPaperclip className='w-5 h-5' />}
             activeColor={themes[selectedPalette].firstColor}
           />
           <DividerLight />

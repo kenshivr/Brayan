@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 
 export default function CV() {
     const { t } = useTranslation();
-    // t("carrer.softwareDeveloperLabel")
 
     return (
         <>
@@ -44,28 +43,29 @@ function Curriculum({
 }) {
     return (
         <>
-            <div>
-                <span className="text-lg">CV</span>
+            <div className="w-4/5 mx-auto">
+                <span className="text-sm md:text-lg">CV</span>
 
-                <h2 className="text-6xl py-2">{title}</h2>
+                <div>
+                    <h2 className="text-3xl md:text-6xl py-2">{title}</h2>
 
-                <div
-                    style={{
-                        width: "100%",
-                        height: "10px",
-                        background: "var(--color-thirdColor)",
-                        borderBottom: "3px solid var(--color-secondColor)",
-                        transform: "skewX(-50deg)",
-                    }}
-                />
+                    <div
+                        style={{
+                            width: "50%",
+                            height: "10px",
+                            background: "var(--color-thirdColor)",
+                            borderBottom: "3px solid var(--color-secondColor)",
+                            transform: "skewX(-50deg)",
+                        }}
+                    />
+                </div>
             </div>
 
-            <span className="text-lg">{language}</span>
+            <span className="text-sm md:text-lg w-4/5 mx-auto">{language}</span>
 
             <iframe
                 src={src}
-                className="w-full h-[460px] md:h-[900px] mb-8"
-                style={{ border: "none" }}
+                className="w-4/5 h-[460px] md:h-[900px] mb-8 mx-auto"
             ></iframe>
         </>
     )
