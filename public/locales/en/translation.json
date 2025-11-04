@@ -4,7 +4,8 @@
         "firstSectionContentOne": "Home",
         "firstSectionContentTwo": "Report",
         "firstSectionContentThree": "Proyects",
-        "firstSectionContentFour": "Components",
+        "firstSectionContentFour": "UI",
+        "firstSectionContentFive": "CV",
         "secondSectionLabel": "Networks",
         "thirdSectionLabel": "Colors"
     },
@@ -93,5 +94,10 @@
             "month": "Sep",
             "link": ""
         }
-    ]
+    ],
+    "CV": {
+        "title": "Resume",
+        "spanish": "Spanish",
+        "english": "English"
+    }
 }

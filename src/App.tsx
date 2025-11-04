@@ -2,10 +2,11 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
 import Home from '@pages/home';
-import Components from '@src/pages/components';
+import CV from '@src/pages/cv';
 import Report from '@pages/report';
 import Proyects from '@pages/proyects';
 import NotFound from '@pages/notFound';
+import Components from '@src/pages/components';
 import MainContainer from '@components/UI/mainContainer';
 
 import { useThemeStore } from './context/themeStore';
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/report" element={<Report />} />
         <Route path="/proyects" element={<Proyects />} />
         <Route path="/components" element={<Components />} />
+        <Route path="/cv" element={<CV />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </MainContainer>

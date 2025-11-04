@@ -13,6 +13,7 @@ import { RiTwitterXLine } from 'react-icons/ri';
 import { useState, type ReactNode } from 'react';
 import { RxInstagramLogo } from 'react-icons/rx';
 import { TbFileHorizontal } from 'react-icons/tb';
+import { PiPaperclip } from "react-icons/pi";
 import { PiProjectorScreen } from 'react-icons/pi';
 import { PiTiktokLogoLight } from 'react-icons/pi';
 import { RiFacebookCircleLine } from 'react-icons/ri';
@@ -170,6 +171,12 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
             content={t('menu.firstSectionContentFour')}
             route='components'
             icon={<GoPackage className='w-5 h-5' />}
+            activeColor={themes[selectedPalette].firstColor}
+          />
+          <MenuOption
+            content={t('menu.firstSectionContentFive')}
+            route='cv'
+            icon={<PiPaperclip  className='w-5 h-5' />}
             activeColor={themes[selectedPalette].firstColor}
           />
           <DividerLight />
