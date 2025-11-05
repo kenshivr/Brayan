@@ -1,5 +1,7 @@
 import cn from "@src/services/clsx";
 import Menu from "@src/components/UI/menu";
+import pdfIngles from '@public/files/CV_2025_Ingles.pdf';
+import pdfEspañol from '@public/files/CV_2025_español.pdf';
 import { useTranslation } from "react-i18next";
 
 export default function CV() {
@@ -19,13 +21,13 @@ export default function CV() {
                 <Curriculum
                     title={t("CV.title")}
                     language={t("CV.spanish")}
-                    src={'public/files/CV_2025_español.pdf'}
+                    src={pdfEspañol}
                 />
 
                 <Curriculum
                     title={t("CV.title")}
                     language={t("CV.english")}
-                    src={'public/files/CV_2025_ingles.pdf'}
+                    src={pdfIngles}
                 />
             </section>
         </>
