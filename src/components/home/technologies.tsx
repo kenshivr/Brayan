@@ -4,10 +4,14 @@ import { useRef, useEffect, useState } from "react";
 import peekedTop3D from "@public/peekedTop3D.png";
 import bothHands3D from "@public/bothHands3D.png";
 import topLeft3D from "@public/topLeft3D.png";
+import fall3D from "@public/fall3D.png";
+import inComputer3D from "@public/inComputer3D.png";
 
 import CssLogo from "@src/svg/css";
 import GitLogo from "@src/svg/git";
 import ViteLogo from "@src/svg/vite";
+import BashLogo from "@src/svg/bash";
+import NextLogo from "@src/svg/next";
 import ReactLogo from "@src/svg/react";
 import TailwindLogo from "@src/svg/tailwind";
 import TypescriptLogo from "@src/svg/typescript";
@@ -15,7 +19,7 @@ import TypescriptLogo from "@src/svg/typescript";
 import type { JSX } from "react";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaGitAlt, FaReact, FaCss3Alt } from "react-icons/fa";
-import { SiTypescript, SiVite } from "react-icons/si";
+import { SiTypescript, SiVite, SiGnubash, SiNextdotjs } from "react-icons/si";
 
 import { Neumorphism1 } from "@src/pages/components";
 import { useThemeStore } from "@src/context/themeStore";
@@ -39,7 +43,7 @@ const cards: Card[] = [
     title: "Tailwind",
     subTitle: "Styling framework",
     percentage: 90,
-    chapter: topLeft3D,
+    chapter: peekedTop3D,
     color: "fourthColor",
   },
   {
@@ -59,7 +63,7 @@ const cards: Card[] = [
     title: "React",
     subTitle: "UI library",
     percentage: 85,
-    chapter: peekedTop3D,
+    chapter: topLeft3D,
     color: "fourthColor",
   },
   {
@@ -69,7 +73,7 @@ const cards: Card[] = [
     title: "TypeScript",
     subTitle: "Superset language",
     percentage: 90,
-    chapter: topLeft3D,
+    chapter: fall3D,
     color: "secondColor",
   },
   {
@@ -79,7 +83,7 @@ const cards: Card[] = [
     title: "CSS",
     subTitle: "Style sheets",
     percentage: 75,
-    chapter: bothHands3D,
+    chapter: inComputer3D,
     color: "fourthColor",
   },
   {
@@ -99,7 +103,7 @@ const cards: Card[] = [
     title: "Tailwind",
     subTitle: "Styling framework",
     percentage: 90,
-    chapter: topLeft3D,
+    chapter: bothHands3D,
     color: "fourthColor",
   },
   {
@@ -109,7 +113,7 @@ const cards: Card[] = [
     title: "Git",
     subTitle: "Version control",
     percentage: 75,
-    chapter: bothHands3D,
+    chapter: topLeft3D,
     color: "secondColor",
   },
   {
@@ -119,7 +123,7 @@ const cards: Card[] = [
     title: "React",
     subTitle: "UI library",
     percentage: 85,
-    chapter: peekedTop3D,
+    chapter: fall3D,
     color: "fourthColor",
   },
   {
@@ -129,7 +133,7 @@ const cards: Card[] = [
     title: "TS",
     subTitle: "Superset language",
     percentage: 90,
-    chapter: topLeft3D,
+    chapter: inComputer3D,
     color: "secondColor",
   },
   {
@@ -139,7 +143,7 @@ const cards: Card[] = [
     title: "CSS",
     subTitle: "Style sheets",
     percentage: 75,
-    chapter: bothHands3D,
+    chapter: peekedTop3D,
     color: "fourthColor",
   },
   {
@@ -149,7 +153,27 @@ const cards: Card[] = [
     title: "Vite",
     subTitle: "Build tool",
     percentage: 80,
-    chapter: peekedTop3D,
+    chapter: bothHands3D,
+    color: "secondColor",
+  },
+  {
+    id: 13,
+    icon: <SiGnubash className="w-7 h-7" />,
+    image: <BashLogo className="w-24 h-24" />,
+    title: "Bash",
+    subTitle: "Shell scripting",
+    percentage: 85,
+    chapter: topLeft3D,
+    color: "fourthColor",
+  },
+  {
+    id: 14,
+    icon: <SiNextdotjs className="w-7 h-7" />,
+    image: <NextLogo className="w-24 h-24" />,
+    title: "Next",
+    subTitle: "Web framework",
+    percentage: 75,
+    chapter: fall3D,
     color: "secondColor",
   },
 ];
