@@ -8,18 +8,36 @@ import fall3D from "@public/fall3D.png";
 import inComputer3D from "@public/inComputer3D.png";
 
 import CssLogo from "@src/svg/css";
+import BunLogo from "@src/svg/bun";
 import GitLogo from "@src/svg/git";
 import ViteLogo from "@src/svg/vite";
 import BashLogo from "@src/svg/bash";
 import NextLogo from "@src/svg/next";
+import JavaLogo from "@src/svg/java";
+import WarpLogo from "@src/svg/warp";
+import HtmlLogo from "@src/svg/html";
 import ReactLogo from "@src/svg/react";
+import SpringLogo from "@src/svg/spring";
+import SocketLogo from "@src/svg/socket";
+import PythonLogo from "@src/svg/python";
+import AngularLogo from "@src/svg/angular";
 import TailwindLogo from "@src/svg/tailwind";
 import TypescriptLogo from "@src/svg/typescript";
+
+import { SiSocketdotio } from "react-icons/si";
 
 import type { JSX } from "react";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaGitAlt, FaReact, FaCss3Alt } from "react-icons/fa";
 import { SiTypescript, SiVite, SiGnubash, SiNextdotjs } from "react-icons/si";
+
+import { FaJava } from "react-icons/fa";
+import { SiSpring } from "react-icons/si";
+import { FaHtml5 } from "react-icons/fa";
+import { FaAngular } from "react-icons/fa";
+import { FaPython } from "react-icons/fa";
+import { SiWarp } from "react-icons/si";
+import { SiBun } from "react-icons/si";
 
 import { Neumorphism1 } from "@src/pages/components";
 import { useThemeStore } from "@src/context/themeStore";
@@ -176,6 +194,86 @@ const cards: Card[] = [
     chapter: fall3D,
     color: "secondColor",
   },
+  {
+    id: 15,
+    icon: <FaJava className="w-7 h-7" />,
+    image: <JavaLogo className="w-24 h-24" />,
+    title: "Java",
+    subTitle: "Program. Language",
+    percentage: 70,
+    chapter: inComputer3D,
+    color: "fourthColor",
+  },
+  {
+    id: 16,
+    icon: <SiSpring className="w-7 h-7" />,
+    image: <SpringLogo className="w-24 h-24" />,
+    title: "Spring",
+    subTitle: "Java Framework",
+    percentage: 65,
+    chapter: peekedTop3D,
+    color: "secondColor",
+  },
+  {
+    id: 17,
+    icon: <FaHtml5 className="w-7 h-7" />,
+    image: <HtmlLogo className="w-24 h-24" />,
+    title: "HTML",
+    subTitle: "Markup language",
+    percentage: 95,
+    chapter: bothHands3D,
+    color: "fourthColor",
+  },
+  {
+    id: 18,
+    icon: <FaAngular className="w-7 h-7" />,
+    image: <AngularLogo className="w-24 h-24" />,
+    title: "Angular",
+    subTitle: "Web framework",
+    percentage: 70,
+    chapter: topLeft3D,
+    color: "secondColor",
+  },
+  {
+    id: 19,
+    icon: <FaPython className="w-7 h-7" />,
+    image: <PythonLogo className="w-24 h-24" />,
+    title: "Python",
+    subTitle: "Program. language",
+    percentage: 85,
+    chapter: fall3D,
+    color: "fourthColor",
+  },
+  {
+    id: 20,
+    icon: <SiWarp className="w-7 h-7" />,
+    image: <WarpLogo className="w-24 h-24" />,
+    title: "Warp",
+    subTitle: "Terminal",
+    percentage: 85,
+    chapter: inComputer3D,
+    color: "secondColor",
+  },
+  {
+    id: 21,
+    icon: <SiBun className="w-7 h-7" />,
+    image: <BunLogo className="w-24 h-24" />,
+    title: "Bun",
+    subTitle: "JS runtime",
+    percentage: 80,
+    chapter: peekedTop3D,
+    color: "fourthColor",
+  },
+  {
+    id: 22,
+    icon: <SiSocketdotio className="w-7 h-7" />,
+    image: <SocketLogo className="w-24 h-24" />,
+    title: "Socket.io",
+    subTitle: "Real-time library",
+    percentage: 70,
+    chapter: bothHands3D,
+    color: "secondColor",
+  },
 ];
 
 export default function CarouselCards() {
@@ -300,4 +398,4 @@ export default function CarouselCards() {
       </div>
     </div>
   );
-}
+};
