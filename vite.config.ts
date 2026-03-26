@@ -28,6 +28,26 @@ export default defineConfig({
       '@pages': path.resolve(__dirname, 'src/pages'),
     }
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/primereact') || id.includes('node_modules/primeicons')) {
+            return 'vendor-primereact';
+          }
+          if (id.includes('node_modules/exceljs') || id.includes('node_modules/jszip')) {
+            return 'vendor-excel';
+          }
+          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/')) {
+            return 'vendor-react';
+          }
+          if (id.includes('node_modules/react-icons')) {
+            return 'vendor-icons';
+          }
+        },
+      },
+    },
+  },
   server: {
     port: 3003,
   }
