@@ -1,103 +1,99 @@
 {
-    "menu": {
-        "firstSectionLabel": "Menu",
-        "firstSectionContentOne": "Inicio",
-        "firstSectionContentTwo": "Reporte",
-        "firstSectionContentThree": "Proyectos",
-        "firstSectionContentFour": "UI",
-        "firstSectionContentFive": "CV",
-        "secondSectionLabel": "Redes",
-        "thirdSectionLabel": "Colores"
+  "menu": {
+    "firstSectionLabel": "Menu",
+    "firstSectionContentOne": "Inicio",
+    "firstSectionContentTwo": "Reporte",
+    "firstSectionContentThree": "Proyectos",
+    "firstSectionContentFour": "UI",
+    "firstSectionContentFive": "CV",
+    "secondSectionLabel": "Redes",
+    "thirdSectionLabel": "Colores"
+  },
+  "cards": {
+    "1": {
+      "title": "¿Qué es esta página?",
+      "subTitle": "Presentación",
+      "content": "Bienvenido a mi página web personal. Este espacio está diseñado para presentarme profesionalmente, mostrar mis habilidades como desarrollador y ofrecerte una experiencia interactiva para que conozcas lo que puedo crear."
     },
-    "cards": {
-        "1": {
-            "title": "¿Qué es esta página?",
-            "subTitle": "Presentación",
-            "content": "Bienvenido a mi página web personal. Este espacio está diseñado para presentarme profesionalmente, mostrar mis habilidades como desarrollador y ofrecerte una experiencia interactiva para que conozcas lo que puedo crear."
-        },
-        "2": {
-            "title": "¿Quién soy?",
-            "subTitle": "Sobre mí",
-            "content": "Mi nombre es Brayan Vidal Romero y soy un desarrollador full stack con experiencia en la creación de aplicaciones web completas, desde la base de datos hasta la interfaz de usuario."
-        },
-        "3": {
-            "title": "¿Qué hago?",
-            "subTitle": "Habilidades",
-            "content": "Me dedico al desarrollo de software utilizando tecnologías como JavaScript, TypeScript, Python, React, Vite, Next, Tailwind, Node, Express, Hono, PostgreSQL, MongoDB, MySQL y más."
-        },
-        "4": {
-            "title": "¿Cuál es el objetivo?",
-            "subTitle": "Propósito",
-            "content": "Esta página tiene como objetivo mostrar una parte de mi trabajo y habilidades. Aquí puedes interactuar con diferentes componentes y explorar ejemplos de lo que puedo construir."
-        },
-        "5": {
-            "title": "¿Necesitas una web?",
-            "subTitle": "Para clientes",
-            "content": "Si tienes una idea, un emprendimiento o necesitas mejorar tu presencia online, puedo ayudarte a crear una solución web profesional, moderna y personalizada. Trabajo de forma cercana con mis clientes para transformar sus necesidades en productos funcionales y atractivos."
-        },
-        "6": {
-            "title": "¡Explora y disfruta!",
-            "subTitle": "Interactividad",
-            "content": "Esta página está pensada para que no solo leas sobre mí, sino que también interactúes. Puedes cambiar los colores del sitio creando tu propia paleta personalizada, modificar una tabla (agregar, editar y eliminar información) y acceder fácilmente a mis redes sociales para contactarme."
-        }
+    "2": {
+      "title": "¿Quién soy?",
+      "subTitle": "Sobre mí",
+      "content": "Mi nombre es Brayan Vidal Romero y soy un desarrollador full stack con experiencia en la creación de aplicaciones web completas, desde la base de datos hasta la interfaz de usuario."
     },
-    "carrer": {
-        "softwareDeveloperLabel": "Software Developer",
-        "professionalLabel": "Profesional",
-        "careerLabel": "Carrera",
-        "timeline": [
-            {
-                "company": "Preslow",
-                "description": "Participé en el desarrollo de proyectos web, así como en el mantenimiento de sistemas existentes en la nube. También estuve a cargo de la administración y supervisión de servidores. Además, lideré un equipo de desarrolladores para asegurar el cumplimiento de objetivos técnicos y de entrega."
-            },
-            {
-                "company": "MAC",
-                "description": "Como parte de mi trabajo de titulación, desarrollamos una página web para la Facultad de Estudios Superiores Acatlán. A través de esta plataforma, estudiantes y mentores podían programar, gestionar y comentar reuniones, además de dar seguimiento al progreso de los proyectos académicos."
-            },
-            {
-                "company": "Página Personal",
-                "description": "Esta página tiene como propósito fortalecer mi presencia en línea y reflejar mis habilidades como desarrollador. Antes de crear esta versión, desarrollé una primera versión más sencilla, cuando aún contaba con menos experiencia. Ese proyecto inicial fue fundamental para comprender de forma práctica todo el proceso que conlleva diseñar, construir y desplegar un sitio web en internet."
-            }
-        ]
+    "3": {
+      "title": "¿Qué hago?",
+      "subTitle": "Habilidades",
+      "content": "Me dedico al desarrollo de software utilizando tecnologías como JavaScript, TypeScript, Python, React, Vite, Next, Node, PostgreSQL, MongoDB, Docker, C, C++, Java y más."
     },
-    "report": {
-        "title": "Reporte",
-        "subTitle": "CRUD y exportacion de datos.",
-        "paragraph": "En esta sección podrás interactuar con una tabla dinámica que muestra datos sobre distintas tecnologías, incluyendo su nombre, versión e imagen representativa. Tendrás la posibilidad de agregar nuevos registros con la información que desees, editar o eliminar los existentes, y aplicar filtros para visualizar solo los que te interesen. Además, puedes exportar todo el contenido de la tabla en un archivo Excel. ¡Te invito a probarla y explorar sus funciones!"
+    "4": {
+      "title": "¿Cuál es el objetivo?",
+      "subTitle": "Propósito",
+      "content": "Esta página tiene como objetivo mostrar una parte de mi trabajo y habilidades. Aquí puedes interactuar con diferentes componentes y explorar ejemplos de lo que puedo construir."
     },
-    "projects": [
-        {
-            "title": "Ecommerce Preslow",
-            "content": "Desarrollé un eCommerce completo desde cero, abarcando tanto el frontend como el backend. Implementé una base de datos estructurada para productos, usuarios, pedidos y configuraciones, asegurando la comunicación mediante una API REST robusta. El frontend fue diseñado con un enfoque en experiencia de usuario, integrando pasarelas de pago y soporte multilenguaje. Apliqué medidas de seguridad como validación de entradas, protección contra inyecciones SQL, ataques de fuerza bruta y sanitización para prevenir inyecciones de código. El sistema fue desplegado en un servidor dedicado, con una sección administrativa para gestores que permite editar contenido visual, gestionar cuentas y permisos, controlar inventarios, precios, tallas, colores, descuentos y responder consultas de clientes.",
-            "year": "25",
-            "month": "Sep",
-            "link": "https://www.preslow.com/"
-        },
-        {
-            "title": "Sistema Interno",
-            "content": "Diseñé y desarrollé una plataforma interna tipo CRM conectada directamente a la base de datos de la empresa, permitiendo visualizar, editar y gestionar empleados, departamentos, cuentas y reportes clave de mercadería, ventas, pedidos y facturación. Funcionaba como un repositorio central de información empresarial, con dashboards personalizados por área, visualización de reportes en pantallas dedicadas, ingreso de datos para alimentar métricas en tiempo real y módulos interactivos como juegos corporativos sobre productos. La solución facilitó la toma de decisiones y optimizó la gestión integral de la compañía.",
-            "year": "24",
-            "month": "Jun",
-            "link": ""
-        },
-        {
-            "title": "Tienda NFT'S",
-            "content": "Proyecto de simulación de un eCommerce de NFTs desarrollado completamente en frontend, sin conexión a bases de datos ni APIs. Implementado en un servidor gratuito, el enfoque principal fue la estética y experiencia del usuario, utilizando imágenes personalizadas, una paleta de colores cuidadosamente seleccionada y una interfaz visualmente atractiva. Este proyecto destaca por su diseño intuitivo y enfoque en usabilidad, ideal para demostrar habilidades en desarrollo web centrado en UI/UX.",
-            "year": "22",
-            "month": "Sep",
-            "link": ""
-        },
-        {
-            "title": "Proyecto Universitario",
-            "content": "Proyecto universitario desarrollado en FES Acatlán con el objetivo de conectar a profesionales con experiencia y estudiantes, facilitando la mentoría personalizada. La plataforma permitía agendar citas, registrar retroalimentación, generar estadísticas, gestionar comentarios y almacenar contenido audiovisual educativo, brindando a los usuarios herramientas integrales para apoyar su formación académica y profesional.",
-            "year": "22",
-            "month": "Sep",
-            "link": ""
-        }
-    ],
-    "CV": {
-        "title": "Curriculum Vitae",
-        "spanish": "Español",
-        "english": "Ingles"
+    "5": {
+      "title": "¿Necesitas una web?",
+      "subTitle": "Para clientes",
+      "content": "Si tienes una idea, un emprendimiento o necesitas mejorar tu presencia online, puedo ayudarte a crear una solución web profesional, moderna y personalizada. Trabajo de forma cercana con mis clientes para transformar sus necesidades en productos funcionales y atractivos."
+    },
+    "6": {
+      "title": "¡Explora y disfruta!",
+      "subTitle": "Interactividad",
+      "content": "Esta página está pensada para que no solo leas sobre mí, sino que también interactúes. Puedes cambiar los colores del sitio creando tu propia paleta personalizada, modificar una tabla (agregar, editar y eliminar información) y acceder fácilmente a mis redes sociales para contactarme."
     }
+  },
+  "carrer": {
+    "softwareDeveloperLabel": "Software Developer",
+    "professionalLabel": "Profesional",
+    "careerLabel": "Carrera",
+    "timeline": [
+      {
+        "company": "Preslow",
+        "description": "Durante 2 años como Desarrollador Full Stack en Preslow, fui el responsable principal del desarrollo de software interno: coordiné al equipo, asigné tareas, revisé avances y mantuve la estabilidad de los servidores en producción. Más allá del código, diseñé las interfaces de cada proyecto antes de construirlas, arquitecté e implementé las bases de datos que sostienen los sistemas, y desarrollé una API exclusiva para proveedores que permitió a clientes externos consumir datos de nuestra plataforma de forma segura y estructurada. En la práctica, combiné los roles de líder técnico, diseñador UI, DBA y arquitecto de integraciones. Todo dentro de mi experiencia en Preslow."
+      },
+      {
+        "company": "NAFA",
+        "description": "Como líder técnico del equipo Onivian, desarrollé junto a mi equipo la nueva página web de NAFA en un periodo de 3 meses — proyecto que actualmente se encuentra en producción. La solución incluyó un área administrativa completa que permite al cliente gestionar todo su contenido audiovisual sin intervención técnica: actualización de productos, imágenes y videos, panel de analytics con métricas de vistas por periodo, productos más consultados por categoría, y gestión de cuentas con acceso al sistema. Dentro del proyecto asumí un rol integral: escribía código, gestionaba la base de datos, administraba el servidor y coordinaba al equipo — asignando tareas, revisando avances con los desarrolladores y validando entregables directamente con el cliente."
+      }
+    ]
+  },
+  "report": {
+    "title": "Reporte",
+    "subTitle": "CRUD y exportacion de datos.",
+    "paragraph": "En esta sección podrás interactuar con una tabla dinámica que muestra datos sobre distintas tecnologías, incluyendo su nombre, versión e imagen representativa. Tendrás la posibilidad de agregar nuevos registros con la información que desees, editar o eliminar los existentes, y aplicar filtros para visualizar solo los que te interesen. Además, puedes exportar todo el contenido de la tabla en un archivo Excel. ¡Te invito a probarla y explorar sus funciones!"
+  },
+  "projects": [
+    {
+      "title": "Ecommerce Preslow",
+      "content": "Desarrollé un eCommerce completo desde cero, abarcando tanto el frontend como el backend. Implementé una base de datos estructurada para productos, usuarios, pedidos y configuraciones, asegurando la comunicación mediante una API REST robusta. El frontend fue diseñado con un enfoque en experiencia de usuario, integrando pasarelas de pago y soporte multilenguaje. Apliqué medidas de seguridad como validación de entradas, protección contra inyecciones SQL, ataques de fuerza bruta y sanitización para prevenir inyecciones de código. El sistema fue desplegado en un servidor dedicado, con una sección administrativa para gestores que permite editar contenido visual, gestionar cuentas y permisos, controlar inventarios, precios, tallas, colores, descuentos y responder consultas de clientes.",
+      "year": "25",
+      "month": "Sep",
+      "link": "https://www.preslow.com/"
+    },
+    {
+      "title": "Sistema Interno",
+      "content": "Diseñé y desarrollé una plataforma interna tipo CRM conectada directamente a la base de datos de la empresa, permitiendo visualizar, editar y gestionar empleados, departamentos, cuentas y reportes clave de mercadería, ventas, pedidos y facturación. Funcionaba como un repositorio central de información empresarial, con dashboards personalizados por área, visualización de reportes en pantallas dedicadas, ingreso de datos para alimentar métricas en tiempo real y módulos interactivos como juegos corporativos sobre productos. La solución facilitó la toma de decisiones y optimizó la gestión integral de la compañía.",
+      "year": "24",
+      "month": "Jun",
+      "link": ""
+    },
+    {
+      "title": "Tienda NFT'S",
+      "content": "Proyecto de simulación de un eCommerce de NFTs desarrollado completamente en frontend, sin conexión a bases de datos ni APIs. Implementado en un servidor gratuito, el enfoque principal fue la estética y experiencia del usuario, utilizando imágenes personalizadas, una paleta de colores cuidadosamente seleccionada y una interfaz visualmente atractiva. Este proyecto destaca por su diseño intuitivo y enfoque en usabilidad, ideal para demostrar habilidades en desarrollo web centrado en UI/UX.",
+      "year": "22",
+      "month": "Sep",
+      "link": ""
+    },
+    {
+      "title": "Proyecto Universitario",
+      "content": "Proyecto universitario desarrollado en FES Acatlán con el objetivo de conectar a profesionales con experiencia y estudiantes, facilitando la mentoría personalizada. La plataforma permitía agendar citas, registrar retroalimentación, generar estadísticas, gestionar comentarios y almacenar contenido audiovisual educativo, brindando a los usuarios herramientas integrales para apoyar su formación académica y profesional.",
+      "year": "22",
+      "month": "Sep",
+      "link": ""
+    }
+  ],
+  "CV": {
+    "title": "Curriculum Vitae",
+    "spanish": "Español",
+    "english": "Ingles"
+  }
 }
