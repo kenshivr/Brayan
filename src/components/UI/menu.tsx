@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import MenuColor from '../home/MenuColor';
 import { IoIosMenu } from 'react-icons/io';
 import { IoMdClose } from 'react-icons/io';
-import { GoPackage } from 'react-icons/go';
 import { FaWhatsapp } from 'react-icons/fa';
 import { RiHome9Line } from 'react-icons/ri';
 import { CiCirclePlus } from 'react-icons/ci';
@@ -91,12 +90,6 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
                 className='w-6 h-6 transition-colors duration-300'
               />
             </Link>
-            <Link to='/components' className='group'>
-              <GoPackage
-                style={{ color: 'var(--color-firstColor)' }}
-                className='w-6 h-6 transition-colors duration-300'
-              />
-            </Link>
             <Link to='/cv' className='group'>
               <PiPaperclip
                 style={{ color: 'var(--color-firstColor)' }}
@@ -171,12 +164,6 @@ export default function Menu({ isDesktop }: { isDesktop: boolean }) {
             content={t('menu.firstSectionContentThree')}
             route='proyects'
             icon={<PiProjectorScreen className='w-5 h-5' />}
-            activeColor={themes[selectedPalette].firstColor}
-          />
-          <MenuOption
-            content={t('menu.firstSectionContentFour')}
-            route='components'
-            icon={<GoPackage className='w-5 h-5' />}
             activeColor={themes[selectedPalette].firstColor}
           />
           <MenuOption

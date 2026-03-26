@@ -6,7 +6,7 @@ import CV from '@src/pages/cv';
 import Report from '@pages/report';
 import Proyects from '@pages/proyects';
 import NotFound from '@pages/notFound';
-import Components from '@src/pages/components';
+import Components from '@pages/components';
 import MainContainer from '@components/UI/mainContainer';
 
 import { useThemeStore } from './context/themeStore';
@@ -25,10 +25,10 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/report" element={<Report />} />
         <Route path="/proyects" element={<Proyects />} />
-        <Route path="/components" element={<Components />} />
         <Route path="/cv" element={<CV />} />
+        <Route path="/components" element={<Components />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </MainContainer>
   );
-}
+};

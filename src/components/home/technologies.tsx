@@ -1,10 +1,10 @@
 import cn from "@src/services/clsx";
 import { useRef, useEffect, useState } from "react";
 
+import fall3D from "@public/fall3D.png";
+import topLeft3D from "@public/topLeft3D.png";
 import peekedTop3D from "@public/peekedTop3D.png";
 import bothHands3D from "@public/bothHands3D.png";
-import topLeft3D from "@public/topLeft3D.png";
-import fall3D from "@public/fall3D.png";
 import inComputer3D from "@public/inComputer3D.png";
 
 import CssLogo from "@src/svg/css";
@@ -24,20 +24,28 @@ import AngularLogo from "@src/svg/angular";
 import TailwindLogo from "@src/svg/tailwind";
 import TypescriptLogo from "@src/svg/typescript";
 
-import { SiSocketdotio } from "react-icons/si";
-
 import type { JSX } from "react";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { FaGitAlt, FaReact, FaCss3Alt } from "react-icons/fa";
-import { SiTypescript, SiVite, SiGnubash, SiNextdotjs } from "react-icons/si";
+import {
+  FaJava,
+  FaHtml5,
+  FaReact,
+  FaGitAlt,
+  FaPython,
+  FaCss3Alt,
+  FaAngular,
+} from "react-icons/fa";
 
-import { FaJava } from "react-icons/fa";
-import { SiSpring } from "react-icons/si";
-import { FaHtml5 } from "react-icons/fa";
-import { FaAngular } from "react-icons/fa";
-import { FaPython } from "react-icons/fa";
-import { SiWarp } from "react-icons/si";
-import { SiBun } from "react-icons/si";
+import {
+  SiBun,
+  SiWarp,
+  SiVite,
+  SiSpring,
+  SiGnubash,
+  SiNextdotjs,
+  SiTypescript,
+  SiSocketdotio,
+} from "react-icons/si";
 
 import { Neumorphism1 } from "@src/pages/components";
 import { useThemeStore } from "@src/context/themeStore";
@@ -116,66 +124,6 @@ const cards: Card[] = [
   },
   {
     id: 7,
-    icon: <RiTailwindCssFill className="w-7 h-7" />,
-    image: <TailwindLogo />,
-    title: "Tailwind",
-    subTitle: "Styling framework",
-    percentage: 90,
-    chapter: bothHands3D,
-    color: "fourthColor",
-  },
-  {
-    id: 8,
-    icon: <FaGitAlt className="w-7 h-7" />,
-    image: <GitLogo />,
-    title: "Git",
-    subTitle: "Version control",
-    percentage: 75,
-    chapter: topLeft3D,
-    color: "secondColor",
-  },
-  {
-    id: 9,
-    icon: <FaReact className="w-7 h-7" />,
-    image: <ReactLogo />,
-    title: "React",
-    subTitle: "UI library",
-    percentage: 85,
-    chapter: fall3D,
-    color: "fourthColor",
-  },
-  {
-    id: 10,
-    icon: <SiTypescript className="w-7 h-7" />,
-    image: <TypescriptLogo />,
-    title: "TS",
-    subTitle: "Superset language",
-    percentage: 90,
-    chapter: inComputer3D,
-    color: "secondColor",
-  },
-  {
-    id: 11,
-    icon: <FaCss3Alt className="w-7 h-7" />,
-    image: <CssLogo />,
-    title: "CSS",
-    subTitle: "Style sheets",
-    percentage: 75,
-    chapter: peekedTop3D,
-    color: "fourthColor",
-  },
-  {
-    id: 12,
-    icon: <SiVite className="w-7 h-7" />,
-    image: <ViteLogo />,
-    title: "Vite",
-    subTitle: "Build tool",
-    percentage: 80,
-    chapter: bothHands3D,
-    color: "secondColor",
-  },
-  {
-    id: 13,
     icon: <SiGnubash className="w-7 h-7" />,
     image: <BashLogo className="w-24 h-24" />,
     title: "Bash",
@@ -185,7 +133,7 @@ const cards: Card[] = [
     color: "fourthColor",
   },
   {
-    id: 14,
+    id: 8,
     icon: <SiNextdotjs className="w-7 h-7" />,
     image: <NextLogo className="w-24 h-24" />,
     title: "Next",
@@ -195,7 +143,7 @@ const cards: Card[] = [
     color: "secondColor",
   },
   {
-    id: 15,
+    id: 9,
     icon: <FaJava className="w-7 h-7" />,
     image: <JavaLogo className="w-24 h-24" />,
     title: "Java",
@@ -205,7 +153,7 @@ const cards: Card[] = [
     color: "fourthColor",
   },
   {
-    id: 16,
+    id: 10,
     icon: <SiSpring className="w-7 h-7" />,
     image: <SpringLogo className="w-24 h-24" />,
     title: "Spring",
@@ -215,7 +163,7 @@ const cards: Card[] = [
     color: "secondColor",
   },
   {
-    id: 17,
+    id: 11,
     icon: <FaHtml5 className="w-7 h-7" />,
     image: <HtmlLogo className="w-24 h-24" />,
     title: "HTML",
@@ -225,7 +173,7 @@ const cards: Card[] = [
     color: "fourthColor",
   },
   {
-    id: 18,
+    id: 12,
     icon: <FaAngular className="w-7 h-7" />,
     image: <AngularLogo className="w-24 h-24" />,
     title: "Angular",
@@ -235,7 +183,7 @@ const cards: Card[] = [
     color: "secondColor",
   },
   {
-    id: 19,
+    id: 13,
     icon: <FaPython className="w-7 h-7" />,
     image: <PythonLogo className="w-24 h-24" />,
     title: "Python",
@@ -245,7 +193,7 @@ const cards: Card[] = [
     color: "fourthColor",
   },
   {
-    id: 20,
+    id: 14,
     icon: <SiWarp className="w-7 h-7" />,
     image: <WarpLogo className="w-24 h-24" />,
     title: "Warp",
@@ -255,7 +203,7 @@ const cards: Card[] = [
     color: "secondColor",
   },
   {
-    id: 21,
+    id: 15,
     icon: <SiBun className="w-7 h-7" />,
     image: <BunLogo className="w-24 h-24" />,
     title: "Bun",
@@ -265,7 +213,7 @@ const cards: Card[] = [
     color: "fourthColor",
   },
   {
-    id: 22,
+    id: 16,
     icon: <SiSocketdotio className="w-7 h-7" />,
     image: <SocketLogo className="w-24 h-24" />,
     title: "Socket.io",
@@ -336,7 +284,7 @@ export default function CarouselCards() {
           return (
             <Neumorphism1
               key={idx}
-              ref={(el) => {
+              ref={(el: any) => {
                 cardRefs.current[idx] = el;
               }}
               className={cn(

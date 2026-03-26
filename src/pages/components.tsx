@@ -1,6 +1,5 @@
 import { forwardRef } from "react";
 import cn from "@src/services/clsx";
-import image from "@public/wink.png";
 import Menu from "@src/components/UI/menu";
 import React, { type ReactNode } from "react";
 import { useThemeStore } from "@src/context/themeStore";
