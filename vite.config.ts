@@ -15,8 +15,8 @@ export default defineConfig({
     react(),
     imagetools(),
     tailwindcss(),
-    compression({ algorithm: 'brotliCompress', exclude: /\.(png|webp|jpg|gif|woff2)$/ }),
-    compression({ algorithm: 'gzip', exclude: /\.(png|webp|jpg|gif|woff2)$/ }),
+    compression({ algorithms: ['brotliCompress'], exclude: /\.(png|webp|jpg|gif|woff2)$/ }),
+    compression({ algorithms: ['gzip'], exclude: /\.(png|webp|jpg|gif|woff2)$/ }),
   ],
   base: '/Brayan/',
   resolve: {
