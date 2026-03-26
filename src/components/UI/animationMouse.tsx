@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import type { CursorState } from "@src/types/animationMouse";
 
 const CONFIG = {
   lag: 0.18,
@@ -9,16 +10,6 @@ const CONFIG = {
   hoverScale: 1.55,
   activeScale: 0.75,
 };
-
-interface CursorState {
-  x: number;
-  y: number;
-  ringX: number;
-  ringY: number;
-  hidden: boolean;
-  active: boolean;
-  hover: boolean;
-}
 
 function useFancyCursor() {
   const { lag } = CONFIG;

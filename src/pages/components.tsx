@@ -3,6 +3,7 @@ import cn from "@src/services/clsx";
 import Menu from "@src/components/UI/menu";
 import React, { type ReactNode } from "react";
 import { useThemeStore } from "@src/context/themeStore";
+import type { NeumorphismProps } from "@src/types/components";
 
 const vectorLightShadow: [number, number, number] = [12, 18, 24];
 const vectorDarkShadow: [number, number, number] = [-57, -57, -39];
@@ -71,11 +72,6 @@ function useNeumorphismColors() {
       shadow5: applyVectorToHex(baseColor, vectorShadow3),
     },
   };
-}
-
-interface NeumorphismProps {
-  className?: string;
-  children?: ReactNode;
 }
 
 export const Neumorphism0: React.FC<NeumorphismProps> = ({ className }) => {

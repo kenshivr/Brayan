@@ -1,11 +1,5 @@
 import cn from "@src/services/clsx";
-
-type ColorOrbProps = {
-  size: number;
-  colors: string[];
-  className?: string;
-  onClick?: () => void;
-};
+import type { ColorOrbProps } from "@src/types/colorOrb";
 
 export default function ColorOrb({
   size,

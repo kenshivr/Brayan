@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useThemeStore } from "@src/context/themeStore";
 import { HexColorPicker, HexColorInput } from "react-colorful";
+import type { MenuColorProps } from "@src/types/menuColor";
 
 const CSS_VARS = [
     "--color-firstColor",
@@ -9,11 +10,6 @@ const CSS_VARS = [
     "--color-fourthColor",
     "--color-fifthColor",
 ];
-
-interface MenuColorProps {
-    onCancel: () => void;
-    onSave?: () => void;
-}
 
 export default function MenuColor({ onCancel, onSave }: MenuColorProps) {
     const addTheme = useThemeStore((s) => s.addTheme);

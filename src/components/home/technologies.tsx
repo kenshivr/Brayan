@@ -24,7 +24,6 @@ import AngularLogo from "@src/svg/angular";
 import TailwindLogo from "@src/svg/tailwind";
 import TypescriptLogo from "@src/svg/typescript";
 
-import type { JSX } from "react";
 import { RiTailwindCssFill } from "react-icons/ri";
 import {
   FaJava,
@@ -49,17 +48,7 @@ import {
 
 import { Neumorphism1 } from "@src/pages/components";
 import { useThemeStore } from "@src/context/themeStore";
-
-interface Card {
-  id: number;
-  icon: JSX.Element;
-  image: JSX.Element;
-  title: string;
-  subTitle: string;
-  percentage: number;
-  chapter: string;
-  color: string;
-}
+import type { Card } from "@src/types/technologies";
 
 const cards: Card[] = [
   {

@@ -4,11 +4,7 @@ import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
 import { type ReactNode, useEffect, useState } from 'react';
-
-interface FormLabelProps {
-  name: string;
-  className?: string;
-}
+import type { FormLabelProps } from '@src/types/form';
 
 export function Title({
   children,

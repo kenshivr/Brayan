@@ -1,9 +1,9 @@
-import { type Technology } from './table';
 import { Button } from 'primereact/button';
 import { useState, useEffect } from 'react';
 import { UIMessages } from '@src/models/messages';
-import { type ToastMessage } from 'primereact/toast';
 import { estatus as estatusOptions } from '@src/models/constans';
+import type { Technology } from '@src/types/table';
+import type { TechnologyForm, ModifyProps } from '@src/types/modify';
 import {
   FormText,
   ModifyBody,
@@ -18,17 +18,6 @@ const MODE = {
   MODIFY: 0,
   CREATE: 1
 };
-
-type TechnologyForm = Omit<Technology, 'image'>;
-
-interface ModifyProps {
-  show: (params: ToastMessage) => void;
-  data: Partial<Technology> | null;
-  mode: typeof MODE[keyof typeof MODE];
-  handleSave: (item: Omit<Technology, 'id' | 'image'>) => void;
-  handleUpdate: (item: Omit<Technology, 'image'>) => void;
-  closeHandler: () => void;
-}
 
 export default function Modify({
   show,

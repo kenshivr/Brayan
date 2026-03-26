@@ -19,15 +19,7 @@ import { Toast, type ToastMessage } from 'primereact/toast';
 import { DataTable, type DataTableFilterMeta } from 'primereact/datatable';
 import { useThemeStore } from '@src/context/themeStore';
 import { technologiesExcel } from '@src/models/files';
-
-export interface Technology {
-    id: number;
-    name: string;
-    version?: string;
-    link: string;
-    usage: boolean;
-    image: any;
-}
+import type { Technology } from '@src/types/table';
 
 const MODE = {
     CREATE: 1,

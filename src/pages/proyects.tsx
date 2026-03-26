@@ -1,42 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Menu from '@src/components/UI/menu';
 import { Neumorphism10 } from './components';
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-interface Project {
-  image: string;
-  title: string;
-  description: string;
-  date: string;
-  // Contexto
-  type: string;
-  client: string;
-  duration: string;
-  teamSize: string;
-  // Técnico
-  stack: string[];
-  architecture: string;
-  integrations: string[];
-  // Rol
-  role: string;
-  responsibilities: string[];
-  technicalDecisions: string[];
-  // Proceso
-  methodology: string;
-  versionControl: string;
-  testing: string;
-  // Resultados
-  metrics: string[];
-  problemSolved: string;
-  status: string;
-  // Desafíos y aprendizajes
-  challenges: string[];
-  learnings: string[];
-  // Links
-  repo?: string;
-  demo?: string;
-}
+import type { Project } from '@src/types/proyects';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -346,627 +311,207 @@ export default function Proyects() {
         {/* ── Detalle animado ─────────────────────────────────────────────── */}
         <div style={fade}>
 
-          {/* ── 03 Contexto — layout tipo SERVICES (imagen 3) ────────────── */}
+          {/* ── 01 Contexto ──────────────────────────────────────────────── */}
           <section className="pb-24 border-t" style={{ borderColor: 'var(--color-thirdColor)' }}>
-            <div className="flex flex-col md:flex-row items-start justify-between pt-16 gap-12">
-
-              <div className="shrink-0 flex flex-col items-start">
-                <span
-                  className="text-7xl md:text-8xl font-bold leading-none select-none"
-                  style={{ color: 'var(--color-thirdColor)' }}
-                >
-                  01
-                </span>
-                <h2
-                  className="text-3xl md:text-4xl font-bold mt-2"
-                  style={{ color: 'var(--color-firstColor)' }}
-                >
-                  Contexto
-                </h2>
-                <img
-                  src="thinking3D.webp"
-                  alt="character"
-                  className="w-28 md:w-36 object-contain select-none mt-4 self-center"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 flex-1">
+            <div className="flex flex-col md:flex-row md:items-center pt-16 gap-12">
+              <SectionHeader number="01" title="Contexto" image="thinking3D.webp" />
+              <div className="flex-1 grid grid-cols-2 gap-6">
                 {[
-                  { label: 'Tipo', value: selected.type },
-                  { label: 'Cliente', value: selected.client },
+                  { label: 'Tipo',     value: selected.type },
+                  { label: 'Cliente',  value: selected.client },
                   { label: 'Duración', value: selected.duration },
-                  { label: 'Equipo', value: selected.teamSize },
+                  { label: 'Equipo',   value: selected.teamSize },
                 ].map(({ label, value }) => (
-                  <div
-                    key={label}
-                    className="flex flex-col gap-2 p-6 rounded-2xl"
-                    style={{ backgroundColor: 'var(--color-fourthColor)' }}
-                  >
-                    <span
-                      className="text-xs font-semibold tracking-widest uppercase"
-                      style={{ color: 'var(--color-secondColor)' }}
-                    >
-                      {label}
-                    </span>
-                    <span
-                      className="text-base font-semibold"
-                      style={{ color: 'var(--color-firstColor)' }}
-                    >
-                      {value}
-                    </span>
+                  <div key={label} className="flex flex-col gap-2 p-6 rounded-2xl" style={{ backgroundColor: 'var(--color-fourthColor)' }}>
+                    <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: 'var(--color-secondColor)' }}>{label}</span>
+                    <span className="text-base font-semibold" style={{ color: 'var(--color-firstColor)' }}>{value}</span>
                   </div>
                 ))}
               </div>
-
             </div>
           </section>
 
-          {/* ── 04 Stack ─────────────────────────────────────────────────── */}
+          {/* ── 02 Stack ──────────────────────────────────────────────────── */}
           <section className="pb-24 border-t" style={{ borderColor: 'var(--color-thirdColor)' }}>
-
-            {/* Header — mobile: columna | desktop: fila */}
-            <div className="flex flex-col md:flex-row items-center md:items-start justify-between pt-16 pb-12 gap-6 md:gap-12">
-
-              {/* Mobile: número → personaje → título → descripción */}
-              {/* Desktop: izq → número, título, descripción | der → personaje */}
-
-              {/* Columna izquierda (texto) */}
-              <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3 order-1 md:order-1">
-                <span
-                  className="text-7xl md:text-8xl font-bold leading-none select-none"
-                  style={{ color: 'var(--color-thirdColor)' }}
-                >
-                  02
-                </span>
-
-                {/* Personaje — solo visible en mobile, entre el número y el título */}
-                <img
-                  src="inComputer3D.webp"
-                  alt="character"
-                  className="block md:hidden w-36 object-contain select-none"
-                />
-
-                <h2 className="text-3xl md:text-4xl font-bold">
-                  <span style={{ color: 'var(--color-firstColor)' }}>Stack </span>
-                  <span style={{ color: 'var(--color-secondColor)' }}>Tecnológico</span>
-                </h2>
-                <p
-                  className="text-sm leading-7 max-w-sm"
-                  style={{ color: 'var(--color-secondColor)' }}
-                >
-                  {selected.architecture}
-                </p>
-              </div>
-
-              {/* Personaje — solo visible en desktop, columna derecha */}
-              <img
-                src="inComputer3D.webp"
-                alt="character"
-                className="hidden md:block w-48 lg:w-60 object-contain select-none shrink-0 self-end order-2"
-              />
-
+            <div className="flex flex-col md:flex-row md:items-center pt-16 gap-12">
+              <SectionHeader number="02" title="Stack Tecnológico" image="inComputer3D.webp" />
+              <p className="flex-1 text-sm leading-7" style={{ color: 'var(--color-secondColor)' }}>
+                {selected.architecture}
+              </p>
             </div>
-
-            {/* Grid de cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-12">
               {selected.stack.map((tech) => (
                 <TechCard key={tech} tech={tech} />
               ))}
             </div>
-
           </section>
 
-          {/* ── 05 Integraciones ─────────────────────────────────────────── */}
+          {/* ── 03 Integraciones ─────────────────────────────────────────── */}
           <section className="pb-24 border-t" style={{ borderColor: 'var(--color-thirdColor)' }}>
-            <div className="flex flex-col md:flex-row items-center justify-around pt-16 gap-8 md:gap-12">
-
-              {/* Izquierda — número + título (desktop) / centrado arriba (mobile) */}
-              <div className="shrink-0 flex flex-col items-center md:items-start text-center md:text-left w-full md:w-auto">
-                <span
-                  className="text-7xl md:text-8xl font-bold leading-none select-none"
-                  style={{ color: 'var(--color-thirdColor)' }}
-                >
-                  03
-                </span>
-                <h2
-                  className="text-3xl md:text-4xl font-bold mt-2"
-                  style={{ color: 'var(--color-firstColor)' }}
-                >
-                  Integraciones
-                </h2>
-              </div>
-
-              {/* Centro — timeline */}
-              <div className="flex flex-col items-center md:items-start flex-1 w-full">
+            <div className="flex flex-col md:flex-row md:items-center pt-16 gap-12">
+              <SectionHeader number="03" title="Integraciones" image="bothHands3D.webp" />
+              <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {selected.integrations.map((item, i) => (
-                  <div key={i} className="flex flex-col items-center md:items-start w-full">
-
-                    {/* Fila: círculo + texto */}
-                    <div className="flex flex-col md:flex-row items-center md:items-start gap-4 w-full">
-
-                      {/* Círculo con ícono */}
-                      <div
-                        className="shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-xl"
-                        style={{
-                          backgroundColor: 'var(--color-thirdColor)',
-                          border: '2px solid var(--color-secondColor)',
-                        }}
-                      >
-                        <span>{integrationIcon(item)}</span>
-                      </div>
-
-                      {/* Texto */}
-                      <div className="flex flex-col gap-1 text-center md:text-left pt-1">
-                        <span
-                          className="text-base font-bold leading-tight"
-                          style={{ color: 'var(--color-firstColor)' }}
-                        >
-                          {integrationTitle(item)}
-                        </span>
-                        <span
-                          className="text-sm leading-6"
-                          style={{ color: 'var(--color-secondColor)' }}
-                        >
-                          {item}
-                        </span>
-                      </div>
-
-                    </div>
-
-                    {/* Línea conectora (no en el último) */}
-                    {i < selected.integrations.length - 1 && (
-                      <div
-                        className="w-0.5 h-8 my-1 self-center md:self-start md:ml-7"
-                        style={{ backgroundColor: 'var(--color-thirdColor)' }}
-                      />
-                    )}
-
-                  </div>
-                ))}
-              </div>
-
-              {/* Derecha — personaje (desktop) / centrado abajo (mobile) */}
-              <div className="flex justify-center w-full md:w-auto shrink-0">
-                <img
-                  src="bothHands3D.webp"
-                  alt="character"
-                  className="w-36 md:w-44 lg:w-52 object-contain select-none self-end"
-                />
-              </div>
-
-            </div>
-          </section>
-
-
-          {/* ── 06 Mi Rol — numbered + lista (imagen 3) ──────────────────── */}
-          <section className="pb-24 border-t" style={{ borderColor: 'var(--color-thirdColor)' }}>
-            <div className="flex flex-col md:flex-row items-start justify-between pt-16 gap-12">
-
-              <div className="shrink-0 flex flex-col items-start">
-                <span
-                  className="text-7xl md:text-8xl font-bold leading-none select-none"
-                  style={{ color: 'var(--color-thirdColor)' }}
-                >
-                  04
-                </span>
-                <h2
-                  className="text-3xl md:text-4xl font-bold mt-2"
-                  style={{ color: 'var(--color-firstColor)' }}
-                >
-                  Mi Rol
-                </h2>
-                <img
-                  src="hoddie3D.webp"
-                  alt="character"
-                  className="w-28 md:w-36 object-contain select-none mt-4 self-center"
-                />
-              </div>
-
-              <div className="flex flex-col gap-6 flex-1">
-                <p
-                  className="text-base leading-7"
-                  style={{ color: 'var(--color-firstColor)' }}
-                >
-                  {selected.role}
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div
-                    className="p-6 rounded-2xl flex flex-col gap-3"
-                    style={{ backgroundColor: 'var(--color-fourthColor)' }}
-                  >
-                    <span
-                      className="text-xs font-semibold tracking-widest uppercase"
-                      style={{ color: 'var(--color-secondColor)' }}
-                    >
-                      Responsabilidades
-                    </span>
-                    <ul className="flex flex-col gap-2">
-                      {selected.responsibilities.map((r) => (
-                        <li
-                          key={r}
-                          className="flex items-start gap-3 text-sm leading-6"
-                          style={{ color: 'var(--color-firstColor)' }}
-                        >
-                          <span
-                            className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full"
-                            style={{ backgroundColor: 'var(--color-secondColor)' }}
-                          />
-                          {r}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div
-                    className="p-6 rounded-2xl flex flex-col gap-3"
-                    style={{ backgroundColor: 'var(--color-fourthColor)' }}
-                  >
-                    <span
-                      className="text-xs font-semibold tracking-widest uppercase"
-                      style={{ color: 'var(--color-secondColor)' }}
-                    >
-                      Decisiones técnicas
-                    </span>
-                    <ul className="flex flex-col gap-2">
-                      {selected.technicalDecisions.map((d) => (
-                        <li
-                          key={d}
-                          className="flex items-start gap-3 text-sm leading-6"
-                          style={{ color: 'var(--color-firstColor)' }}
-                        >
-                          <span
-                            className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full"
-                            style={{ backgroundColor: 'var(--color-secondColor)' }}
-                          />
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </section>
-
-          {/* ── 07 Proceso ───────────────────────────────────────────────── */}
-          <section className="pb-24 border-t" style={{ borderColor: 'var(--color-thirdColor)' }}>
-            <div className="flex flex-col items-center pt-16 gap-12">
-
-              {/* Header */}
-              <div className="flex flex-col items-center justify-center gap-4 text-center">
-                <span
-                  className="text-7xl md:text-8xl font-bold leading-none select-none"
-                  style={{ color: 'var(--color-thirdColor)' }}
-                >
-                  05
-                </span>
-                <h2
-                  className="text-3xl md:text-4xl font-bold"
-                  style={{ color: 'var(--color-firstColor)' }}
-                >
-                  Proceso
-                </h2>
-                <img
-                  src="run3D.webp"
-                  alt="character"
-                  className="w-24 md:w-32 object-contain select-none"
-                />
-              </div>
-
-              {/* Timeline horizontal (desktop) / vertical (mobile) */}
-              <div className="w-full flex flex-col md:flex-row items-center md:items-start justify-center">
-
-                {[
-                  { label: 'Metodología', value: selected.methodology,    icon: '📋', step: '01' },
-                  { label: 'Versiones',   value: selected.versionControl, icon: '🔀', step: '02' },
-                  { label: 'Testing',     value: selected.testing,        icon: '🧪', step: '03' },
-                ].map(({ label, value, icon, step }, i, arr) => (
-                  <div key={label} className="flex flex-col md:flex-row items-center w-full md:w-auto">
-
-                    {/* Nodo */}
-                    <div className="flex flex-col items-center gap-3 px-6 md:px-8 max-w-xs text-center">
-                      <div
-                        className="w-16 h-16 rounded-full flex items-center justify-center text-2xl shrink-0 border-2"
-                        style={{
-                          backgroundColor: 'var(--color-fourthColor)',
-                          borderColor: 'var(--color-secondColor)',
-                        }}
-                      >
-                        {icon}
-                      </div>
-                      <span
-                        className="text-xs font-bold tracking-widest"
-                        style={{ color: 'var(--color-secondColor)' }}
-                      >
-                        {step}
-                      </span>
-                      <span
-                        className="text-base font-bold"
-                        style={{ color: 'var(--color-firstColor)' }}
-                      >
-                        {label}
-                      </span>
-                      <p
-                        className="text-sm leading-6"
-                        style={{ color: 'var(--color-secondColor)' }}
-                      >
-                        {value}
-                      </p>
-                    </div>
-
-                    {/* Conector */}
-                    {i < arr.length - 1 && (
-                      <>
-                        <div
-                          className="hidden md:block h-0.5 w-16 shrink-0 self-start mt-8"
-                          style={{ backgroundColor: 'var(--color-thirdColor)' }}
-                        />
-                        <div
-                          className="block md:hidden w-0.5 h-10"
-                          style={{ backgroundColor: 'var(--color-thirdColor)' }}
-                        />
-                      </>
-                    )}
-
-                  </div>
-                ))}
-
-              </div>
-
-            </div>
-          </section>
-
-          {/* ── 08 Resultados — cards con métricas (imagen 5) ────────────── */}
-          <section className="pb-24 border-t" style={{ borderColor: 'var(--color-thirdColor)' }}>
-            <div className="flex flex-col md:flex-row items-start justify-between pt-16 gap-12">
-
-              <div className="shrink-0 flex flex-col items-start">
-                <span
-                  className="text-7xl md:text-8xl font-bold leading-none select-none"
-                  style={{ color: 'var(--color-thirdColor)' }}
-                >
-                  06
-                </span>
-                <h2
-                  className="text-3xl md:text-4xl font-bold mt-2"
-                  style={{ color: 'var(--color-firstColor)' }}
-                >
-                  Resultados
-                </h2>
-                <img
-                  src="jumpHappy.webp"
-                  alt="character"
-                  className="w-28 md:w-36 object-contain select-none mt-4 self-center"
-                />
-              </div>
-
-              <div className="flex flex-col gap-6 flex-1">
-                <div
-                  className="p-6 rounded-2xl"
-                  style={{ backgroundColor: 'var(--color-fourthColor)' }}
-                >
-                  <span
-                    className="text-xs font-semibold tracking-widest uppercase block mb-2"
-                    style={{ color: 'var(--color-secondColor)' }}
-                  >
-                    Problema resuelto
-                  </span>
-                  <p
-                    className="text-sm leading-7"
-                    style={{ color: 'var(--color-firstColor)' }}
-                  >
-                    {selected.problemSolved}
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                  {selected.metrics.map((m) => (
+                  <div key={i} className="flex items-start gap-4 p-5 rounded-2xl" style={{ backgroundColor: 'var(--color-fourthColor)' }}>
                     <div
-                      key={m}
-                      className="flex items-center gap-3 px-6 py-4 rounded-2xl flex-1 min-w-[200px]"
-                      style={{ backgroundColor: 'var(--color-thirdColor)' }}
+                      className="shrink-0 w-11 h-11 rounded-full flex items-center justify-center text-lg"
+                      style={{ backgroundColor: 'var(--color-thirdColor)', border: '2px solid var(--color-secondColor)' }}
                     >
-                      <span style={{ color: 'var(--color-firstColor)' }} className="text-lg">◎</span>
-                      <span
-                        className="text-sm font-medium"
-                        style={{ color: 'var(--color-firstColor)' }}
-                      >
-                        {m}
-                      </span>
+                      {integrationIcon(item)}
                     </div>
-                  ))}
-                </div>
-                <div
-                  className="flex items-center gap-3 px-6 py-4 rounded-2xl self-start"
-                  style={{ backgroundColor: 'var(--color-fourthColor)' }}
-                >
-                  <span
-                    className="text-xs font-semibold tracking-widest uppercase"
-                    style={{ color: 'var(--color-secondColor)' }}
-                  >
-                    Estado actual
-                  </span>
-                  <span
-                    className="text-sm font-semibold"
-                    style={{ color: 'var(--color-firstColor)' }}
-                  >
-                    {selected.status}
-                  </span>
-                </div>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm font-bold leading-tight" style={{ color: 'var(--color-firstColor)' }}>{integrationTitle(item)}</span>
+                      <span className="text-xs leading-5" style={{ color: 'var(--color-secondColor)' }}>{item}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
-
             </div>
           </section>
 
-          {/* ── 09 Desafíos y Aprendizajes — grid (imagen 5) ─────────────── */}
+          {/* ── 04 Mi Rol ─────────────────────────────────────────────────── */}
           <section className="pb-24 border-t" style={{ borderColor: 'var(--color-thirdColor)' }}>
-            <div className="flex flex-col md:flex-row items-start justify-between pt-16 gap-12">
-
-              <div className="shrink-0 flex flex-col items-start">
-                <span
-                  className="text-7xl md:text-8xl font-bold leading-none select-none"
-                  style={{ color: 'var(--color-thirdColor)' }}
-                >
-                  07
-                </span>
-                <h2
-                  className="text-3xl md:text-4xl font-bold mt-2"
-                  style={{ color: 'var(--color-firstColor)' }}
-                >
-                  Desafíos &<br />Aprendizajes
-                </h2>
-                <img
-                  src="angrySit.webp"
-                  alt="character"
-                  className="w-28 md:w-36 object-contain select-none mt-4 self-center"
-                />
+            <div className="flex flex-col md:flex-row md:items-center pt-16 gap-12">
+              <SectionHeader number="04" title="Mi Rol" image="hoddie3D.webp" />
+              <p className="flex-1 text-base leading-7" style={{ color: 'var(--color-firstColor)' }}>
+                {selected.role}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">
+              <div className="p-6 rounded-2xl flex flex-col gap-3" style={{ backgroundColor: 'var(--color-fourthColor)' }}>
+                <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: 'var(--color-secondColor)' }}>Responsabilidades</span>
+                <ul className="flex flex-col gap-2">
+                  {selected.responsibilities.map((r) => (
+                    <li key={r} className="flex items-start gap-3 text-sm leading-6" style={{ color: 'var(--color-firstColor)' }}>
+                      <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'var(--color-secondColor)' }} />
+                      {r}
+                    </li>
+                  ))}
+                </ul>
               </div>
+              <div className="p-6 rounded-2xl flex flex-col gap-3" style={{ backgroundColor: 'var(--color-fourthColor)' }}>
+                <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: 'var(--color-secondColor)' }}>Decisiones técnicas</span>
+                <ul className="flex flex-col gap-2">
+                  {selected.technicalDecisions.map((d) => (
+                    <li key={d} className="flex items-start gap-3 text-sm leading-6" style={{ color: 'var(--color-firstColor)' }}>
+                      <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'var(--color-secondColor)' }} />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
-                <div
-                  className="p-6 rounded-2xl flex flex-col gap-3"
-                  style={{ backgroundColor: 'var(--color-fourthColor)' }}
-                >
-                  <span
-                    className="text-xs font-semibold tracking-widest uppercase"
-                    style={{ color: 'var(--color-secondColor)' }}
-                  >
-                    Retos
-                  </span>
+          {/* ── 05 Proceso ───────────────────────────────────────────────── */}
+          <section className="pb-24 border-t" style={{ borderColor: 'var(--color-thirdColor)' }}>
+            <div className="flex flex-col md:flex-row md:items-center pt-16 gap-12">
+              <SectionHeader number="05" title="Proceso" image="run3D.webp" />
+              <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {[
+                  { label: 'Metodología', value: selected.methodology,    icon: '📋' },
+                  { label: 'Versiones',   value: selected.versionControl, icon: '🔀' },
+                  { label: 'Testing',     value: selected.testing,        icon: '🧪' },
+                ].map(({ label, value, icon }) => (
+                  <div key={label} className="flex flex-col items-center gap-3 p-6 rounded-2xl text-center" style={{ backgroundColor: 'var(--color-fourthColor)' }}>
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-xl border-2"
+                      style={{ backgroundColor: 'var(--color-thirdColor)', borderColor: 'var(--color-secondColor)' }}
+                    >
+                      {icon}
+                    </div>
+                    <span className="text-sm font-bold" style={{ color: 'var(--color-firstColor)' }}>{label}</span>
+                    <p className="text-xs leading-5" style={{ color: 'var(--color-secondColor)' }}>{value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ── 06 Resultados ─────────────────────────────────────────────── */}
+          <section className="pb-24 border-t" style={{ borderColor: 'var(--color-thirdColor)' }}>
+            <div className="flex flex-col md:flex-row md:items-center pt-16 gap-12">
+              <SectionHeader number="06" title="Resultados" image="jumpHappy.webp" />
+              <div className="flex-1 p-6 rounded-2xl" style={{ backgroundColor: 'var(--color-fourthColor)' }}>
+                <span className="text-xs font-semibold tracking-widest uppercase block mb-2" style={{ color: 'var(--color-secondColor)' }}>Problema resuelto</span>
+                <p className="text-sm leading-7" style={{ color: 'var(--color-firstColor)' }}>{selected.problemSolved}</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">
+              {selected.metrics.map((m) => (
+                <div key={m} className="flex items-center gap-3 px-6 py-4 rounded-2xl" style={{ backgroundColor: 'var(--color-thirdColor)' }}>
+                  <span style={{ color: 'var(--color-firstColor)' }} className="text-lg shrink-0">◎</span>
+                  <span className="text-sm font-medium" style={{ color: 'var(--color-firstColor)' }}>{m}</span>
+                </div>
+              ))}
+              <div className="flex items-center gap-3 px-6 py-4 rounded-2xl" style={{ backgroundColor: 'var(--color-fourthColor)' }}>
+                <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: 'var(--color-secondColor)' }}>Estado actual</span>
+                <span className="text-sm font-semibold" style={{ color: 'var(--color-firstColor)' }}>{selected.status}</span>
+              </div>
+            </div>
+          </section>
+
+          {/* ── 07 Desafíos & Aprendizajes ───────────────────────────────── */}
+          <section className="pb-24 border-t" style={{ borderColor: 'var(--color-thirdColor)' }}>
+            <div className="flex flex-col md:flex-row md:items-center pt-16 gap-12">
+              <SectionHeader number="07" title="Desafíos & Aprendizajes" image="angrySit.webp" />
+              <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-6 rounded-2xl flex flex-col gap-3" style={{ backgroundColor: 'var(--color-fourthColor)' }}>
+                  <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: 'var(--color-secondColor)' }}>Retos</span>
                   <ul className="flex flex-col gap-3">
                     {selected.challenges.map((c) => (
-                      <li
-                        key={c}
-                        className="flex items-start gap-3 text-sm leading-6"
-                        style={{ color: 'var(--color-firstColor)' }}
-                      >
-                        <span
-                          className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full"
-                          style={{ backgroundColor: 'var(--color-secondColor)' }}
-                        />
+                      <li key={c} className="flex items-start gap-3 text-sm leading-6" style={{ color: 'var(--color-firstColor)' }}>
+                        <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'var(--color-secondColor)' }} />
                         {c}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div
-                  className="p-6 rounded-2xl flex flex-col gap-3"
-                  style={{ backgroundColor: 'var(--color-fourthColor)' }}
-                >
-                  <span
-                    className="text-xs font-semibold tracking-widest uppercase"
-                    style={{ color: 'var(--color-secondColor)' }}
-                  >
-                    Qué aprendí
-                  </span>
+                <div className="p-6 rounded-2xl flex flex-col gap-3" style={{ backgroundColor: 'var(--color-fourthColor)' }}>
+                  <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: 'var(--color-secondColor)' }}>Qué aprendí</span>
                   <ul className="flex flex-col gap-3">
                     {selected.learnings.map((l) => (
-                      <li
-                        key={l}
-                        className="flex items-start gap-3 text-sm leading-6"
-                        style={{ color: 'var(--color-firstColor)' }}
-                      >
-                        <span
-                          className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full"
-                          style={{ backgroundColor: 'var(--color-secondColor)' }}
-                        />
+                      <li key={l} className="flex items-start gap-3 text-sm leading-6" style={{ color: 'var(--color-firstColor)' }}>
+                        <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'var(--color-secondColor)' }} />
                         {l}
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
-
             </div>
           </section>
 
-          {/* ── 10 Links — cards con imagen overlay (imagen 1) ───────────── */}
+          {/* ── 08 Ver proyecto ───────────────────────────────────────────── */}
           <section className="pb-32 border-t" style={{ borderColor: 'var(--color-thirdColor)' }}>
-            <div className="flex flex-col md:flex-row items-start justify-between pt-16 gap-12">
-
-              <div className="shrink-0 flex flex-col items-start">
-                <span
-                  className="text-7xl md:text-8xl font-bold leading-none select-none"
-                  style={{ color: 'var(--color-thirdColor)' }}
-                >
-                  08
-                </span>
-                <h2
-                  className="text-3xl md:text-4xl font-bold mt-2"
-                  style={{ color: 'var(--color-firstColor)' }}
-                >
-                  Ver proyecto
-                </h2>
-                <img
-                  src="lookUp.webp"
-                  alt="character"
-                  className="w-28 md:w-36 object-contain select-none mt-4 self-center"
-                />
-              </div>
-
-              <div className="flex flex-wrap gap-6 flex-1">
-
+            <div className="flex flex-col md:flex-row md:items-center pt-16 gap-12">
+              <SectionHeader number="08" title="Ver proyecto" image="lookUp.webp" />
+              <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {selected.repo && (
-                  <a
-                    href={selected.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative flex-1 min-w-[240px] h-48 rounded-2xl overflow-hidden"
+                  <a href={selected.repo} target="_blank" rel="noopener noreferrer"
+                    className="group relative h-48 rounded-2xl overflow-hidden"
                     style={{ backgroundColor: 'var(--color-fourthColor)' }}
                   >
-                    <img
-                      src={selected.image}
-                      alt={selected.title}
-                      className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-300"
-                    />
+                    <img src={selected.image} alt={selected.title} className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
                     <div className="relative flex flex-col justify-end h-full p-6">
-                      <span
-                        className="text-xs font-semibold tracking-widest uppercase mb-1"
-                        style={{ color: 'var(--color-secondColor)' }}
-                      >
-                        Código fuente
-                      </span>
-                      <span
-                        className="text-lg font-bold"
-                        style={{ color: 'var(--color-firstColor)' }}
-                      >
-                        Repositorio →
-                      </span>
+                      <span className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: 'var(--color-secondColor)' }}>Código fuente</span>
+                      <span className="text-lg font-bold" style={{ color: 'var(--color-firstColor)' }}>Repositorio →</span>
                     </div>
                   </a>
                 )}
-
                 {selected.demo && (
-                  <a
-                    href={selected.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative flex-1 min-w-[240px] h-48 rounded-2xl overflow-hidden"
+                  <a href={selected.demo} target="_blank" rel="noopener noreferrer"
+                    className="group relative h-48 rounded-2xl overflow-hidden"
                     style={{ backgroundColor: 'var(--color-thirdColor)' }}
                   >
-                    <img
-                      src={selected.image}
-                      alt={selected.title}
-                      className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-300"
-                    />
+                    <img src={selected.image} alt={selected.title} className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
                     <div className="relative flex flex-col justify-end h-full p-6">
-                      <span
-                        className="text-xs font-semibold tracking-widest uppercase mb-1"
-                        style={{ color: 'var(--color-secondColor)' }}
-                      >
-                        Demo en vivo
-                      </span>
-                      <span
-                        className="text-lg font-bold"
-                        style={{ color: 'var(--color-firstColor)' }}
-                      >
-                        Ver demo →
-                      </span>
+                      <span className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: 'var(--color-secondColor)' }}>Demo en vivo</span>
+                      <span className="text-lg font-bold" style={{ color: 'var(--color-firstColor)' }}>Ver demo →</span>
                     </div>
                   </a>
                 )}
-
               </div>
-
             </div>
           </section>
 
@@ -1125,6 +670,22 @@ function TechCard({ tech }: { tech: string }) {
       >
         {category}
       </span>
+    </div>
+  );
+}
+
+// ─── SectionHeader ────────────────────────────────────────────────────────────
+
+function SectionHeader({ number, title, image }: { number: string; title: string; image: string }) {
+  return (
+    <div className="shrink-0 flex flex-col items-center text-center gap-3 w-full md:w-44">
+      <span className="text-7xl md:text-8xl font-bold leading-none select-none" style={{ color: 'var(--color-thirdColor)' }}>
+        {number}
+      </span>
+      <h2 className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--color-firstColor)' }}>
+        {title}
+      </h2>
+      <img src={image} alt="character" className="w-28 md:w-36 object-contain select-none" />
     </div>
   );
 }

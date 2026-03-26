@@ -2,11 +2,7 @@ import cn from "@src/services/clsx";
 import runImage from "@public/run3D.webp";
 import { GiProgression } from "react-icons/gi";
 import { useTranslation } from "react-i18next";
-
-type TimelineEntry = {
-  company: string;
-  description: string;
-};
+import type { TimelineEntry } from "@src/types/carrer";
 
 export default function Carrer() {
   const { t } = useTranslation();

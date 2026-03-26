@@ -17,15 +17,7 @@ import { PiProjectorScreen } from 'react-icons/pi';
 import { PiTiktokLogoLight } from 'react-icons/pi';
 import { RiFacebookCircleLine } from 'react-icons/ri';
 import { useThemeStore } from '@src/context/themeStore';
-
-interface SocialMediaInterface {
-  icon: ReactNode;
-  link: string;
-}
-
-type Props = {
-  socialMedias: SocialMediaInterface[];
-};
+import type { SocialMediaInterface, Props } from '@src/types/menu';
 
 const socialMedias: SocialMediaInterface[] = [
   {

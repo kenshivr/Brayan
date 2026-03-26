@@ -1,16 +1,6 @@
 import { create } from 'zustand';
 import { type Themes } from '@src/types/theme';
-
-interface ThemeState {
-  isDark: boolean;
-  selectedPalette: keyof Themes;
-  themes: Themes;
-  toggleTheme: () => void;
-  setIsDark: (value: boolean) => void;
-  setPalette: (palette: keyof Themes) => void;
-  applyTheme: () => void;
-  addTheme: (name: string, palette: Themes[string]) => void;
-}
+import type { ThemeState } from '@src/types/themeStore';
 
 const savedThemes = localStorage.getItem('customThemes');
 const parsedThemes = savedThemes ? JSON.parse(savedThemes) : {};
