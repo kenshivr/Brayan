@@ -1,5 +1,5 @@
 import cn from '../../services/clsx';
-import image from "@public/aboveWall3D.png";
+import image from "@public/aboveWall3D.webp";
 import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';

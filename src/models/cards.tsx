@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 
-import lookUp from "@public/lookUp.png";
-import AngrySit from "@public/angrySit.png";
-import jumpHappy from "@public/jumpHappy.png";
-import hoddie3D from "@public/hoddie3D.png";
-import drink3D from "@public/drink3D.png";
-import drinkHappy from "@public/drinkHappy.png";
+import lookUp from "@public/lookUp.webp";
+import AngrySit from "@public/angrySit.webp";
+import jumpHappy from "@public/jumpHappy.webp";
+import hoddie3D from "@public/hoddie3D.webp";
+import drink3D from "@public/drink3D.webp";
+import drinkHappy from "@public/drinkHappy.webp";
 
 import type Card from "@src/types/card";
 

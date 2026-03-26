@@ -1,5 +1,5 @@
 import Modify from './modify';
-import top from '@public/peekedTop3D.png';
+import top from '@public/peekedTop3D.webp';
 import cn from '@src/services/clsx';
 import { Tag } from 'primereact/tag';
 import CssLogo from "@src/svg/css";

@@ -1,5 +1,5 @@
 import cn from "@src/services/clsx";
-import image from "@public/inComputer3D.png";
+import image from "@public/inComputer3D.webp";
 
 export default function Hero({
   className = "",

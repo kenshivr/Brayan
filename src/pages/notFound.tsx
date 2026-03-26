@@ -1,7 +1,7 @@
 import cn from "@src/services/clsx";
 import type { ReactNode } from "react";
 import { Link } from 'react-router-dom';
-import image from "@public/thinking3D.png";
+import image from "@public/thinking3D.webp";
 
 export default function NotFound() {
   return (

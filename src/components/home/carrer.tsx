@@ -1,5 +1,5 @@
 import cn from "@src/services/clsx";
-import runImage from "@public/run3D.png";
+import runImage from "@public/run3D.webp";
 import { GiProgression } from "react-icons/gi";
 import { useTranslation } from "react-i18next";
 

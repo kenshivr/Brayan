@@ -1,8 +1,8 @@
-import run3D from '@public/run3D.png';
-import lookUp from '@public/lookUp.png';
-import jumpHappy from '@public/jumpHappy.png';
+import run3D from '@public/run3D.webp';
+import lookUp from '@public/lookUp.webp';
+import jumpHappy from '@public/jumpHappy.webp';
 import { useTranslation } from 'react-i18next';
-import topLeftCorner from '@public/fall3D.png';
+import topLeftCorner from '@public/fall3D.webp';
 
 import type Proyect from '@src/types/proyect';
 

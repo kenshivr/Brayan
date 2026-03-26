@@ -1,5 +1,5 @@
 import cn from "@src/services/clsx";
-import image from "@public/Down3D.png";
+import image from "@public/Down3D.webp";
 import { type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 

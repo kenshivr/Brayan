@@ -1,6 +1,6 @@
 import cn from "@src/services/clsx";
 import { type ReactNode } from "react";
-import image from "@public/inComputer3D.png";
+import image from "@public/inComputer3D.webp";
 
 export default function Introduction({
   className = "",

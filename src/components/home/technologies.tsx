@@ -1,11 +1,11 @@
 import cn from "@src/services/clsx";
 import { useRef, useEffect, useState } from "react";
 
-import fall3D from "@public/fall3D.png";
-import topLeft3D from "@public/topLeft3D.png";
-import peekedTop3D from "@public/peekedTop3D.png";
-import bothHands3D from "@public/bothHands3D.png";
-import inComputer3D from "@public/inComputer3D.png";
+import fall3D from "@public/fall3D.webp";
+import topLeft3D from "@public/topLeft3D.webp";
+import peekedTop3D from "@public/peekedTop3D.webp";
+import bothHands3D from "@public/bothHands3D.webp";
+import inComputer3D from "@public/inComputer3D.webp";
 
 import CssLogo from "@src/svg/css";
 import BunLogo from "@src/svg/bun";

@@ -42,7 +42,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    image: 'api.png',
+    image: 'api.webp',
     title: 'API REST',
     description: 'API REST con autenticación y endpoints documentados.',
     date: 'Mar 2026',
@@ -68,7 +68,7 @@ const projects: Project[] = [
     demo: '#',
   },
   {
-    image: 'app.png',
+    image: 'app.webp',
     title: 'App Mobile',
     description: 'Aplicación móvil multiplataforma.',
     date: 'Mar 2026',
@@ -94,7 +94,7 @@ const projects: Project[] = [
     demo: '#',
   },
   {
-    image: 'cliente.png',
+    image: 'cliente.webp',
     title: 'Portal Cliente',
     description: 'Portal web para gestión de clientes.',
     date: 'Feb 2026',
@@ -120,7 +120,7 @@ const projects: Project[] = [
     demo: '#',
   },
   {
-    image: 'ecommerce.png',
+    image: 'ecommerce.webp',
     title: 'E-Commerce',
     description: 'Tienda online con carrito y pagos integrados.',
     date: 'Jan 2026',
@@ -146,7 +146,7 @@ const projects: Project[] = [
     demo: '#',
   },
   {
-    image: 'gitea.png',
+    image: 'gitea.webp',
     title: 'Gitea',
     description: 'Servidor Git self-hosted con CI/CD.',
     date: 'Dec 2025',
@@ -172,7 +172,7 @@ const projects: Project[] = [
     demo: '#',
   },
   {
-    image: 'nafa.png',
+    image: 'nafa.webp',
     title: 'Nafa',
     description: 'Web Site Administrable.',
     date: 'Aug 2025',
@@ -264,7 +264,7 @@ export default function Proyects() {
             </p>
           </div>
           <img
-            src="drinkSit.png"
+            src="drinkSit.webp"
             alt="character"
             className="w-48 md:w-64 lg:w-72 object-contain select-none self-center md:self-end shrink-0 order-last"
           />
@@ -364,7 +364,7 @@ export default function Proyects() {
                   Contexto
                 </h2>
                 <img
-                  src="thinking3D.png"
+                  src="thinking3D.webp"
                   alt="character"
                   className="w-28 md:w-36 object-contain select-none mt-4 self-center"
                 />
@@ -421,7 +421,7 @@ export default function Proyects() {
 
                 {/* Personaje — solo visible en mobile, entre el número y el título */}
                 <img
-                  src="inComputer3D.png"
+                  src="inComputer3D.webp"
                   alt="character"
                   className="block md:hidden w-36 object-contain select-none"
                 />
@@ -440,7 +440,7 @@ export default function Proyects() {
 
               {/* Personaje — solo visible en desktop, columna derecha */}
               <img
-                src="inComputer3D.png"
+                src="inComputer3D.webp"
                 alt="character"
                 className="hidden md:block w-48 lg:w-60 object-contain select-none shrink-0 self-end order-2"
               />
@@ -528,7 +528,7 @@ export default function Proyects() {
               {/* Derecha — personaje (desktop) / centrado abajo (mobile) */}
               <div className="flex justify-center w-full md:w-auto shrink-0">
                 <img
-                  src="bothHands3D.png"
+                  src="bothHands3D.webp"
                   alt="character"
                   className="w-36 md:w-44 lg:w-52 object-contain select-none self-end"
                 />
@@ -556,7 +556,7 @@ export default function Proyects() {
                   Mi Rol
                 </h2>
                 <img
-                  src="hoddie3D.png"
+                  src="hoddie3D.webp"
                   alt="character"
                   className="w-28 md:w-36 object-contain select-none mt-4 self-center"
                 />
@@ -647,7 +647,7 @@ export default function Proyects() {
                   Proceso
                 </h2>
                 <img
-                  src="run3D.png"
+                  src="run3D.webp"
                   alt="character"
                   className="w-24 md:w-32 object-contain select-none"
                 />
@@ -734,7 +734,7 @@ export default function Proyects() {
                   Resultados
                 </h2>
                 <img
-                  src="jumpHappy.png"
+                  src="jumpHappy.webp"
                   alt="character"
                   className="w-28 md:w-36 object-contain select-none mt-4 self-center"
                 />
@@ -815,7 +815,7 @@ export default function Proyects() {
                   Desafíos &<br />Aprendizajes
                 </h2>
                 <img
-                  src="angrySit.png"
+                  src="angrySit.webp"
                   alt="character"
                   className="w-28 md:w-36 object-contain select-none mt-4 self-center"
                 />
@@ -897,7 +897,7 @@ export default function Proyects() {
                   Ver proyecto
                 </h2>
                 <img
-                  src="lookUp.png"
+                  src="lookUp.webp"
                   alt="character"
                   className="w-28 md:w-36 object-contain select-none mt-4 self-center"
                 />
