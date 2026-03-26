@@ -4,6 +4,7 @@ import svgr from 'vite-plugin-svgr';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { imagetools } from 'vite-imagetools';
+import { compression } from 'vite-plugin-compression2';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -14,6 +15,8 @@ export default defineConfig({
     react(),
     imagetools(),
     tailwindcss(),
+    compression({ algorithm: 'brotliCompress', exclude: /\.(png|webp|jpg|gif|woff2)$/ }),
+    compression({ algorithm: 'gzip', exclude: /\.(png|webp|jpg|gif|woff2)$/ }),
   ],
   base: '/Brayan/',
   resolve: {
@@ -29,6 +32,7 @@ export default defineConfig({
     }
   },
   build: {
+    target: 'esnext',
     rollupOptions: {
       output: {
         manualChunks(id) {
